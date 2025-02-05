@@ -373,10 +373,8 @@
 * **Swimming Minigame:**   
   * Being underwater will require a linear 2D scene to set the playable minigame area with 2D Area. 2D Collision Shapes to detect hits between the Player, Objects, and NPC’s.   
   * Animated sprites for the Player Object and NPC’s for dynamic movement.  
-  * Water movement can be simulated similarly to the Dam Building Minigame with Particles2D, Tween, and physics-based forces
-
-  * ## Music and collisions between the Player Object and Interactable Objects/NPC’s will be handled by AudioStream2D-BackgroundMusic, AudioStream2D-SFX, and AudioStreamPlayer2D respectively. AudioStream2D-SFX and AudioStreamPlayer2D will ensure the correct sound is played on collision.
-
+  * Water movement can be simulated similarly to the Dam Building Minigame with Particles2D, Tween, and physics-based forces  
+  * Music and collisions between the Player Object and Interactable Objects/NPC’s will be handled by AudioStream2D-BackgroundMusic, AudioStream2D-SFX, and AudioStreamPlayer2D respectively. AudioStream2D-SFX and AudioStreamPlayer2D will ensure the correct sound is played on collision.  
 * **Tree Cutting Minigame:**   
   * Materials: Area2D and CollisionShape2D will be used for the cursor and the tree, detecting when the cursor is in a correct position to bite/cut into the tree.  
   * Chopping the Tree: InputEventMouseButton can be used to detect mouse clicking in Godot. Particles2D may be used to simulate wood chips when the player makes a bite/cut into the tree.  
