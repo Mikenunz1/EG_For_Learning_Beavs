@@ -386,10 +386,8 @@
 * **Canal Puzzle/Minigame:**   
   * Tilemap2D: This will be a grid system used to define the minigame area.  A grid system will make the randomization of levels possible.    
   * Interactable Object: These will be rocks, and other immovable physics objects which will stop the water flow. It will also include a physics for a  goal location so that the game will be able to detect if the water hits the goal.    
-  * Particles2D: This will be used to simulate water flow from the source.
-
-  * ## AudioStream2D-BackgroundMusic: This will be responsible for playing the minigame’s music.
-
+  * Particles2D: This will be used to simulate water flow from the source.  
+  * AudioStream2D-BackgroundMusic: This will be responsible for playing the minigame’s music.  
   * AudioStream2D-SFX: This will be responsible for playing the game’s SFX.   
 * **Feedback UI**:   
   * Text Input Field: A LineEdit node where the player can type their feedback.  
