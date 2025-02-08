@@ -1,7 +1,8 @@
 extends Control
 
 #Variables for specifc menus
-@onready var mainMenu = $StartMenu;
+@onready var mainMenu = $StartMenu
+@onready var settingsMenu = $SettingsMenu
 
 #Variables for the specific buttons in the start menu
 @onready var newGameButton = $StartMenu/NewText/NewButton
@@ -9,6 +10,9 @@ extends Control
 @onready var onlineButton = $StartMenu/OnlineText/OnlineButton
 @onready var settingsButton = $StartMenu/SettingsText/SettingsButton
 @onready var quitGameButton = $StartMenu/QuitText/QuitButton
+
+#Variables for the specific buttons in the settings memu
+@onready var settingsBackButton = $SettingsMenu/BackText/BackButton
 
 func newGamePressed():
 	#This is a temporary scenchange until we have a proper first scene
@@ -23,6 +27,7 @@ func onlinePressed():
 	
 func settingsPressed():
 	hideStartMenu()
+	showSettingsMenu()
 	
 #This functions exits the game. It does not save any data as that functionality happens within game
 func quitPressed():
@@ -36,7 +41,25 @@ func hideStartMenu():
 	onlineButton.disabled = true
 	settingsButton.disabled = true
 	quitGameButton.disabled = true
+	
+#This function is used to show and enable the main menu whenever another menu is closed
+func showStartMenu():
+	mainMenu.show()
+	newGameButton.disabled = false
+	loadGameButton.disabled = false
+	onlineButton.disabled = false
+	settingsButton.disabled = false
+	quitGameButton.disabled = false
 
+func hideSettingsMenu():
+	settingsMenu.hide()
+	settingsBackButton.disabled = true
+	showStartMenu()
+
+func showSettingsMenu():
+	settingsMenu.show()
+	settingsBackButton.disabled = false
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
