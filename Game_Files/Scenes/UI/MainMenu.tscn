@@ -235,25 +235,47 @@ texture_normal = ExtResource("1_bs6ey")
 texture_pressed = ExtResource("2_uqj2k")
 texture_hover = ExtResource("2_uqj2k")
 
-[node name="ResolutionsButton" type="OptionButton" parent="SettingsMenu"]
+[node name="ResolutionsDropdown" type="OptionButton" parent="SettingsMenu"]
 layout_mode = 0
 offset_left = 52.0
 offset_top = 145.0
 offset_right = 392.0
 offset_bottom = 187.0
+selected = 0
 item_count = 2
 popup/item_0/text = "1920 x 1080"
 popup/item_1/text = "1280x720"
 popup/item_1/id = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SettingsMenu"]
+[node name="ResolutionsText" type="RichTextLabel" parent="SettingsMenu/ResolutionsDropdown"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 118.0
-offset_right = 279.0
-offset_bottom = 158.0
+offset_left = 1.0
+offset_top = -27.0
+offset_right = 227.0
+offset_bottom = 13.0
 bbcode_enabled = true
 text = "RESOLUTION"
+
+[node name="TextSizeDropdown" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 238.0
+offset_right = 392.0
+offset_bottom = 280.0
+selected = 1
+item_count = 3
+popup/item_0/text = "Small"
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Large"
+popup/item_2/id = 2
+
+[node name="TextSizeText" type="RichTextLabel" parent="SettingsMenu/TextSizeDropdown"]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 143.0
+offset_bottom = 13.0
+text = "GAME TEXT SIZE"
 
 [node name="MultiplayerMenu" type="Control" parent="."]
 visible = false
@@ -266,4 +288,5 @@ offset_bottom = 40.0
 [connection signal="pressed" from="StartMenu/SettingsText/SettingsButton" to="." method="settingsPressed"]
 [connection signal="pressed" from="StartMenu/QuitText/QuitButton" to="." method="quitPressed"]
 [connection signal="pressed" from="SettingsMenu/BackText/BackButton" to="." method="hideSettingsMenu"]
-[connection signal="item_selected" from="SettingsMenu/ResolutionsButton" to="SettingsMenu" method="setGameResolution"]
+[connection signal="item_selected" from="SettingsMenu/ResolutionsDropdown" to="SettingsMenu" method="setGameResolution"]
+[connection signal="item_selected" from="SettingsMenu/TextSizeDropdown" to="SettingsMenu" method="setTextSize"]
