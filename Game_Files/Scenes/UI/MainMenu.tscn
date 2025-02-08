@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://3s80payn7ur0"]
+[gd_scene load_steps=7 format=3 uid="uid://3s80payn7ur0"]
 
 [ext_resource type="Texture2D" uid="uid://bqp3sp2uwp6k2" path="res://Game_Files/Assets/UI/TempButton.png" id="1_bs6ey"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MainMenu.gd" id="1_j2bii"]
 [ext_resource type="Texture2D" uid="uid://bv5vd6fo2svc4" path="res://Game_Files/Assets/UI/TempButtonHover.png" id="2_uqj2k"]
 [ext_resource type="Texture2D" uid="uid://e4hl64ql7skh" path="res://Game_Files/Assets/UI/TempPanel.png" id="2_xhku5"]
 [ext_resource type="Texture2D" uid="uid://bg7lrleksb803" path="res://Game_Files/Assets/UI/TempPanel2.png" id="5_6tq5f"]
+[ext_resource type="Script" path="res://Game_Files/Scenes/UI/SettingsMenu.gd" id="5_mn4le"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_j2bii")
 
 [node name="StartMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.5
 anchor_top = 0.435
@@ -193,12 +195,12 @@ texture_normal = ExtResource("1_bs6ey")
 texture_hover = ExtResource("2_uqj2k")
 
 [node name="SettingsMenu" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 480.0
 offset_top = 72.0
 offset_right = 1440.0
 offset_bottom = 1032.0
+script = ExtResource("5_mn4le")
 
 [node name="TextureRect" type="TextureRect" parent="SettingsMenu"]
 layout_mode = 0
@@ -233,6 +235,26 @@ texture_normal = ExtResource("1_bs6ey")
 texture_pressed = ExtResource("2_uqj2k")
 texture_hover = ExtResource("2_uqj2k")
 
+[node name="ResolutionsButton" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 145.0
+offset_right = 392.0
+offset_bottom = 187.0
+item_count = 2
+popup/item_0/text = "1920 x 1080"
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 118.0
+offset_right = 279.0
+offset_bottom = 158.0
+bbcode_enabled = true
+text = "RESOLUTION"
+
 [node name="MultiplayerMenu" type="Control" parent="."]
 visible = false
 anchors_preset = 0
@@ -244,3 +266,4 @@ offset_bottom = 40.0
 [connection signal="pressed" from="StartMenu/SettingsText/SettingsButton" to="." method="settingsPressed"]
 [connection signal="pressed" from="StartMenu/QuitText/QuitButton" to="." method="quitPressed"]
 [connection signal="pressed" from="SettingsMenu/BackText/BackButton" to="." method="hideSettingsMenu"]
+[connection signal="item_selected" from="SettingsMenu/ResolutionsButton" to="SettingsMenu" method="setGameResolution"]
