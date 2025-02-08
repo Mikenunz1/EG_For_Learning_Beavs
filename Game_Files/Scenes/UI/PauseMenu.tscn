@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3sodiaul1hnv"]
+
+[ext_resource type="Texture2D" uid="uid://e4hl64ql7skh" path="res://Game_Files/Assets/UI/TempPanel.png" id="1_ngxjq"]
+[ext_resource type="Texture2D" uid="uid://bqp3sp2uwp6k2" path="res://Game_Files/Assets/UI/TempButton.png" id="2_21fwh"]
+[ext_resource type="Texture2D" uid="uid://bv5vd6fo2svc4" path="res://Game_Files/Assets/UI/TempButtonHover.png" id="3_4s2xw"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 50.0
+offset_right = 1280.0
+offset_bottom = 986.0
+texture = ExtResource("1_ngxjq")
+
+[node name="ResumeText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.128
+anchor_right = 0.5
+anchor_bottom = 0.128
+offset_left = -166.0
+offset_top = 107.76
+offset_right = 154.0
+offset_bottom = 297.76
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "
+[center]RESUME[/center]"
+
+[node name="ResumeButton" type="TextureButton" parent="ResumeText"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.584
+anchor_right = 0.5
+anchor_bottom = 0.584
+offset_left = -160.0
+offset_top = -90.96
+offset_right = 160.0
+offset_bottom = 69.04
+texture_normal = ExtResource("2_21fwh")
+texture_hover = ExtResource("3_4s2xw")
+
+[node name="SettingsText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.128
+anchor_right = 0.5
+anchor_bottom = 0.128
+offset_left = -166.0
+offset_top = 277.76
+offset_right = 154.0
+offset_bottom = 467.76
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "
+[center]SETTINGS[/center]"
+
+[node name="SettingsButton" type="TextureButton" parent="SettingsText"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.584
+anchor_right = 0.5
+anchor_bottom = 0.584
+offset_left = -160.0
+offset_top = -90.96
+offset_right = 160.0
+offset_bottom = 69.04
+texture_normal = ExtResource("2_21fwh")
+texture_hover = ExtResource("3_4s2xw")
+
+[node name="QuitText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.128
+anchor_right = 0.5
+anchor_bottom = 0.128
+offset_left = -166.0
+offset_top = 448.76
+offset_right = 154.0
+offset_bottom = 638.76
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "
+[center]QUIT[/center]"
+
+[node name="QuitButton" type="TextureButton" parent="QuitText"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.584
+anchor_right = 0.5
+anchor_bottom = 0.584
+offset_left = -160.0
+offset_top = -90.96
+offset_right = 160.0
+offset_bottom = 69.04
+texture_normal = ExtResource("2_21fwh")
+texture_hover = ExtResource("3_4s2xw")
