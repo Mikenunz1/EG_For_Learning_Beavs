@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clbxgw3kfhrhv"
+path="res://.godot/imported/Water splashing.mp3-c5a3d2354917ac4efd59d4413b127659.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Environment Interaction SFX/Water splashing.mp3"
+dest_files=["res://.godot/imported/Water splashing.mp3-c5a3d2354917ac4efd59d4413b127659.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
