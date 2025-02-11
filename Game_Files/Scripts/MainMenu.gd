@@ -20,7 +20,7 @@ func newGamePressed():
 	
 func loadGamePressed():
 	#This is a temporary scencehange until we have a proper load sequence
-	get_tree().change_scene_to_file("res://Game_Files/Scenes/Player/Player_Demo.tscn")
+	get_tree().call_group("GameManager", "loadSceneByFile")
 	
 func onlinePressed():
 	pass

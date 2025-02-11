@@ -58,12 +58,31 @@ func loadSceneByName(sceneName):
 	
 #This function is used for loading a scene based off of a save file. 
 func loadSceneByFile():
-	pass
+	#Error Checking to ensure file exists 
+	if (!FileAccess.file_exists("user://gameSave.save")):
+		return #Error, no file by that name exists 
+		
+	#TESTING THESE STILL
+	var gameSave = FileAccess.open("user://gameSave.save", FileAccess.READ)
+	var json_string = gameSave.get_line()	
+	var json = JSON.new()	
+	var parse_result = json.parse(json_string)
+	var dict_data = json.data 
+	
+	#After data has been processed
+	playerX = dict_data["pos_x"]
+	playerY = dict_data["pos_y"]
+	playerScene = dict_data["scene"]	
+	
+	loadSceneByName(playerScene)
+	get_tree().call_group("Player", "setPosition", playerX, playerY)
 	
 #This function is called whenever a key event happens, a scene change, or on game quit.
 func saveGame():
+	
+	get_tree().call_group("GameComponent", "sendToManager")
+	
 	var gameSave = FileAccess.open("user://gameSave.save", FileAccess.WRITE)
-	#var settingsSave = FileAccess.open("user://gameSettings.save", FileAccess.WRITE)
 	
 	#Variable Dictionaries: Sets of dictionaries for saving game data
 	#Game Data Dictionary
@@ -71,12 +90,6 @@ func saveGame():
 		"pos_x" : playerX,
 		"pos_y" : playerY,
 		"scene" : playerScene
-	}
-	
-	#Game Settings Dictionary
-	var settingsDict = {
-	#	"viewportH" = resolutionHeight,
-	#	"viewportW" = resolutionWidth
 	}
 
 	#Saving for the game scene elements
@@ -89,7 +102,3 @@ func saveGame():
 func updatePlayerLocation(x, y):
 	playerX = x
 	playerY = y
-
-#func updateViewport(width, height):
-#	resolutionWidth = width
-#	resolutionHeight = height
