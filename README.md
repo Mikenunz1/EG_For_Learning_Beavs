@@ -20,6 +20,9 @@
 
 **Link to Living Document:** [https://docs.google.com/document/d/1eOyTp74D\_NZpjCQp7QcDlS1iRPAxO5V3PQBEi2p0Fsk/edit?usp=sharing](https://docs.google.com/document/d/1eOyTp74D_NZpjCQp7QcDlS1iRPAxO5V3PQBEi2p0Fsk/edit?usp=sharing)
 
+**Link to Midterm Project Presentation:**  
+[**https://docs.google.com/presentation/d/1Fk1yvhliriK34JwvvE4GtOof8XkOW-eoQ8fYuLvxk-Q/edit\#slide=id.g32f7ce6ea3c\_8\_65**](https://docs.google.com/presentation/d/1Fk1yvhliriK34JwvvE4GtOof8XkOW-eoQ8fYuLvxk-Q/edit#slide=id.g32f7ce6ea3c_8_65)
+
 **Primary Communication Channel:** Discord  
 **Secondary Communication Channel:** Email  
 **Communication rules:**
