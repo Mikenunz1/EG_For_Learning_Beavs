@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5wqoar767qd1"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_ujmb6"]
+[ext_resource type="PackedScene" uid="uid://c3wu5atmocy3i" path="res://volume_slider.tscn" id="2_fxhsr"]
+[ext_resource type="AudioStream" uid="uid://dgs2770qu0ofp" path="res://Grant5-F#Major-120BPM.wav" id="3_na5i3"]
+[ext_resource type="Script" path="res://button.gd" id="4_e0lko"]
+[ext_resource type="AudioStream" uid="uid://3snafkya41vc" path="res://bell.mp3" id="5_u4p3p"]
+
+[node name="Test Scene" type="Node2D"]
+position = Vector2(568, 317)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -408.0
+offset_top = 196.0
+offset_right = -368.0
+offset_bottom = 236.0
+script = ExtResource("1_ujmb6")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -108.5
+offset_right = 174.0
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.678944, 0.678944, 0.678944, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -68.5
+offset_right = 97.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="mvLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume:
+"
+
+[node name="masterVolume" parent="Control/VBoxContainer" instance=ExtResource("2_fxhsr")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="sfxLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume:
+"
+
+[node name="sfxVolume" parent="Control/VBoxContainer" instance=ExtResource("2_fxhsr")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="musicLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume
+"
+
+[node name="musicVolume" parent="Control/VBoxContainer" instance=ExtResource("2_fxhsr")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="AudioStreamPlayer -bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_na5i3")
+autoplay = true
+bus = &"Music"
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -17.0
+offset_right = 41.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Press Me
+"
+script = ExtResource("4_e0lko")
+
+[node name="AudioStreamPlayer2D - bell" type="AudioStreamPlayer2D" parent="Button"]
+stream = ExtResource("5_u4p3p")
+bus = &"SFX"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://br86tsjwf2stq"
+path="res://.godot/imported/Water slaps.mp3-bf0e71bc3a178bdd59c66d60aff22d16.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Movement SFX/Water slaps.mp3"
+dest_files=["res://.godot/imported/Water slaps.mp3-bf0e71bc3a178bdd59c66d60aff22d16.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

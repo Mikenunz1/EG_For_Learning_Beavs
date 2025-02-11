@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://jvksv53dwyg6"]
+
+[ext_resource type="Script" path="res://bell_area_2d.gd" id="1_2cjkg"]
+[ext_resource type="AudioStream" uid="uid://dq0fd4omdt6hb" path="res://bell.mp3" id="1_ulot6"]
+[ext_resource type="Texture2D" uid="uid://dgo6nr45s2l20" path="res://bell.png" id="2_qxdus"]
+
+[node name="BellArea2D" type="Area2D"]
+script = ExtResource("1_2cjkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_qxdus")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-7, 5)
+polygon = PackedVector2Array(-33, 26, 7, -67, 55, 26)
+
+[node name="AudioStreamPlayer2D-bell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_ulot6")
+bus = &"SFX"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

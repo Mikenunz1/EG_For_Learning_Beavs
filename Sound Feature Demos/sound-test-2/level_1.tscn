@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbyv4joguedsq"]
+
+[ext_resource type="Script" path="res://level_1.gd" id="1_1kx3g"]
+[ext_resource type="AudioStream" uid="uid://dyh54nt4yvve2" path="res://Track-3.mp3" id="1_41xoa"]
+[ext_resource type="PackedScene" uid="uid://jvksv53dwyg6" path="res://bell_area_2d.tscn" id="3_ofwmv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_grctm"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_1kx3g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(588, 455)
+shape = SubResource("WorldBoundaryShape2D_grctm")
+
+[node name="AudioStreamPlayer-BGMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_41xoa")
+bus = &"Music"
+
+[node name="BellArea2D" parent="." instance=ExtResource("3_ofwmv")]
+position = Vector2(942, 413)

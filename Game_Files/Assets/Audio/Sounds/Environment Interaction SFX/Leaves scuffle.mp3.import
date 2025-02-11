@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e7q7f31mj8mn"
+path="res://.godot/imported/Leaves scuffle.mp3-bc53a84fc52f2f6b0f8474a47778bdd5.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Environment Interaction SFX/Leaves scuffle.mp3"
+dest_files=["res://.godot/imported/Leaves scuffle.mp3-bc53a84fc52f2f6b0f8474a47778bdd5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

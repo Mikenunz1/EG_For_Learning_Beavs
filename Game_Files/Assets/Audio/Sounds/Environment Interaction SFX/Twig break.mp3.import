@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://53jttfyguvlv"
+path="res://.godot/imported/Twig break.mp3-c5e14e5159f477b6d0fac0d977b7f857.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Environment Interaction SFX/Twig break.mp3"
+dest_files=["res://.godot/imported/Twig break.mp3-c5e14e5159f477b6d0fac0d977b7f857.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

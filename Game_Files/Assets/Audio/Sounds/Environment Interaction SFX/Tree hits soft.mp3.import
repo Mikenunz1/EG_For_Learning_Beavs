@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0ly5u14dobyi"
+path="res://.godot/imported/Tree hits soft.mp3-97bb5c17e7ae16b23a6863a932a38e70.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Environment Interaction SFX/Tree hits soft.mp3"
+dest_files=["res://.godot/imported/Tree hits soft.mp3-97bb5c17e7ae16b23a6863a932a38e70.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

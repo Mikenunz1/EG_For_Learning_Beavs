@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnwyta5haw4p0"
+path="res://.godot/imported/river-quiet.mp3-6d51f04b4a8c3d4618ddd2bc1cc8381a.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Enviroment Ambience/river-quiet.mp3"
+dest_files=["res://.godot/imported/river-quiet.mp3-6d51f04b4a8c3d4618ddd2bc1cc8381a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

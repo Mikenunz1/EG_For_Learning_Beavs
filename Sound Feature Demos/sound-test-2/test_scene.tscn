@@ -1,0 +1,153 @@
+[gd_scene load_steps=19 format=3 uid="uid://dahy3l6f5dnc0"]
+
+[ext_resource type="PackedScene" uid="uid://bbyv4joguedsq" path="res://level_1.tscn" id="1_ogaem"]
+[ext_resource type="PackedScene" uid="uid://cl74lx0xt0dd0" path="res://player.tscn" id="2_cjdg2"]
+[ext_resource type="Script" path="res://setting_menu.gd" id="3_l3v3b"]
+[ext_resource type="Texture2D" uid="uid://sgbr577lfdu8" path="res://mute-unmute-Sheet.png" id="4_mgvrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojhjr"]
+atlas = ExtResource("4_mgvrh")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4sha"]
+atlas = ExtResource("4_mgvrh")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt6j2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojhjr")
+}],
+"loop": true,
+"name": &"muted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4sha")
+}],
+"loop": true,
+"name": &"unmuted",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftu2q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxxs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdchu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0r2hy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wp7f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdga8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_014d2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffg02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4y6p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8a35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ted6w"]
+
+[node name="TestScene" type="Node2D"]
+position = Vector2(3, 0)
+
+[node name="Level1" parent="." instance=ExtResource("1_ogaem")]
+
+[node name="Player" parent="." instance=ExtResource("2_cjdg2")]
+position = Vector2(594, 383)
+
+[node name="settingMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_l3v3b")
+
+[node name="ColorRect" type="ColorRect" parent="settingMenu"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 472.0
+offset_right = 45.0
+offset_bottom = 512.0
+scale = Vector2(10, 4)
+color = Color(0.462291, 0.462291, 0.462291, 1)
+
+[node name="textBoxContainer" type="VBoxContainer" parent="settingMenu"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 500.0
+offset_right = 165.0
+offset_bottom = 550.0
+scale = Vector2(2.06287, 2.22034)
+metadata/_edit_group_ = true
+
+[node name="bgLabel" type="Label" parent="settingMenu/textBoxContainer"]
+layout_mode = 2
+text = "Background Music
+"
+
+[node name="sfxLabel" type="Label" parent="settingMenu/textBoxContainer"]
+layout_mode = 2
+text = "Sound Effect Audio"
+
+[node name="bgButtonSprite" type="AnimatedSprite2D" parent="settingMenu"]
+position = Vector2(364, 529)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_rt6j2")
+animation = &"unmuted"
+metadata/_edit_group_ = true
+
+[node name="bgButton" type="Button" parent="settingMenu/bgButtonSprite"]
+offset_left = -5.8
+offset_top = -5.8
+offset_right = 2.2
+offset_bottom = 2.2
+scale = Vector2(1.46236, 1.48854)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ftu2q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cxxs8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rdchu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0r2hy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1wp7f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vdga8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_014d2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ffg02")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b4y6p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t8a35")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ted6w")
+
+[node name="sfxButtonSprite" type="AnimatedSprite2D" parent="settingMenu"]
+position = Vector2(364, 596)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_rt6j2")
+animation = &"unmuted"
+metadata/_edit_group_ = true
+
+[node name="sfxButton" type="Button" parent="settingMenu/sfxButtonSprite"]
+offset_left = -5.8
+offset_top = -5.8
+offset_right = 2.2
+offset_bottom = 2.2
+scale = Vector2(1.46236, 1.48854)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ftu2q")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cxxs8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rdchu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0r2hy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1wp7f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vdga8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_014d2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ffg02")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b4y6p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_t8a35")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ted6w")
+
+[node name="AudioStreamPlayer-menu" type="AudioStreamPlayer2D" parent="settingMenu"]
+bus = &"SFX"
+
+[connection signal="pressed" from="settingMenu/bgButtonSprite/bgButton" to="settingMenu" method="_on_bg_button_pressed"]
+[connection signal="pressed" from="settingMenu/sfxButtonSprite/sfxButton" to="settingMenu" method="_on_sfx_button_pressed"]

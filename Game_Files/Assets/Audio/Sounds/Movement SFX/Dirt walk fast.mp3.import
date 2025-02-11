@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cicie0ulgvhko"
+path="res://.godot/imported/Dirt walk fast.mp3-bed5ddd2e9a416c9618aad8049cc49fc.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Movement SFX/Dirt walk fast.mp3"
+dest_files=["res://.godot/imported/Dirt walk fast.mp3-bed5ddd2e9a416c9618aad8049cc49fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

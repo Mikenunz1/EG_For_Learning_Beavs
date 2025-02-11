@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo6lv4s8hekvn"
+path="res://.godot/imported/Mud walk fast.mp3-6ba807df7b4dacdca2f25f16b1daf83d.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Movement SFX/Mud walk fast.mp3"
+dest_files=["res://.godot/imported/Mud walk fast.mp3-6ba807df7b4dacdca2f25f16b1daf83d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

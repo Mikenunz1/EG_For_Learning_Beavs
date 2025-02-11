@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnfs68f8axcmk"
+path="res://.godot/imported/Picking grass singular.mp3-ae1b593620b84bb52e35f1354a78bd43.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Environment Interaction SFX/Picking grass singular.mp3"
+dest_files=["res://.godot/imported/Picking grass singular.mp3-ae1b593620b84bb52e35f1354a78bd43.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

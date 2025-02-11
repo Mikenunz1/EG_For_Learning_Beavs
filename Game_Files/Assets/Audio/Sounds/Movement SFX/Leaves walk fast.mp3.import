@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k6d28b2d17ef"
+path="res://.godot/imported/Leaves walk fast.mp3-c89e9a8beb1e428ed59f59446b74cb4e.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Movement SFX/Leaves walk fast.mp3"
+dest_files=["res://.godot/imported/Leaves walk fast.mp3-c89e9a8beb1e428ed59f59446b74cb4e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

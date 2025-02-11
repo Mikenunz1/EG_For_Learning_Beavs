@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl74lx0xt0dd0"]
+
+[ext_resource type="Texture2D" uid="uid://c8h2b4pvlmmoo" path="res://icon.svg" id="1_kuadb"]
+[ext_resource type="Script" path="res://player.gd" id="1_r0epg"]
+[ext_resource type="AudioStream" uid="uid://u3l2umb5c7gi" path="res://walking.mp3" id="3_gd81d"]
+[ext_resource type="AudioStream" uid="uid://cw7wtflcu7142" path="res://jump.mp3" id="4_jcwe0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al4ut"]
+size = Vector2(112.75, 114)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_r0epg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kuadb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_al4ut")
+
+[node name="AudioStreamPlayer2DWalking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gd81d")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2DJumping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jcwe0")
+bus = &"SFX"
