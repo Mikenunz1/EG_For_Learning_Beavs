@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvovo"]
 size = Vector2(90, 166)
 
-[node name="PlayerDemo" type="CharacterBody2D"]
+[node name="PlayerDemo" type="CharacterBody2D" groups=["GameComponent", "Player"]]
 script = ExtResource("1_f2wjx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -14,4 +14,10 @@ texture = ExtResource("1_hkmcl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_kvovo")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 4)
 shape = SubResource("RectangleShape2D_kvovo")

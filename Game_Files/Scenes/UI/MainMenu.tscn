@@ -5,19 +5,24 @@
 [ext_resource type="Texture2D" uid="uid://bv5vd6fo2svc4" path="res://Game_Files/Assets/UI/TempButtonHover.png" id="2_uqj2k"]
 [ext_resource type="Texture2D" uid="uid://e4hl64ql7skh" path="res://Game_Files/Assets/UI/TempPanel.png" id="2_xhku5"]
 [ext_resource type="Texture2D" uid="uid://bg7lrleksb803" path="res://Game_Files/Assets/UI/TempPanel2.png" id="5_6tq5f"]
-[ext_resource type="Script" path="res://Game_Files/Scenes/UI/SettingsMenu.gd" id="5_mn4le"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/SettingsMenu.gd" id="5_mn4le"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" groups=["GameScene"]]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 0
 script = ExtResource("1_j2bii")
 
 [node name="StartMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_left = 0.5
 anchor_top = 0.435
@@ -195,6 +200,7 @@ texture_normal = ExtResource("1_bs6ey")
 texture_hover = ExtResource("2_uqj2k")
 
 [node name="SettingsMenu" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 480.0
 offset_top = 72.0

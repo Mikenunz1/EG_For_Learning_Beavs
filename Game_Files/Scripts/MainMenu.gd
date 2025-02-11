@@ -15,12 +15,12 @@ extends Control
 @onready var settingsBackButton = $SettingsMenu/BackText/BackButton
 
 func newGamePressed():
-	#This is a temporary scenchange until we have a proper first scene
-	get_tree().change_scene_to_file("res://Game_Files/Scenes/Player/Player_Demo.tscn")
+	#This is a temporary scenechange until we have a proper first scene
+	get_tree().call_group("GameManager", "loadSceneByName", "Forest")
 	
 func loadGamePressed():
-	#This is a temporary scenchange until we have a proper load sequence
-	get_tree().change_scene_to_file("res://Game_Files/Scenes/Player/Player_Demo.tscn")
+	#This is a temporary scencehange until we have a proper load sequence
+	get_tree().call_group("GameManager", "loadSceneByFile")
 	
 func onlinePressed():
 	pass
@@ -60,10 +60,6 @@ func showSettingsMenu():
 	settingsMenu.show()
 	settingsBackButton.disabled = false
 	
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#Fuction that all scenes have that remove them from tree
+func removeSelf():
+	queue_free()

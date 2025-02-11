@@ -11,3 +11,11 @@ func _physics_process(_delta):
 
 	#Built in function within Godot that deals with player movement
 	move_and_slide()
+
+func setPosition(x,y):
+	print(x)
+	print(y)
+	global_position = Vector2(x,y)
+
+func sendToManager():
+	get_tree().call_group("GameManager", "updatePlayerLocation", global_position.x, global_position.y)
