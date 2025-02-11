@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://cs46y60vve20c"]
+[gd_scene load_steps=4 format=3 uid="uid://cs46y60vve20c"]
+
+[ext_resource type="Script" path="res://Game_Files/Scripts/SceneChangeNode.gd" id="1_3cglq"]
+[ext_resource type="Texture2D" uid="uid://bqp3sp2uwp6k2" path="res://Game_Files/Assets/UI/TempButton.png" id="2_123yk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8c8d"]
+size = Vector2(87, 116)
 
 [node name="SceneChangeNode" type="Node2D"]
+script = ExtResource("1_3cglq")
+sceneChange = "MainMenu"
+
+[node name="Temp Visual" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(0.271875, 0.725)
+texture = ExtResource("2_123yk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_p8c8d")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
