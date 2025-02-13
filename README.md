@@ -216,6 +216,8 @@
 
 ## **Section 1: Software Architecture**
 
+This project is an Event Driven Architecture (EDA).  The various scenes within the Godot engine will serve as event listeners and event emitters to support this architecture.  The benefit of this architecture is that it allows modularity and stability within what seems like a singular program environment.  The following describes the function of these scenes and how they interact with each other. 
+
 ### **Major Software Components:**
 
 * **Game Manager**: The game manager will be a centralized object that loads in first before anything else within the game. It will be responsible for variables, methods, and objects that are important to keep track of independently of which scene the player is in. It’s also used to manage game systems such as file saving and loading, player location, scene management, etc.  
