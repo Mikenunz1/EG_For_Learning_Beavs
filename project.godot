@@ -29,6 +29,7 @@ window/stretch/mode="viewport"
 
 GameScene=""
 GameComponent=""
+Settings=""
 
 [input]
 

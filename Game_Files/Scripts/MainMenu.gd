@@ -62,4 +62,5 @@ func showSettingsMenu():
 	
 #Fuction that all scenes have that remove them from tree
 func removeSelf():
+	get_tree().call_group("GameManager", "saveSettings")
 	queue_free()

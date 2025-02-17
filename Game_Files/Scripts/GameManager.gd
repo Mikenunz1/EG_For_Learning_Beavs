@@ -21,20 +21,43 @@ var playerY = 0
 var playerScene = ""
 
 #Settings Variables
-#var resolutionWidth = 0
-#var resolutionHeight = 0
+var resolutionSelection = 0
+var textsizeSelection = 0
 
 #GM2a : Ready and Process --------------------------------------------------------------------------
 
 #Called on game startup when game manager finishes loading in 
 func _ready():
 	loadSceneByName("MainMenu")
+	loadSettings()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
 #GM2b : Load and save functions --------------------------------------------------------------------
+
+#This function is used for loading the saved settings
+func loadSettings():
+	#Checking if settings have been saved before
+	if (!FileAccess.file_exists("user://gameSettings.save")):
+		return #Error, no file by that name exists 
+		
+	print("File found, loading settings.")
+	var settingsSave = FileAccess.open("user://gameSettings.save", FileAccess.READ)
+	var json_string = settingsSave.get_line()	
+	var json = JSON.new()	
+	var _parse_result = json.parse(json_string)
+	var dict_data = json.data 
+	
+	#After data has been processed
+	resolutionSelection = dict_data["resolution"]
+	textsizeSelection = dict_data["textSize"]
+	
+	print(resolutionSelection)
+	print(textsizeSelection)
+	
+	get_tree().call_group("Settings", "setGameResolution", resolutionSelection)
 
 #This function is used for loading based on name, typically when user traverses maps
 func loadSceneByName(sceneName):
@@ -62,11 +85,10 @@ func loadSceneByFile():
 	if (!FileAccess.file_exists("user://gameSave.save")):
 		return #Error, no file by that name exists 
 		
-	#TESTING THESE STILL
 	var gameSave = FileAccess.open("user://gameSave.save", FileAccess.READ)
 	var json_string = gameSave.get_line()	
 	var json = JSON.new()	
-	var parse_result = json.parse(json_string)
+	var _parse_result = json.parse(json_string)
 	var dict_data = json.data 
 	
 	#After data has been processed
@@ -96,9 +118,33 @@ func saveGame():
 	var jsonGame = JSON.stringify(gameDict)
 	gameSave.store_line(jsonGame)
 
+#Called whenever exiting the settings menu
+func saveSettings():
+	var settingsSave = FileAccess.open("user://gameSettings.save", FileAccess.WRITE)
+	
+	print(resolutionSelection)
+	print(textsizeSelection)
+	
+	var settingsDict = {
+		"resolution" : resolutionSelection,
+		"textSize" : textsizeSelection
+	}
+	
+	#Saving for the game settings elements
+	var jsonSettings = JSON.stringify(settingsDict)
+	settingsSave.store_line(jsonSettings)
+
 #GM2c Data updating functions ----------------------------------------------------------------------
 
 #This function is used to pass player location data to the game manager
 func updatePlayerLocation(x, y):
 	playerX = x
 	playerY = y
+
+#This function is used to pass resolution settings to the game manager
+func updateResolution(val):
+	resolutionSelection = val
+	
+#This function is used to pass text size settings to the game manager
+func updateTextSize(val):
+	textsizeSelection = val

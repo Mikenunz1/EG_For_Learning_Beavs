@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3mk38c4ufl01"
-path="res://.godot/imported/water.png-939eb0089a49e19c3f5c15bbb00e89c8.ctex"
+uid="uid://bclu1ru88gtu0"
+path="res://.godot/imported/MenuButton.png-551946ef2b5e4c0e04b527e3ae15d6e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Traversable_Map/gamemap/tiles/water.png"
-dest_files=["res://.godot/imported/water.png-939eb0089a49e19c3f5c15bbb00e89c8.ctex"]
+source_file="res://Game_Files/Assets/UI/MenuButton.png"
+dest_files=["res://.godot/imported/MenuButton.png-551946ef2b5e4c0e04b527e3ae15d6e3.ctex"]
 
 [params]
 
