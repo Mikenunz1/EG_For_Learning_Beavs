@@ -7,70 +7,83 @@ extends Control
 
 var http_request: HTTPRequest
 
-# Replace these with your Google Form details
-const GOOGLE_FORM_ID = "your-form-id"
-const GOOGLE_FORM_ENTRY_ID = "entry.1234567890"  # Your form entry ID
+# Google Form details
+const GOOGLE_FORM_ID = "1FAIpQLSdcS5Jzin1uTYqjd72eM_ksNP4ujLi4GN6tmzqFCU95Tm_e-A"
+const GOOGLE_FORM_ENTRY_ID = "entry.1258281281"
 
 func _ready():
-    http_request = HTTPRequest.new()
-    add_child(http_request)
-    http_request.request_completed.connect(_on_request_completed)
-    
-    submit_button.pressed.connect(_on_submit_pressed)
-    
-    status_label.text = ""
-    title_label.text = "Share Your Feedback"
-    submit_button.text = "Submit Feedback"
+	print("Script started")
+	
+	# Initialize HTTP request
+	http_request = HTTPRequest.new()
+	add_child(http_request)
+	
+	# Connect signals
+	submit_button.pressed.connect(_on_submit_pressed)
+	http_request.request_completed.connect(_on_request_completed)
+	
+	print("Button signal connected: ", submit_button.pressed.is_connected(_on_submit_pressed))
+	print("HTTP request signal connected: ", http_request.request_completed.is_connected(_on_request_completed))
+	
+	# Set initial UI text
+	status_label.text = ""
+	title_label.text = "Share Your Feedback"
+	submit_button.text = "Submit Feedback"
+	
+	print("Initialization complete")
 
-func _on_submit_pressed():
-    if text_input.text.strip_edges().is_empty():
-        status_label.text = "Please enter your feedback first!"
-        return
-    
-    if not _check_internet_connection():
-        status_label.text = "No internet connection. Please try again later."
-        return
-    
-    submit_button.disabled = true
-    status_label.text = "Sending feedback..."
-    
-    # Format data for Google Forms
-    var feedback_text = text_input.text.uri_encode()
-    var url = "https://docs.google.com/forms/d/%s/formResponse?%s=%s" % [
-        GOOGLE_FORM_ID,
-        GOOGLE_FORM_ENTRY_ID,
-        feedback_text
-    ]
-    
-    # Send as GET request (Google Forms doesn't accept POST from external sources)
-    var error = http_request.request(url)
-    
-    if error != OK:
-        status_label.text = "Error sending feedback. Please try again."
-        submit_button.disabled = false
+func _on_submit_pressed() -> void:
+	print("Submit button pressed!")
+	
+	if text_input.text.strip_edges().is_empty():
+		status_label.text = "Please enter your feedback first!"
+		print("Empty feedback detected")
+		return
+	
+	submit_button.disabled = true
+	status_label.text = "Sending..."
+	
+	print("Sending feedback: ", text_input.text)
+	
+	# Prepare the form data
+	var feedback_text = text_input.text.uri_encode()
+	var form_data = "%s=%s" % [GOOGLE_FORM_ENTRY_ID, feedback_text]
+	
+	# Format the URL
+	var url = "https://docs.google.com/forms/d/e/%s/formResponse" % GOOGLE_FORM_ID
+	
+	print("Attempting to send to URL: ", url)
+	print("Form data: ", form_data)
+	
+	# Add headers with content length
+	var headers = [
+		"Content-Type: application/x-www-form-urlencoded",
+		"Content-Length: " + str(form_data.length()),
+		"User-Agent: Mozilla/5.0"
+	]
+	
+	# Make the request
+	var error = http_request.request(url, headers, HTTPClient.METHOD_POST, form_data)
+	
+	if error != OK:
+		status_label.text = "Error code: " + str(error)
+		submit_button.disabled = false
+		print("Request error: ", error)
 
 func _on_request_completed(result, response_code, headers, body):
-    submit_button.disabled = false
-    
-    # Google Forms will return a redirect, which counts as success
-    if result == HTTPRequest.RESULT_SUCCESS or response_code == 302:
-        status_label.text = "Thank you for your feedback!"
-        text_input.text = ""  # Clear the input
-        await get_tree().create_timer(2.0).timeout
-        status_label.text = ""
-    else:
-        status_label.text = "Error sending feedback. Please try again."
-
-func _check_internet_connection() -> bool:
-    var http = HTTPClient.new()
-    var error = http.connect_to_host("8.8.8.8", 53)
-    
-    if error != OK:
-        return false
-    
-    while http.get_status() == HTTPClient.STATUS_CONNECTING or \
-          http.get_status() == HTTPClient.STATUS_RESOLVING:
-        http.poll()
-        await get_tree().create_timer(0.1).timeout
-    
-    return http.get_status() == HTTPClient.STATUS_CONNECTED
+	print("Request completed!")
+	print("Result: ", result)
+	print("Response code: ", response_code)
+	
+	submit_button.disabled = false
+	
+	if result == HTTPRequest.RESULT_SUCCESS or response_code == 200 or response_code == 302:
+		status_label.text = "Thank you for your feedback!"
+		text_input.text = ""
+		await get_tree().create_timer(2.0).timeout
+		status_label.text = ""
+	else:
+		status_label.text = "Error sending feedback (Code: " + str(response_code) + ")"
+		print("Response headers: ", headers)
+		if body:
+			print("Response body: ", body.get_string_from_utf8())
