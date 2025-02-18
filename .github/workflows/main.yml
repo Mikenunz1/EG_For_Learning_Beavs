@@ -40,9 +40,11 @@ jobs:
       - name: create release
         uses: ncipollo/release-action@v1.14.0
         with: 
+          skipIfReleaseExists: true
           token: ${{ secrets.GITHUB_TOKEN }}
           generateReleaseNotes: true
-          tag: ${{ github.ref_name }}
+          tag: v0.0.1
+          #the above can be replaced with ${{ github.ref_name }}
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
               
           
