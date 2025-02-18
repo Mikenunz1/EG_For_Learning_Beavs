@@ -7,30 +7,37 @@ extends Control
 
 var http_request: HTTPRequest
 
-# Google Form details
+# Google Form details with correct entry ID from your form
 const GOOGLE_FORM_ID = "1FAIpQLSdcS5Jzin1uTYqjd72eM_ksNP4ujLi4GN6tmzqFCU95Tm_e-A"
-const GOOGLE_FORM_ENTRY_ID = "entry.1258281281"
+const GOOGLE_FORM_ENTRY_ID = "entry.366340186"
 
 func _ready():
 	print("Script started")
 	
+	# Configure layout for VBoxContainer and labels
+	$VBoxContainer.custom_minimum_size = Vector2(260, 360)
+	
+	# Configure labels
+	title_label.custom_minimum_size = Vector2(260, 0)
+	title_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	
+	status_label.custom_minimum_size = Vector2(260, 0)
+	status_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	
 	# Initialize HTTP request
 	http_request = HTTPRequest.new()
 	add_child(http_request)
-	
-	# Connect signals
-	submit_button.pressed.connect(_on_submit_pressed)
 	http_request.request_completed.connect(_on_request_completed)
 	
-	print("Button signal connected: ", submit_button.pressed.is_connected(_on_submit_pressed))
-	print("HTTP request signal connected: ", http_request.request_completed.is_connected(_on_request_completed))
+	# Connect button signal
+	submit_button.pressed.connect(_on_submit_pressed)
 	
 	# Set initial UI text
 	status_label.text = ""
 	title_label.text = "Share Your Feedback"
 	submit_button.text = "Submit Feedback"
 	
-	print("Initialization complete")
+	print("Feedback UI initialized")
 
 func _on_submit_pressed() -> void:
 	print("Submit button pressed!")
@@ -45,28 +52,27 @@ func _on_submit_pressed() -> void:
 	
 	print("Sending feedback: ", text_input.text)
 	
-	# Prepare the form data
+	# Prepare form data
 	var feedback_text = text_input.text.uri_encode()
 	var form_data = "%s=%s" % [GOOGLE_FORM_ENTRY_ID, feedback_text]
 	
-	# Format the URL
+	# Format URL for Google Forms
 	var url = "https://docs.google.com/forms/d/e/%s/formResponse" % GOOGLE_FORM_ID
 	
 	print("Attempting to send to URL: ", url)
 	print("Form data: ", form_data)
 	
-	# Add headers with content length
+	# Add headers
 	var headers = [
 		"Content-Type: application/x-www-form-urlencoded",
-		"Content-Length: " + str(form_data.length()),
-		"User-Agent: Mozilla/5.0"
+		"Content-Length: " + str(form_data.length())
 	]
 	
-	# Make the request
+	# Send the request
 	var error = http_request.request(url, headers, HTTPClient.METHOD_POST, form_data)
 	
 	if error != OK:
-		status_label.text = "Error code: " + str(error)
+		status_label.text = "Error sending feedback"
 		submit_button.disabled = false
 		print("Request error: ", error)
 
@@ -79,11 +85,11 @@ func _on_request_completed(result, response_code, headers, body):
 	
 	if result == HTTPRequest.RESULT_SUCCESS or response_code == 200 or response_code == 302:
 		status_label.text = "Thank you for your feedback!"
-		text_input.text = ""
+		text_input.text = ""  # Clear the input
 		await get_tree().create_timer(2.0).timeout
 		status_label.text = ""
 	else:
-		status_label.text = "Error sending feedback (Code: " + str(response_code) + ")"
+		status_label.text = "Error: " + str(response_code)
 		print("Response headers: ", headers)
 		if body:
 			print("Response body: ", body.get_string_from_utf8())
