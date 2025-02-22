@@ -54,7 +54,7 @@ jobs:
           generateReleaseNotes: true
           #change the below release tag to the current version number
           #if the version tag already exists, it will update that release
-          tag: v0.0.1
+          tag: v0.0.2
           #the above can be replaced with ${{ github.ref_name }} to auto name
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
               
