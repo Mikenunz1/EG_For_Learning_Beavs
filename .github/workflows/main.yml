@@ -28,10 +28,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       
-      - name: Run GUT Tests
-        uses: yeslayla/run-gut-tests-action@v1.0.1
+      - name: godot4-gut-testing
+        uses: Hypasist/godot4-gut-testing@v1.0
         with: 
-          directory: test/unit
+          gutConfigPath: addons/gut/
 
       - name: export game
         id: export
