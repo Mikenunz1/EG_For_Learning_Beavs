@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "export_game"
   export_game:
     # The type of runner that the job will run on
-    runs-on: ubuntu-22.04 
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 
@@ -41,7 +41,7 @@ jobs:
         uses: ceceppa/godot-gut-ci@0.2.0
         with: 
           godot_version: 4.3
-          gut_params: -gdir=res://test/unit
+          #gut_params: -gdir=res://test/unit
 
       - name: create release
         uses: ncipollo/release-action@v1.14.0
