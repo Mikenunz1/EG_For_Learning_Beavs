@@ -30,10 +30,11 @@ jobs:
 
       - name: Install Godot 4
         run: |
-          curl -sS https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -o godot.zip
+          curl -sS https://downloads.tuxfamily.org/godotengine/4.0/stable/Godot_v4.0-stable_linux_x11.64.zip -o godot.zip
           unzip godot.zip -d godot
-          chmod +x godot/Godot_v4.3-stable_linux_x11.64
-          sudo mv godot/Godot_v4.3-stable_linux_x11.64 /usr/local/bin/godot
+          chmod +x godot/Godot_v4.0-stable_linux_x11.64
+          sudo mv godot/Godot_v4.0-stable_linux_x11.64 /usr/local/bin/godot
+
       
       - name: godot4-gut-testing
         uses: Hypasist/godot4-gut-testing@v1.0
