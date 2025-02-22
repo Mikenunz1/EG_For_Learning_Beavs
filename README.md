@@ -637,6 +637,29 @@ For usability testing, we’ll have real users try the game to see if it’s eas
 
 Finally, we will share test results through Discord and track any bugs we find on GitHub Issues. We’ll categorize each bug (like UI problems, multiplayer issues, or sound bugs) and describe how to reproduce it. We’ll also use Trello to assign tasks and prioritize fixing bugs or making improvements based on the results of our tests. By following this process, we’ll make sure the game works well and is fun and educational for players.
 
+**CI Test-Automation**
+
+Our test-automation infrastructure is GUT 9.3.1 (Godot Unit Test).
+
+We decided to use GUT because it is the only Unit Testing software we could find that was compatible with Godot 4.3.  It ended up being a good choice because there are compatibility options with GitHub Actions.  
+
+For new tests, you create a .gd file in either the res://test/unit folder or res://test/integration folder. The filename must begin with “test\_” or GUT will not run the test. These tests will be written by extending GutTest, and will be written using GUT test design. Each test function must be started test\_, or else it will not be counted as a test in GUT. More information about writing GUT tests can be seen here https://gut.readthedocs.io/en/latest/Quick-Start.html\#creating-tests.
+
+We are using GitHub Actions to control our Continuous Integration.  Our project is linked to it through the GitHub Actions tab, which automatically triggers whenever a Push / Pull Request happens.  
+
+We chose GitHub Actions to control our CI because there are several GitHub Actions marketplace options for incorporating GUT, building release binaries, and release creation.  These particular operations needed to be compatible with Godot and GUT, so GitHub Actions was the most well-documented version.  Furthermore, GitHub Actions is incorporated into GitHub by default, so we do not have to go through the effort of using an external application.  
+
+A pros/cons matrix for at least three CI services that you considered. 
+
+|  | GitHub Actions | GitLab | Agola |
+| :---- | :---- | :---- | :---- |
+| Pros | There are a lot of options and variety in the actions marketplace. Well documented, and compatible with GUT | Does not require third party integration in order to test software. Used by several leaders of industry for a large variety of projects. Boosts privacy-first AI, significantly faster cycle time, and robust security features  | Allows users to easily test runs in different environments without having to change the setup each time. It’s easy to integrate with GitHub and it’s runs are saved in the repositories and will automatically run whenever a new push and pull request is made. |
+| Cons | Most of those are outdated and rely on a tux family library, which is no longer up.  | Very little documentation about integrating GitLab with Godot, or resources on learning how to integrate. The compute minutes and member cap is far smaller than Github actions. | There is very little documentation on integrating it with Godot.  |
+
+As of now, we are executing 3 unit tests in each CI build.  One test\_test is a dummy test to ensure that GUT is working properly.  test\_player\_demo is a test script which ensures that the player\_demo gets created correctly when initializing the GameManager object.  It then tests player movement functionality as well.  test\_volume\_slider is a script which creates a dummy volume slide and links it to the master audio bus.  It then tests whether changing the slider value correspondingly changes the master audio bus volume.  
+
+The CI build is triggered by and Push / Pull request to the main branch of the repository.
+
 ### **Documentation Plan** 
 
 * Installation guide:  
