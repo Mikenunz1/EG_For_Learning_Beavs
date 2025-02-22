@@ -27,17 +27,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout
         uses: actions/checkout@v4
-
-      - name: Run GUT tests inside Docker
-        run: |
-          docker run --rm -v ${{ github.workspace }}:/game -w /game barichello/godot-ci:4.3 sh -c "godot --headless -s res://addons/gut/gut_cmdln.gd -gdir=res://test/unit"
-
       
       - name: Godot GUT CI
         uses: ceceppa/godot-gut-ci@0.2.0
         with: 
           godot_version: 4.3
-          #gut_params: -gdir=res://test/unit
+          gut_params: -gdir=res://test/unit
 
       - name: export game
         id: export
