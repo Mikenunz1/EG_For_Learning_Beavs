@@ -57,10 +57,7 @@ jobs:
         uses: croconut/godot-tester@v5.1
         with:
           version: 4.3
-          custom-godot-dl-url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
-          godot_executable: godot/Godot_v4.3-stable_linux.x86_64
-          # Additional inputs as needed for your testing
-          
+          custom-godot-dl-url: godot/Godot_v4.3-stable_linux.x86_64
 
       - name: export game
         id: export
