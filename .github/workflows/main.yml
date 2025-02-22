@@ -30,7 +30,8 @@ jobs:
 
       - name: Run GUT tests inside Docker
         run: |
-          docker run --rm -v ${{ github.workspace }}:/game -w /game barichello/godot-ci:4.3 sh -c "godot -s res://addons/gut/gut_cmdln.gd -gdir=res://test/unit"
+          docker run --rm -v ${{ github.workspace }}:/game -w /game barichello/godot-ci:4.3 sh -c "godot --headless -s res://addons/gut/gut_cmdln.gd -gdir=res://test/unit"
+
       
       - name: Godot GUT CI
         uses: ceceppa/godot-gut-ci@0.2.0
