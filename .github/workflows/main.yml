@@ -28,11 +28,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: Install GLIBC 2.28+
+      - name: Run GUT tests inside Docker
         run: |
-          sudo apt update
-          sudo apt install -y libc6
-          ldd --version
+          docker run --rm -v ${{ github.workspace }}:/game -w /game barichello/godot-ci:4.3 sh -c "godot -s res://addons/gut/gut_cmdln.gd -gdir=res://test/unit"
       
       - name: Godot GUT CI
         uses: ceceppa/godot-gut-ci@0.2.0
