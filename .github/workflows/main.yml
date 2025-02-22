@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run godot-tester
-        uses: croconut/godot-tester@v5.1
+        uses: RGonzalezTech/godot-tester@rg/custom-godot-binary
         with:
           version: 4.3
           custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip"
