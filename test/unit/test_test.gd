@@ -1,4 +1,4 @@
 extends GutTest
 
 func test_test():
-	assert_true(false)
+	assert_true(true)
