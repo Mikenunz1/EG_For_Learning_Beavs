@@ -27,7 +27,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout
         uses: actions/checkout@v4
-      
+
+      - name: Run godot-tester
+        uses: RGonzalezTech/godot-tester@rg/custom-godot-binary
+        with:
+          version: 4.3
+          custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip"
+          custom-godot-binary-path: "Godot_v4.3-stable_linux.x86_64"
+
       - name: export game
         id: export
         uses: firebelley/godot-export@v6.0.0
@@ -47,7 +54,7 @@ jobs:
           generateReleaseNotes: true
           #change the below release tag to the current version number
           #if the version tag already exists, it will update that release
-          tag: v0.0.1
+          tag: v0.0.2
           #the above can be replaced with ${{ github.ref_name }} to auto name
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
               
