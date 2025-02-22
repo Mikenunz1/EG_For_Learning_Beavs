@@ -37,6 +37,12 @@ jobs:
           relative_project_path: ./
           archive_output: true
 
+      - name: godot-tester
+        uses: croconut/godot-tester@v5.1
+        with: 
+          version: 4.3
+          test-dir: res://test/unit
+
       - name: create release
         uses: ncipollo/release-action@v1.14.0
         with: 
