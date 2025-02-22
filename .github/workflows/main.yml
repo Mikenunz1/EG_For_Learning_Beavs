@@ -28,11 +28,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       
-      - name: Godot GUT CI
-        uses: ceceppa/godot-gut-ci@0.2.0
+      - name: Run GUT Tests
+        uses: yeslayla/run-gut-tests-action@v1.0.1
         with: 
-          godot_version: 4.3
-          gut_params: -gdir=res://test/unit
+          directory: res://test/unit
 
       - name: export game
         id: export
