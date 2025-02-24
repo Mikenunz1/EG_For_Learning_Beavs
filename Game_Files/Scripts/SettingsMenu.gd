@@ -9,7 +9,6 @@ func setGameResolution (val):
 			DisplayServer.window_set_size(Vector2i(1920, 1080))
 		1:
 			DisplayServer.window_set_size(Vector2i(1280, 720))
-			print("It should be this one")
 			
 	get_tree().call_group("GameManager", "updateResolution", val)
 

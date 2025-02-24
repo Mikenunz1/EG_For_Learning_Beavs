@@ -23,6 +23,9 @@ var playerScene = ""
 #Settings Variables
 var resolutionSelection = 0
 var textsizeSelection = 0
+var masterVolume = 0.0
+var soundVolume = 0.0
+var musicVolume = 0.0
 
 #GM2a : Ready and Process --------------------------------------------------------------------------
 
@@ -43,7 +46,6 @@ func loadSettings():
 	if (!FileAccess.file_exists("user://gameSettings.save")):
 		return #Error, no file by that name exists 
 		
-	print("File found, loading settings.")
 	var settingsSave = FileAccess.open("user://gameSettings.save", FileAccess.READ)
 	var json_string = settingsSave.get_line()	
 	var json = JSON.new()	
@@ -53,9 +55,6 @@ func loadSettings():
 	#After data has been processed
 	resolutionSelection = dict_data["resolution"]
 	textsizeSelection = dict_data["textSize"]
-	
-	print(resolutionSelection)
-	print(textsizeSelection)
 	
 	get_tree().call_group("Settings", "setGameResolution", resolutionSelection)
 
@@ -122,9 +121,6 @@ func saveGame():
 func saveSettings():
 	var settingsSave = FileAccess.open("user://gameSettings.save", FileAccess.WRITE)
 	
-	print(resolutionSelection)
-	print(textsizeSelection)
-	
 	var settingsDict = {
 		"resolution" : resolutionSelection,
 		"textSize" : textsizeSelection
@@ -148,3 +144,17 @@ func updateResolution(val):
 #This function is used to pass text size settings to the game manager
 func updateTextSize(val):
 	textsizeSelection = val
+	
+func updateMasterVolume(val):
+	masterVolume = val
+	
+func updatesoundVolume(val):
+	soundVolume = val
+	
+func updatemusicVolume(val):
+	musicVolume = val
+
+#This function is used set the selected choices that appear in the settings menu
+func setSelected():
+	get_tree().call_group("MainMenu", "setProperty", "resolution", resolutionSelection)
+	get_tree().call_group("MainMenu", "setProperty", "textSize", textsizeSelection)

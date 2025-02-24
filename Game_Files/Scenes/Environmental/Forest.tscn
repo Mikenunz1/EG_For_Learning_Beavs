@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cblhkbogl7u2x"]
+[gd_scene load_steps=6 format=3 uid="uid://cblhkbogl7u2x"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/Forest.gd" id="1_0o352"]
 [ext_resource type="PackedScene" uid="uid://bt6acfsjujrc4" path="res://Game_Files/Scenes/Player/Player_Demo.tscn" id="1_j46gk"]
 [ext_resource type="PackedScene" uid="uid://cs46y60vve20c" path="res://Game_Files/Scenes/Functional/SceneChangeNode.tscn" id="2_dteka"]
+[ext_resource type="PackedScene" uid="uid://duc3gqbdcfnii" path="res://Game_Files/Scenes/UI/GameUserInterface.tscn" id="4_7vvde"]
 [ext_resource type="PackedScene" uid="uid://d3sodiaul1hnv" path="res://Game_Files/Scenes/UI/PauseMenu.tscn" id="4_82jot"]
 
 [node name="Forest" type="Node2D" groups=["GameScene"]]
@@ -13,8 +14,13 @@ position = Vector2(2352, 493)
 
 [node name="PlayerDemo" parent="." instance=ExtResource("1_j46gk")]
 
+[node name="GameUserInterface" parent="." instance=ExtResource("4_7vvde")]
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
 [node name="PauseMenu" parent="." instance=ExtResource("4_82jot")]
-visible = false
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1920.0
