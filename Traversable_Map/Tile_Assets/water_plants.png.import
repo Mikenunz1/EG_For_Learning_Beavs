@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp2imug4nwqwo"
-path="res://.godot/imported/water2.png-7bb1f751409d283c341eaaead5b1cca8.ctex"
+uid="uid://r4g4s776vmn"
+path="res://.godot/imported/water_plants.png-f4f3618cbbea44040df2e738e7379069.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Traversable_Map/Tile_Assets/water2.png"
-dest_files=["res://.godot/imported/water2.png-7bb1f751409d283c341eaaead5b1cca8.ctex"]
+source_file="res://Traversable_Map/Tile_Assets/water_plants.png"
+dest_files=["res://.godot/imported/water_plants.png-f4f3618cbbea44040df2e738e7379069.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1wgf0y5doca4"
-path="res://.godot/imported/grass2.png-b051d7538b0ec144de13a7019d605e18.ctex"
+uid="uid://dpwpelqg4lss0"
+path="res://.godot/imported/sand_animated.png-8407e95a69a7fcba884af4914910b9fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Traversable_Map/Tile_Assets/grass2.png"
-dest_files=["res://.godot/imported/grass2.png-b051d7538b0ec144de13a7019d605e18.ctex"]
+source_file="res://Traversable_Map/Tile_Assets/sand_animated.png"
+dest_files=["res://.godot/imported/sand_animated.png-8407e95a69a7fcba884af4914910b9fc.ctex"]
 
 [params]
 

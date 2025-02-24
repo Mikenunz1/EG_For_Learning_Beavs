@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0xj3mcvpvtax"
-path="res://.godot/imported/aspen-64.png-39fec01663a8e3bc4f4f52b09c30126d.ctex"
+uid="uid://b7uhqqikcj6cl"
+path="res://.godot/imported/beaver-3.png-8b2aae0eab8875f853b96101a2357410.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Traversable_Map/Tile_Assets/aspen-64.png"
-dest_files=["res://.godot/imported/aspen-64.png-39fec01663a8e3bc4f4f52b09c30126d.ctex"]
+source_file="res://Traversable_Map/Tile_Assets/beaver-3.png"
+dest_files=["res://.godot/imported/beaver-3.png-8b2aae0eab8875f853b96101a2357410.ctex"]
 
 [params]
 

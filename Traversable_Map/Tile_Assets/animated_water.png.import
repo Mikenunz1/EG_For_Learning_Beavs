@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnyeqrqpdkxdu"
-path="res://.godot/imported/Beaver64.png-1088d2e2540bff100dd16effa402fe87.ctex"
+uid="uid://dqah5p7s8bpuj"
+path="res://.godot/imported/animated_water.png-93690262d81a7b09ec7762b81b943ac3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Traversable_Map/Tile_Assets/Beaver64.png"
-dest_files=["res://.godot/imported/Beaver64.png-1088d2e2540bff100dd16effa402fe87.ctex"]
+source_file="res://Traversable_Map/Tile_Assets/animated_water.png"
+dest_files=["res://.godot/imported/animated_water.png-93690262d81a7b09ec7762b81b943ac3.ctex"]
 
 [params]
 
