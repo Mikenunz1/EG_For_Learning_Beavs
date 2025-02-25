@@ -1,0 +1,63 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "export_game"
+  export_game:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Run godot-tester
+        uses: RGonzalezTech/godot-tester@rg/custom-godot-binary
+        with:
+          version: 4.3
+          custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip"
+          custom-godot-binary-path: "Godot_v4.3-stable_linux.x86_64"
+
+      - name: export game
+        id: export
+        uses: firebelley/godot-export@v6.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_export_templates.tpz
+          relative_project_path: ./
+          archive_output: true
+
+      - name: create release
+        uses: ncipollo/release-action@v1.14.0
+        with: 
+          allowUpdates: true
+          #indicates if the release should be marked as a prerelease
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generateReleaseNotes: true
+          #change the below release tag to the current version number
+          #if the version tag already exists, it will update that release
+          tag: v0.0.2
+          #the above can be replaced with ${{ github.ref_name }} to auto name
+          artifacts: ${{ steps.export.outputs.archive_directory }}/*
+              
+          
+          
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://3s80payn7ur0"]
+[gd_scene load_steps=9 format=3 uid="uid://3s80payn7ur0"]
 
 [ext_resource type="Texture2D" uid="uid://bqp3sp2uwp6k2" path="res://Game_Files/Assets/UI/TempButton.png" id="1_bs6ey"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MainMenu.gd" id="1_j2bii"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://e4hl64ql7skh" path="res://Game_Files/Assets/UI/TempPanel.png" id="2_xhku5"]
 [ext_resource type="Texture2D" uid="uid://bg7lrleksb803" path="res://Game_Files/Assets/UI/TempPanel2.png" id="5_6tq5f"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/SettingsMenu.gd" id="5_mn4le"]
+[ext_resource type="PackedScene" uid="uid://cgojnksales8v" path="res://Game_Files/Scenes/UI/VolumeSlider.tscn" id="7_7lek8"]
+[ext_resource type="AudioStream" uid="uid://63qxyefdqr8s" path="res://Game_Files/Assets/Audio/Music/Track-2.mp3" id="8_5lr1l"]
 
 [node name="MainMenu" type="Control" groups=["GameScene"]]
 layout_mode = 3
@@ -283,11 +285,57 @@ offset_right = 143.0
 offset_bottom = 13.0
 text = "GAME TEXT SIZE"
 
+[node name="AudioControlsContainer" type="VBoxContainer" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = -180.0
+offset_right = 265.0
+offset_bottom = -43.0
+grow_vertical = 2
+
+[node name="mvLabel" type="Label" parent="SettingsMenu/AudioControlsContainer"]
+layout_mode = 2
+text = "Master Volume:"
+
+[node name="MasterVolumeSlider" parent="SettingsMenu/AudioControlsContainer" instance=ExtResource("7_7lek8")]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+bus_name = "Master"
+
+[node name="sfxLabel" type="Label" parent="SettingsMenu/AudioControlsContainer"]
+layout_mode = 2
+text = "Sound Effects Volume:"
+
+[node name="SFXVolumeSlider2" parent="SettingsMenu/AudioControlsContainer" instance=ExtResource("7_7lek8")]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+bus_name = "SFX"
+
+[node name="bmLabel" type="Label" parent="SettingsMenu/AudioControlsContainer"]
+layout_mode = 2
+text = "Background Music Volume:"
+
+[node name="MusicVolumeSlider3" parent="SettingsMenu/AudioControlsContainer" instance=ExtResource("7_7lek8")]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+bus_name = "Music"
+
 [node name="MultiplayerMenu" type="Control" parent="."]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5lr1l")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="StartMenu/NewText/NewButton" to="." method="newGamePressed"]
 [connection signal="pressed" from="StartMenu/LoadText/LoadButton" to="." method="loadGamePressed"]

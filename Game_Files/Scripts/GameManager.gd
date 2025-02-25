@@ -28,6 +28,7 @@ var playerScene = ""
 
 #Called on game startup when game manager finishes loading in 
 func _ready():
+	add_to_group("GameManager")
 	loadSceneByName("MainMenu")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
