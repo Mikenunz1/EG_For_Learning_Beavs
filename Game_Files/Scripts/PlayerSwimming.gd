@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 600
+var SPEED = 600
 
 func _physics_process(_delta):	
 	
@@ -27,4 +27,7 @@ func setPosition(x,y):
 #Collision scripting that determines if player collides with something
 func _on_scripting_area_area_entered(area):
 	if (area.is_in_group("Obstacle")):
-		print("Ouch!!")
+		get_tree().call_group("MinigameUI", "decreaseHealth")
+
+func lost():
+	SPEED = 0

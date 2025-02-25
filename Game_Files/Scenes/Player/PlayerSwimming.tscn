@@ -10,7 +10,7 @@ height = 120.179
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g11jo"]
 size = Vector2(178, 66)
 
-[node name="PlayerSwimming" type="CharacterBody2D"]
+[node name="PlayerSwimming" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(42, 0)
 scale = Vector2(1.56, 1.56)
 script = ExtResource("1_gnxwi")

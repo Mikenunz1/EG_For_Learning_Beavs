@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://875rqppouh7j"]
+[gd_scene load_steps=13 format=3 uid="uid://875rqppouh7j"]
 
 [ext_resource type="PackedScene" uid="uid://bjkj2lj72x47a" path="res://Game_Files/Scenes/Player/PlayerSwimming.tscn" id="1_uvy0x"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MinigameSwimming.gd" id="1_w1r3m"]
 [ext_resource type="Texture2D" uid="uid://cs8dy80h7s5lp" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/MGSwimmingBG.png" id="2_4qn3m"]
 [ext_resource type="Texture2D" uid="uid://ch10hkja6e16l" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/MGSwimmingOverlay1.png" id="3_51uet"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/ObstacleCatcher.gd" id="3_yft1u"]
+[ext_resource type="Texture2D" uid="uid://bvol0m1s8oyvr" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/MGSwimmingOverlay2.png" id="4_fhq3i"]
 [ext_resource type="Texture2D" uid="uid://ohd0rf6abfya" path="res://Game_Files/Assets/UI/Minigames/SwimmingUIOverlay.png" id="6_e78he"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/UISwimming.gd" id="7_byvwc"]
+[ext_resource type="Texture2D" uid="uid://b8hk0rdtfb2p8" path="res://Game_Files/Assets/UI/Minigames/Health.png" id="8_31220"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiq1b"]
 size = Vector2(107, 1126)
@@ -16,16 +19,22 @@ size = Vector2(1921, 98)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfwj6"]
 size = Vector2(1920, 160)
 
-[node name="MinigameSwimming" type="Node2D"]
+[node name="MinigameSwimming" type="Node2D" groups=["Minigame"]]
 position = Vector2(-2, -2)
 script = ExtResource("1_w1r3m")
 
-[node name="Static Background" type="Sprite2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Static Background" type="Sprite2D" parent="Background"]
 position = Vector2(962, 544)
 texture = ExtResource("2_4qn3m")
 
-[node name="WavesOverlay1" type="Sprite2D" parent="."]
+[node name="WavesOverlay1" type="Sprite2D" parent="Background"]
 texture = ExtResource("3_51uet")
+centered = false
+
+[node name="WavesOverlay2" type="Sprite2D" parent="Background"]
+texture = ExtResource("4_fhq3i")
 centered = false
 
 [node name="PlayerSwimming" parent="." instance=ExtResource("1_uvy0x")]
@@ -55,16 +64,62 @@ position = Vector2(0, 972)
 position = Vector2(960, 28)
 shape = SubResource("RectangleShape2D_nfwj6")
 
-[node name="MinigameUI" type="Control" parent="."]
+[node name="MinigameUI" type="Control" parent="." groups=["MinigameUI"]]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_byvwc")
 
-[node name="TextureRect" type="TextureRect" parent="MinigameUI"]
+[node name="UIBar" type="TextureRect" parent="MinigameUI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 1922.0
+offset_bottom = 1084.0
 texture = ExtResource("6_e78he")
 
+[node name="Health1" type="TextureRect" parent="MinigameUI"]
+layout_mode = 0
+offset_left = 1799.0
+offset_top = 968.0
+offset_right = 1929.0
+offset_bottom = 1078.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_31220")
+
+[node name="Health2" type="TextureRect" parent="MinigameUI"]
+layout_mode = 0
+offset_left = 1695.0
+offset_top = 968.0
+offset_right = 1825.0
+offset_bottom = 1078.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_31220")
+
+[node name="Health3" type="TextureRect" parent="MinigameUI"]
+layout_mode = 0
+offset_left = 1589.0
+offset_top = 968.0
+offset_right = 1719.0
+offset_bottom = 1078.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_31220")
+
+[node name="RestartText" type="RichTextLabel" parent="MinigameUI"]
+visible = false
+layout_mode = 0
+offset_top = 418.0
+offset_right = 1922.0
+offset_bottom = 556.0
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]PRESS SPACE TO RESTART[/center]"
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
 [connection signal="area_entered" from="ObstacleCatcher" to="ObstacleCatcher" method="_on_area_entered"]
+[connection signal="timeout" from="SpawnTimer" to="." method="create_Obstacle"]

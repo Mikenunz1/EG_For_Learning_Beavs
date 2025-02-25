@@ -2,43 +2,62 @@ extends Node2D
 
 var rock = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingRock.tscn")
 var log = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingLogVert.tscn")
-
-var test = 0
-var max = 150
-var min = 40
+var fish = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingFish.tscn")
+var goose = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingGoose.tscn")
 
 var spawn_offset = -300
+var rng = RandomNumberGenerator.new()
+var health = 3
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+@onready var gameOverText = $MinigameUI/RestartText
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	test += 1
+	if (health == 0 && Input.is_action_just_pressed("Action")):
+		get_tree().reload_current_scene()
+
+func create_Obstacle():
+	var choice = rng.randi_range(1,4)
 	
-	if (test == 30):
-		spawn_Log(400)
+	match choice:
+		1:
+			spawn_Rock()
+			
+		2:
+			spawn_Log()
+			
+		3:
+			spawn_fish()
+			
+		4:
+			spawn_goose()
 	
-	if (test == max):
-		spawn_Rock(800)
-		test = 0
-		if (max >= min):
-			max = max - 10
-	
+func noHealth():
+	gameOverText.show()
+	health = 0	
+	get_tree().call_group("Player", "lost")
+
 #The below functions spawn specifc obstacles for the minigame
-func spawn_Rock(ypos):
+func spawn_Rock():
+	var spawnHeight = rng.randi_range(750, 820)
 	var newRock = rock.instantiate()
 	get_tree().current_scene.add_child(newRock)
-	newRock.global_position = Vector2(spawn_offset, ypos)
+	newRock.global_position = Vector2(spawn_offset, spawnHeight)
 	
-func spawn_Log(ypos):
+func spawn_Log():
+	var spawnHeight = rng.randi_range(150, 650)
 	var newLog = log.instantiate()
 	get_tree().current_scene.add_child(newLog)
-	newLog.global_position = Vector2(spawn_offset, ypos)
+	newLog.global_position = Vector2(spawn_offset, spawnHeight)
 	
-#TODO
-#spawn log long
-#spawn tree root
-#spawn salmon
+func spawn_fish():
+	var spawnHeight = rng.randi_range(250, 800)
+	var newFish = fish.instantiate()
+	get_tree().current_scene.add_child(newFish)
+	newFish.global_position = Vector2(spawn_offset, spawnHeight)
+	
+func spawn_goose():
+	var spawnHeight = rng.randi_range(250, 800)
+	var newGoose = goose.instantiate()
+	get_tree().current_scene.add_child(newGoose)
+	newGoose.global_position = Vector2(spawn_offset, spawnHeight)
