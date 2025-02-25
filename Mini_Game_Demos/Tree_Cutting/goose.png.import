@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcb63k8qmh45u"
-path="res://.godot/imported/grass.png-b89e44941e6a1a6ec169bb1df1ac132d.ctex"
+uid="uid://bb0tjgb4aan1d"
+path="res://.godot/imported/goose.png-61502b528ecced2e3d675a0296d7681a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Traversable_Map/Tile_Assets/grass.png"
-dest_files=["res://.godot/imported/grass.png-b89e44941e6a1a6ec169bb1df1ac132d.ctex"]
+source_file="res://Mini_Game_Demos/Tree_Cutting/goose.png"
+dest_files=["res://.godot/imported/goose.png-61502b528ecced2e3d675a0296d7681a.ctex"]
 
 [params]
 

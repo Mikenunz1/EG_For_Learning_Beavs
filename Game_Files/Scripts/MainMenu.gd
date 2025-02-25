@@ -16,7 +16,7 @@ extends Control
 
 func newGamePressed():
 	#This is a temporary scenechange until we have a proper first scene
-	get_tree().call_group("GameManager", "loadSceneByName", "Forest")
+	get_tree().call_group("GameManager", "loadSceneByName", "MainMap")
 	
 func loadGamePressed():
 	#This is a temporary scencehange until we have a proper load sequence

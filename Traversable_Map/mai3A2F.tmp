@@ -1,20 +1,21 @@
-[gd_scene load_steps=32 format=4 uid="uid://2plykxaqh366"]
+[gd_scene load_steps=34 format=4 uid="uid://2plykxaqh366"]
 
-[ext_resource type="Texture2D" uid="uid://b1wgf0y5doca4" path="res://Traversable_Map/Tile_Assets/grass.png" id="4_qpkgb"]
-[ext_resource type="Texture2D" uid="uid://crvtpmfbxg3ui" path="res://Traversable_Map/Tile_Assets/forest.png" id="7_3dv60"]
-[ext_resource type="PackedScene" uid="uid://bt6acfsjujrc4" path="res://Game_Files/Scenes/Player/Player_Demo.tscn" id="7_dchjo"]
-[ext_resource type="Texture2D" uid="uid://dpwpelqg4lss0" path="res://Traversable_Map/Tile_Assets/sand_animated.png" id="7_u0d11"]
-[ext_resource type="Texture2D" uid="uid://cobcnf6jdlwyq" path="res://Traversable_Map/Tile_Assets/beaver_prints.png" id="8_2a3ux"]
-[ext_resource type="Texture2D" uid="uid://dqah5p7s8bpuj" path="res://Traversable_Map/Tile_Assets/animated_water.png" id="8_xij01"]
-[ext_resource type="Texture2D" uid="uid://bbv80pree764s" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Maple.png" id="9_5f1ag"]
-[ext_resource type="Texture2D" uid="uid://ly54tw158nxl" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Rock.png" id="9_60hs6"]
-[ext_resource type="Texture2D" uid="uid://c0xj3mcvpvtax" path="res://Traversable_Map/Tile_Assets/aspen.png" id="9_u2gxq"]
-[ext_resource type="PackedScene" uid="uid://d0cavcbf8newo" path="res://Traversable_Map/forest_map.tscn" id="10_rhf2w"]
-[ext_resource type="Texture2D" uid="uid://dedl72j332l1i" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Bush.png" id="10_vx1ky"]
-[ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Traversable_Map/wetlands_map.tscn" id="11_jeb7t"]
+[ext_resource type="Texture2D" uid="uid://dcb63k8qmh45u" path="res://Traversable_Map/Tile_Assets/grass.png" id="1_m4y45"]
+[ext_resource type="PackedScene" uid="uid://bt6acfsjujrc4" path="res://Game_Files/Scenes/Player/Player_Demo.tscn" id="2_y1nm2"]
+[ext_resource type="Texture2D" uid="uid://crvtpmfbxg3ui" path="res://Traversable_Map/Tile_Assets/forest.png" id="3_07pjt"]
+[ext_resource type="Texture2D" uid="uid://clhd2k5qjvmm" path="res://Traversable_Map/Tile_Assets/aspen.png" id="4_y0hsn"]
+[ext_resource type="Texture2D" uid="uid://dpwpelqg4lss0" path="res://Traversable_Map/Tile_Assets/sand_animated.png" id="5_jb08q"]
+[ext_resource type="Texture2D" uid="uid://dqah5p7s8bpuj" path="res://Traversable_Map/Tile_Assets/animated_water.png" id="6_tqdqc"]
+[ext_resource type="Texture2D" uid="uid://cobcnf6jdlwyq" path="res://Traversable_Map/Tile_Assets/beaver_prints.png" id="7_8kq6h"]
+[ext_resource type="Texture2D" uid="uid://bbv80pree764s" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Maple.png" id="8_m4yg0"]
+[ext_resource type="Texture2D" uid="uid://ly54tw158nxl" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Rock.png" id="9_i4ao4"]
+[ext_resource type="Texture2D" uid="uid://dedl72j332l1i" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Bush.png" id="10_eunma"]
+[ext_resource type="PackedScene" uid="uid://d0cavcbf8newo" path="res://Traversable_Map/forest_map.tscn" id="11_tbg12"]
+[ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Traversable_Map/wetlands_map.tscn" id="12_jyrrp"]
+[ext_resource type="Script" path="res://Traversable_Map/Game_Detection.gd" id="13_iyyu7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2duv"]
-texture = ExtResource("4_qpkgb")
+texture = ExtResource("1_m4y45")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -49,7 +50,7 @@ tile_size = Vector2i(64, 64)
 sources/2 = SubResource("TileSetAtlasSource_j2duv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5bbr"]
-texture = ExtResource("4_qpkgb")
+texture = ExtResource("1_m4y45")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -84,7 +85,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_c5bbr")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikexk"]
-texture = ExtResource("7_3dv60")
+texture = ExtResource("3_07pjt")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 2:0/0 = 0
@@ -109,7 +110,7 @@ texture_region_size = Vector2i(64, 64)
 4:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ga7h8"]
-texture = ExtResource("9_u2gxq")
+texture = ExtResource("4_y0hsn")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/y_sort_origin = 21
@@ -171,7 +172,7 @@ sources/0 = SubResource("TileSetAtlasSource_ikexk")
 sources/2 = SubResource("TileSetAtlasSource_ga7h8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61bnp"]
-texture = ExtResource("7_u0d11")
+texture = ExtResource("5_jb08q")
 texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 3:1/0 = 0
@@ -213,7 +214,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_61bnp")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uaduj"]
-texture = ExtResource("8_xij01")
+texture = ExtResource("6_tqdqc")
 texture_region_size = Vector2i(64, 64)
 0:0/animation_columns = 3
 0:0/animation_frame_0/duration = 1.0
@@ -260,7 +261,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_uaduj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psa8h"]
-texture = ExtResource("8_2a3ux")
+texture = ExtResource("7_8kq6h")
 texture_region_size = Vector2i(128, 64)
 0:1/animation_columns = 4
 0:1/animation_frame_0/duration = 1.0
@@ -280,7 +281,7 @@ tile_size = Vector2i(128, 64)
 sources/0 = SubResource("TileSetAtlasSource_psa8h")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxg5x"]
-texture = ExtResource("9_5f1ag")
+texture = ExtResource("8_m4yg0")
 texture_region_size = Vector2i(320, 320)
 0:0/0 = 0
 0:0/0/y_sort_origin = 96
@@ -292,7 +293,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fxg5x")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8sfy1"]
-texture = ExtResource("9_60hs6")
+texture = ExtResource("9_i4ao4")
 texture_region_size = Vector2i(1000, 1000)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-379.009, 500, -311.127, 390.323, -220.617, 135.764, -22.6274, 113.137, 113.137, 175.362, 248.902, 316.784, 339.411, 500)
@@ -303,7 +304,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8sfy1")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73p0x"]
-texture = ExtResource("10_vx1ky")
+texture = ExtResource("10_eunma")
 texture_region_size = Vector2i(160, 160)
 0:0/0 = 0
 0:0/0/y_sort_origin = 60
@@ -314,6 +315,9 @@ tile_size = Vector2i(160, 160)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_73p0x")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yky5"]
+size = Vector2(413, 538)
+
 [node name="GameMap" type="Node2D"]
 y_sort_enabled = true
 
@@ -323,7 +327,7 @@ y_sort_enabled = true
 texture_filter = 3
 tile_set = SubResource("TileSet_s8co3")
 
-[node name="PlayerDemo" parent="Base" instance=ExtResource("7_dchjo")]
+[node name="PlayerDemo" parent="Base" instance=ExtResource("2_y1nm2")]
 position = Vector2(7660, 2986)
 
 [node name="Grass" type="TileMapLayer" parent="Base"]
@@ -383,6 +387,15 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAcAAAAAAAAAAAAGAAQAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAgAAAAAAAAAAAAPAAcAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAgAAAAAAAAAAAACABkAAAAAAAAAAAACACQAAAAAAAAAAAADAB4AAAAAAAAAAAAHABkAAAAAAAAAAAAHABsAAAAAAAAAAAAJACAAAAAAAAAAAAAOACIAAAAAAAAAAAARACAAAAAAAAAAAAAVABoAAAAAAAAAAAAVAB4AAAAAAAAAAAAWACAAAAAAAAAAAAAdABwAAAAAAAAAAAAnABgAAAAAAAAAAAAqAAUAAAAAAAAAAAAqACYAAAAAAAAAAAAsAB4AAAAAAAAAAAAtACAAAAAAAAAAAAAuAAUAAAAAAAAAAAAvAAUAAAAAAAAAAAAwAAQAAAAAAAAAAAAwABcAAAAAAAAAAAAzAAEAAAAAAAAAAAAzABcAAAAAAAAAAAA2ABMAAAAAAAAAAAA5AAMAAAAAAAAAAAA5ABQAAAAAAAAAAAA8ABEAAAAAAAAAAABAACQAAAAAAAAAAABEAA8AAAAAAAAAAABEABwAAAAAAAAAAABEACMAAAAAAAAAAABFAA0AAAAAAAAAAABFAA8AAAAAAAAAAABGACQAAAAAAAAAAABJABAAAAAAAAAAAABJACIAAAAAAAAAAABKABgAAAAAAAAAAABLABUAAAAAAAAAAABNAAIAAAAAAAAAAABPAAcAAAAAAAAAAABPAAwAAAAAAAAAAABPABcAAAAAAAAAAABQAAoAAAAAAAAAAABRAAQAAAAAAAAAAABTABcAAAAAAAAAAABVACIAAAAAAAAAAABWABoAAAAAAAAAAABXACEAAAAAAAAAAABYABQAAAAAAAAAAABYABgAAAAAAAAAAABZAA0AAAAAAAAAAABZAB8AAAAAAAAAAABaAAcAAAAAAAAAAABaAA4AAAAAAAAAAABbABQAAAAAAAAAAABdACEAAAAAAAAAAABeAAkAAAAAAAAAAABfAA0AAAAAAAAAAABgABIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ar6bn")
 
-[node name="ForestMap" parent="." instance=ExtResource("10_rhf2w")]
+[node name="ForestMap" parent="." instance=ExtResource("11_tbg12")]
 
-[node name="WetlandsMap" parent="." instance=ExtResource("11_jeb7t")]
+[node name="WetlandsMap" parent="." instance=ExtResource("12_jyrrp")]
+
+[node name="GameDetection" type="Area2D" parent="."]
+script = ExtResource("13_iyyu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameDetection"]
+position = Vector2(5793, 2154)
+shape = SubResource("RectangleShape2D_2yky5")
+
+[connection signal="body_entered" from="GameDetection" to="GameDetection" method="_on_body_entered"]

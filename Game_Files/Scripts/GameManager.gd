@@ -13,6 +13,7 @@ extends Node2D
 #GM1a : Preloads for specific scenes ---------------------------------------------------------------
 var MainMenu = preload("res:///Game_Files/Scenes/UI/MainMenu.tscn")
 var ForestScene = preload("res://Game_Files/Scenes/Environmental/Forest.tscn")
+var MainMap = preload("res://Traversable_Map/main_map.tscn")
 
 #GM1b: Raw Variables tracked by the game manager throughout runtime --------------------------------
 var playerX = 0
@@ -52,6 +53,9 @@ func loadSceneByName(sceneName):
 			
 		"Forest":
 			sceneSpecifier = ForestScene
+			
+		"MainMap":
+			sceneSpecifier = MainMap
 		
 	var instance = sceneSpecifier.instantiate()
 	instance.position = Vector2(0,0)
