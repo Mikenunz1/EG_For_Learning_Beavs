@@ -1,40 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://875rqppouh7j"]
+[gd_scene load_steps=10 format=3 uid="uid://875rqppouh7j"]
 
 [ext_resource type="PackedScene" uid="uid://bjkj2lj72x47a" path="res://Game_Files/Scenes/Player/PlayerSwimming.tscn" id="1_uvy0x"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MinigameSwimming.gd" id="1_w1r3m"]
-[ext_resource type="PackedScene" uid="uid://bfimc88cv54js" path="res://Game_Files/Scenes/MiniGameComponents/SwimmingRock.tscn" id="2_vf5ea"]
+[ext_resource type="Texture2D" uid="uid://cs8dy80h7s5lp" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/MGSwimmingBG.png" id="2_4qn3m"]
+[ext_resource type="Texture2D" uid="uid://ch10hkja6e16l" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/MGSwimmingOverlay1.png" id="3_51uet"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/ObstacleCatcher.gd" id="3_yft1u"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfwj6"]
-size = Vector2(1920, 108)
+[ext_resource type="Texture2D" uid="uid://ohd0rf6abfya" path="res://Game_Files/Assets/UI/Minigames/SwimmingUIOverlay.png" id="6_e78he"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiq1b"]
 size = Vector2(107, 1126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xikua"]
+size = Vector2(1921, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfwj6"]
+size = Vector2(1920, 160)
 
 [node name="MinigameSwimming" type="Node2D"]
 position = Vector2(-2, -2)
 script = ExtResource("1_w1r3m")
 
+[node name="Static Background" type="Sprite2D" parent="."]
+position = Vector2(962, 544)
+texture = ExtResource("2_4qn3m")
+
+[node name="WavesOverlay1" type="Sprite2D" parent="."]
+texture = ExtResource("3_51uet")
+centered = false
+
 [node name="PlayerSwimming" parent="." instance=ExtResource("1_uvy0x")]
-position = Vector2(1715, 433)
-
-[node name="SwimmingRock" parent="." instance=ExtResource("2_vf5ea")]
-position = Vector2(0, 805)
-
-[node name="UpperBound" type="StaticBody2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperBound"]
-position = Vector2(960, 54)
-shape = SubResource("RectangleShape2D_nfwj6")
-
-[node name="LowerBound" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(0, 972)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerBound"]
-position = Vector2(960, 54)
-shape = SubResource("RectangleShape2D_nfwj6")
+position = Vector2(1647, 544)
 
 [node name="ObstacleCatcher" type="Area2D" parent="."]
 position = Vector2(2170, 0)
@@ -43,5 +38,33 @@ script = ExtResource("3_yft1u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleCatcher"]
 position = Vector2(43.5, 553)
 shape = SubResource("RectangleShape2D_iiq1b")
+
+[node name="Boundaries" type="Node2D" parent="."]
+visible = false
+
+[node name="UpperBound" type="StaticBody2D" parent="Boundaries"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/UpperBound"]
+position = Vector2(962.5, 51)
+shape = SubResource("RectangleShape2D_xikua")
+
+[node name="LowerBound" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(0, 972)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LowerBound"]
+position = Vector2(960, 28)
+shape = SubResource("RectangleShape2D_nfwj6")
+
+[node name="MinigameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="MinigameUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_e78he")
 
 [connection signal="area_entered" from="ObstacleCatcher" to="ObstacleCatcher" method="_on_area_entered"]
