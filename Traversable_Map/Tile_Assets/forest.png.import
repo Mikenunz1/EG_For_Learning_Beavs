@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baj0fyvgdjsp5"
-path="res://.godot/imported/aspen.png-41f91718fa6442dc019e6eeba236a33b.ctex"
+uid="uid://crvtpmfbxg3ui"
+path="res://.godot/imported/forest.png-f4f1ec1fbe42ac307c0f8696f1ba0551.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/aspen.png"
-dest_files=["res://.godot/imported/aspen.png-41f91718fa6442dc019e6eeba236a33b.ctex"]
+source_file="res://Traversable_Map/Tile_Assets/forest.png"
+dest_files=["res://.godot/imported/forest.png-f4f1ec1fbe42ac307c0f8696f1ba0551.ctex"]
 
 [params]
 
