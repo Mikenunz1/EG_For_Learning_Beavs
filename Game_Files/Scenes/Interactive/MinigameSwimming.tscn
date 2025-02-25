@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://875rqppouh7j"]
+
+[ext_resource type="PackedScene" uid="uid://bjkj2lj72x47a" path="res://Game_Files/Scenes/Player/PlayerSwimming.tscn" id="1_uvy0x"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/MinigameSwimming.gd" id="1_w1r3m"]
+[ext_resource type="PackedScene" uid="uid://bfimc88cv54js" path="res://Game_Files/Scenes/MiniGameComponents/SwimmingRock.tscn" id="2_vf5ea"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/ObstacleCatcher.gd" id="3_yft1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfwj6"]
+size = Vector2(1920, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiq1b"]
+size = Vector2(107, 1126)
+
+[node name="MinigameSwimming" type="Node2D"]
+position = Vector2(-2, -2)
+script = ExtResource("1_w1r3m")
+
+[node name="PlayerSwimming" parent="." instance=ExtResource("1_uvy0x")]
+position = Vector2(1715, 433)
+
+[node name="SwimmingRock" parent="." instance=ExtResource("2_vf5ea")]
+position = Vector2(0, 805)
+
+[node name="UpperBound" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperBound"]
+position = Vector2(960, 54)
+shape = SubResource("RectangleShape2D_nfwj6")
+
+[node name="LowerBound" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(0, 972)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerBound"]
+position = Vector2(960, 54)
+shape = SubResource("RectangleShape2D_nfwj6")
+
+[node name="ObstacleCatcher" type="Area2D" parent="."]
+position = Vector2(2170, 0)
+script = ExtResource("3_yft1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleCatcher"]
+position = Vector2(43.5, 553)
+shape = SubResource("RectangleShape2D_iiq1b")
+
+[connection signal="area_entered" from="ObstacleCatcher" to="ObstacleCatcher" method="_on_area_entered"]
