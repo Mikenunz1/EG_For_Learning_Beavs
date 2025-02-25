@@ -8,7 +8,7 @@
 | :---- | :---- | :---- |
 | Grant Pasquantonio | Sound Designer / Data Flow Manager | Sound Design Music Design Sound Object implementation Data Modeling |
 | Jacob MacGregor | Lead Artist | Character Design Pixel Art Asset Management  |
-| [Guillermo Morales](mailto:gmoral34@my.chemeketa.edu) | Network Designer | Multiplayer Research Lead multiplayer Programmer Networking and HTTP requests General Game Programmer  |
+| [Guillermo Morales](mailto:gmoral34@my.chemeketa.edu) | General Game Programmer| Network Programmer|Online Multiplayer Researcher
 | Mike Nunzio | Head Developer | Class Hierarchy Object Design Scene management File Systems UI/UX design  |
 | Ryan Shepard | Lead Content Researcher | Research Documentation Sourcing of Educational content Test Design Quality Assurance |
 | Mia Matsunaga | Lead Environmental Designer | Level Design Environmental Design Interior Environment Design Secondary Scene management |
