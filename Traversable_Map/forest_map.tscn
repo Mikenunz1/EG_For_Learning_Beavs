@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://d0cavcbf8newo"]
+[gd_scene load_steps=25 format=4 uid="uid://d0cavcbf8newo"]
 
-[ext_resource type="Texture2D" uid="uid://bvcu50m7nqwg" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Maple.png" id="4_j286a"]
-[ext_resource type="Texture2D" uid="uid://b1wgf0y5doca4" path="res://Traversable_Map/Tiles/grass.png" id="4_rklvf"]
-[ext_resource type="Texture2D" uid="uid://b5ljwtfrrv3eg" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Rock.png" id="5_yorn1"]
-[ext_resource type="Texture2D" uid="uid://crvtpmfbxg3ui" path="res://Traversable_Map/Tiles/forest.png" id="8_d6m80"]
-[ext_resource type="Texture2D" uid="uid://c0xj3mcvpvtax" path="res://Traversable_Map/Tiles/aspen.png" id="9_qg8wn"]
+[ext_resource type="Texture2D" uid="uid://bbv80pree764s" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Maple.png" id="4_j286a"]
+[ext_resource type="Texture2D" uid="uid://b1wgf0y5doca4" path="res://Traversable_Map/Tile_Assets/grass.png" id="4_rklvf"]
+[ext_resource type="Texture2D" uid="uid://ly54tw158nxl" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Rock.png" id="5_yorn1"]
+[ext_resource type="Texture2D" uid="uid://dedl72j332l1i" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Bush.png" id="6_f8dmm"]
+[ext_resource type="Texture2D" uid="uid://crvtpmfbxg3ui" path="res://Traversable_Map/Tile_Assets/forest.png" id="8_d6m80"]
+[ext_resource type="Texture2D" uid="uid://c0xj3mcvpvtax" path="res://Traversable_Map/Tile_Assets/aspen.png" id="9_qg8wn"]
 
 [sub_resource type="TileSet" id="TileSet_exygb"]
 tile_size = Vector2i(32, 32)
@@ -91,6 +92,18 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_c0r5n")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqg5d"]
+texture = ExtResource("4_j286a")
+texture_region_size = Vector2i(320, 320)
+0:0/0 = 0
+0:0/0/y_sort_origin = 102
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 100, 0.5, 136, 38.5, 160, -54, 160, -22.5, 137, -24, 94)
+
+[sub_resource type="TileSet" id="TileSet_w728k"]
+tile_size = Vector2i(320, 320)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_nqg5d")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pe2w"]
 texture = ExtResource("8_d6m80")
@@ -213,18 +226,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8pe2w")
 sources/2 = SubResource("TileSetAtlasSource_vcw2c")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqg5d"]
-texture = ExtResource("4_j286a")
-texture_region_size = Vector2i(320, 320)
-0:0/0 = 0
-0:0/0/y_sort_origin = 102
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 100, 0.5, 136, 38.5, 160, -54, 160, -22.5, 137, -24, 94)
-
-[sub_resource type="TileSet" id="TileSet_w728k"]
-tile_size = Vector2i(320, 320)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nqg5d")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nperc"]
 texture = ExtResource("5_yorn1")
 texture_region_size = Vector2i(1000, 1000)
@@ -232,7 +233,19 @@ texture_region_size = Vector2i(1000, 1000)
 
 [sub_resource type="TileSet" id="TileSet_6yxlc"]
 tile_size = Vector2i(1000, 1000)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nperc")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fg7w"]
+texture = ExtResource("6_f8dmm")
+texture_region_size = Vector2i(160, 160)
+0:0/0 = 0
+0:0/0/y_sort_origin = 60
+
+[sub_resource type="TileSet" id="TileSet_ctfkm"]
+tile_size = Vector2i(160, 160)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_6fg7w")
 
 [sub_resource type="Animation" id="Animation_geo5o"]
 length = 0.001
@@ -293,6 +306,12 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAHAAAAAAAFAAIAAAAHAAEAAAAFAAIAAAAHAAIAAAAFAAMAAAAHAAMAAAAFAAIAAAAHAAQAAAADAAMAAAAFAAQAAAABAAMAAAAGAAQAAAACAAMAAAADAAQAAAACAAMAAAAEAAQAAAACAAMAAAACAAQAAAABAAMAAAAAAAQAAAABAAMAAAABAAQAAAACAAMAAAANAA8AAAACAAMAAAAOAA8AAAADAAMAAAALAA8AAAAAAAMAAAAMAA8AAAABAAMAAAAOAA0AAAADAAIAAAALAA0AAAAAAAIAAAAMAA0AAAABAAIAAAANAA0AAAACAAIAAAALAA4AAAAEAAMAAAAOAA4AAAAFAAMAAAA=")
 tile_set = SubResource("TileSet_626i4")
 
+[node name="MapleTree2" type="TileMapLayer" parent="Base2"]
+y_sort_enabled = true
+position = Vector2(-6076, 1020)
+tile_map_data = PackedByteArray("AAAFAAsAAAAAAAAAAAALAAoAAAAAAAAAAAANAAkAAAAAAAAAAAAFAAIAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAAHAAcAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAUAAAAAAAAAAAAGAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_w728k")
+
 [node name="Forest2" type="TileMapLayer" parent="Base2"]
 texture_filter = 3
 position = Vector2(-6071, -1)
@@ -300,15 +319,18 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAAOAAgAAgABAAEAAAAPAAYAAgABAAAAAAAPAAgAAgABAAAAAAAJAAAAAAACAAIAAAALAAMAAAAEAAUAAAABAAAAAgAAAAEAAAAGAAAAAgAFAAQAAAAGAAEAAgAFAAUAAAAAAA8AAAABAAAAAAAAABAAAAABAAEAAAAAABEAAAABAAIAAAAAABIAAAABAAMAAAAAABMAAAABAAQAAAABAA8AAAACAAAAAAABABAAAAACAAEAAAABABEAAAACAAIAAAABABIAAAACAAMAAAABABMAAAACAAQAAAACAA8AAAADAAAAAAACABAAAAADAAEAAAACABEAAAADAAIAAAACABIAAAADAAMAAAACABMAAAADAAQAAAADAA8AAAAEAAAAAAADABAAAAAEAAEAAAADABEAAAAEAAIAAAADABIAAAAEAAMAAAADABMAAAAEAAQAAAAEAA8AAAABAAAAAAAEABAAAAABAAEAAAAEABEAAAABAAIAAAAEABIAAAABAAMAAAAEABMAAAABAAQAAAAFAA8AAAACAAAAAAAFABAAAAACAAEAAAAFABEAAAACAAIAAAAFABIAAAACAAMAAAAFABMAAAACAAQAAAAGAA8AAAADAAAAAAAGABAAAAADAAEAAAAGABEAAAADAAIAAAAGABIAAAADAAMAAAAGABMAAAADAAQAAAAHAA8AAAAEAAAAAAAHABAAAAAEAAEAAAAHABEAAAAEAAIAAAAHABIAAAAEAAMAAAAHABMAAAAEAAQAAAAIAA8AAAABAAAAAAAIABAAAAABAAEAAAAIABEAAAABAAIAAAAIABIAAAABAAMAAAAIABMAAAABAAQAAAAJAA8AAAACAAAAAAAJABAAAAACAAEAAAAJABEAAAACAAIAAAAJABIAAAACAAMAAAAJABMAAAACAAQAAAAKAA8AAAADAAAAAAAKABAAAAADAAEAAAAKABEAAAADAAIAAAAKABIAAAADAAMAAAAKABMAAAADAAQAAAALAA8AAAAEAAAAAAALABAAAAAEAAEAAAALABEAAAAEAAIAAAALABIAAAAEAAMAAAALABMAAAAEAAQAAAAMAA8AAAABAAAAAAAMABAAAAABAAEAAAAMABEAAAABAAIAAAAMABIAAAABAAMAAAAMABMAAAABAAQAAAANAA8AAAACAAAAAAANABAAAAACAAEAAAANABEAAAACAAIAAAANABIAAAACAAMAAAANABMAAAACAAQAAAAOAA8AAAADAAAAAAAOABAAAAADAAEAAAAOABEAAAADAAIAAAAOABIAAAADAAMAAAAOABMAAAADAAQAAAAPAA8AAAAEAAIAABAPABAAAAAEAAEAAAAPABEAAAAEAAIAAAAPABIAAAAEAAMAAAAPABMAAAAEAAQAAAAQAA8AAAADAAEAAAAQABAAAAABAAEAAAAQABEAAAABAAIAAAAQABIAAAABAAMAAAAQABMAAAABAAQAAAARAA8AAAACAAMAAAARABAAAAACAAEAAAARABEAAAACAAIAAAARABIAAAACAAMAAAARABMAAAACAAQAAAAMAAAAAAABAAIAAAAMAAEAAAABAAMAAAAMAAIAAAABAAQAAAAMAAMAAAABAAUAAAANAAAAAAACAAIAAAANAAIAAAACAAQAAAANAAMAAAACAAUAAAAOAAAAAAADAAIAAAAOAAEAAAADAAMAAAAOAAIAAAADAAQAAAAOAAMAAAADAAUAAAAPAAAAAAAEAAIAAAAPAAEAAAAEAAMAAAAPAAIAAAAEAAQAAAAPAAMAAAAEAAUAAAAIAAAAAAABAAIAAAAIAAEAAAABAAMAAAAIAAIAAAABAAQAAAAJAAEAAAACAAMAAAAJAAIAAAACAAQAAAAKAAAAAAADAAIAAAAKAAEAAAADAAMAAAAKAAIAAAADAAQAAAALAAAAAAAEAAIAAAALAAEAAAAEAAMAAAALAAIAAAAEAAQAAAARAA4AAAACAAEAAAAPAA4AAAAEAAEAABAIAAMAAAABAAUAAAAJAAMAAAACAAUAAAAKAAMAAAADAAUAAAAQAAAAAAABAAIAAAAQAAEAAAABAAMAAAAQAAIAAAABAAQAAAAQAAMAAAABAAUAAAARAAAAAAACAAIAAAARAAEAAAACAAMAAAARAAIAAAACAAQAAAARAAMAAAACAAUAAAAQAA4AAAADAAIAAAARAA0AAAACAAMAAAARAAwAAAAEAAAAAAAQAA0AAAADAAEAAAAPAA0AAAAEAAIAAAAPAAwAAAAEAAEAAAAPAAsAAAAEAAAAAAAQAAwAAAADAAAAAAANAA4AAgABAAEAAAAOAA4AAgABAAAAAAANAAEAAAACAAMAAAAIAAYAAgAAAAEAAAACAAcAAgAAAAEAAAAEAAMAAgAAAAEAAAADAAIAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_opshx")
 
-[node name="MapleTree2" type="TileMapLayer" parent="Base2"]
+[node name="Rocks2" type="TileMapLayer" parent="Base2"]
 y_sort_enabled = true
-position = Vector2(-6076, 1020)
-tile_map_data = PackedByteArray("AAAFAAsAAAAAAAAAAAALAAoAAAAAAAAAAAANAAkAAAAAAAAAAAAFAAIAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAAHAAcAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAUAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_w728k")
-
-[node name="Rocks" type="TileMapLayer" parent="Base2"]
+texture_filter = 3
 position = Vector2(1, 4)
+scale = Vector2(0.2, 0.2)
+tile_map_data = PackedByteArray("AADi/xAAAAAAAAAAAADm/w8AAAAAAAAAAADr/woAAAAAAAAAAADs/xMAAAAAAAAAAADz/xIAAAAAAAAAAADl/wwAAAAAAAAAAADt/wcAAAAAAAAAAADi/wEAAAAAAAAAAADp/wMAAAAAAAAAAADs/wEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_6yxlc")
+
+[node name="Bushes2" type="TileMapLayer" parent="Base2"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AADb/wQAAAAAAAAAAADe/wcAAAAAAAAAAADo/wMAAAAAAAAAAADy/wcAAAAAAAAAAADl/wwAAAAAAAAAAADy/xsAAAAAAAAAAAD2/x4AAAAAAAAAAADc/xUAAAAAAAAAAADi/xwAAAAAAAAAAADk/xYAAAAAAAAAAADv/w8AAAAAAAAAAAD5/w4AAAAAAAAAAADd/w4AAAAAAAAAAADb/woAAAAAAAAAAADy/woAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ctfkm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -323,8 +345,10 @@ libraries = {
 }
 
 [node name="player_detect" type="Area2D" parent="."]
+visible = false
 position = Vector2(1044, 397)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detect"]
+visible = false
 position = Vector2(-1786, 2216)
 shape = SubResource("RectangleShape2D_c6cnx")
