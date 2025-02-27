@@ -158,3 +158,7 @@ func updatemusicVolume(val):
 func setSelected():
 	get_tree().call_group("MainMenu", "setProperty", "resolution", resolutionSelection)
 	get_tree().call_group("MainMenu", "setProperty", "textSize", textsizeSelection)
+	
+func updateMapUI():
+	get_tree().call_group("Player", "sendToManager")
+	get_tree().call_group("InGameUI", "setPlayerWorldPosition", playerX, playerY)

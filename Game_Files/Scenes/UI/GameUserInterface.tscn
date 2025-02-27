@@ -1,16 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://duc3gqbdcfnii"]
+[gd_scene load_steps=8 format=3 uid="uid://duc3gqbdcfnii"]
 
+[ext_resource type="Texture2D" uid="uid://csj67ncrvatpn" path="res://Game_Files/Assets/UI/MenuPanel.png" id="1_5pmjm"]
 [ext_resource type="Texture2D" uid="uid://b5vijf8vsxmob" path="res://Game_Files/Assets/UI/InGameOverlay.png" id="1_qs7px"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/InGameUserInterface.gd" id="1_y2bcy"]
+[ext_resource type="Texture2D" uid="uid://0wnajjjio4af" path="res://Game_Files/Assets/UI/MapButton.png" id="2_2j8bg"]
+[ext_resource type="Texture2D" uid="uid://73wk1n6c4h5x" path="res://Game_Files/Assets/UI/PlaceHolder.png" id="2_a2tpd"]
+[ext_resource type="Texture2D" uid="uid://cvgemc7t2spdx" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Beaver64.png" id="3_2osxs"]
+[ext_resource type="Texture2D" uid="uid://dgk6up31qq2jy" path="res://Game_Files/Assets/UI/MapButtonHover.png" id="3_6fi4p"]
 
-[node name="GameUserInterface" type="Control"]
+[node name="GameUserInterface" type="Control" groups=["InGameUI"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_y2bcy")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MapUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 965.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapPanel" type="TextureRect" parent="MapUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.491
+anchor_top = 0.433
+anchor_right = 0.491
+anchor_bottom = 0.433
+offset_left = -522.175
+offset_top = 386.36
+offset_right = 277.825
+offset_bottom = 1322.36
+rotation = 4.71239
+scale = Vector2(1.14003, 1.14003)
+texture = ExtResource("1_5pmjm")
+
+[node name="MapTexture" type="TextureRect" parent="MapUI"]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 134.0
+offset_right = 1441.0
+offset_bottom = 674.0
+texture = ExtResource("2_a2tpd")
+
+[node name="PlayerIcon" type="TextureRect" parent="MapUI"]
+layout_mode = 0
+offset_left = 918.0
+offset_top = 382.0
+offset_right = 982.0
+offset_bottom = 446.0
+texture = ExtResource("3_2osxs")
+
+[node name="UI_Overlay" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -22,3 +74,20 @@ offset_top = -540.0
 offset_right = -920.0
 offset_bottom = -500.0
 texture = ExtResource("1_qs7px")
+
+[node name="MapButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 260.0
+offset_top = 302.0
+offset_right = 560.0
+offset_bottom = 502.0
+texture_normal = ExtResource("2_2j8bg")
+texture_pressed = ExtResource("3_6fi4p")
+texture_hover = ExtResource("3_6fi4p")
+
+[connection signal="pressed" from="MapButton" to="." method="_on_map_button_pressed"]
