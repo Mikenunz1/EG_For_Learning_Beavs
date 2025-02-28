@@ -387,7 +387,6 @@ bus = &"SFX"
 
 [connection signal="pressed" from="StartMenu/NewText/NewButton" to="." method="newGamePressed"]
 [connection signal="pressed" from="StartMenu/LoadText/LoadButton" to="." method="loadGamePressed"]
-[connection signal="pressed" from="StartMenu/OnlineText/OnlineButton" to="." method="onlinePressed"]
 [connection signal="pressed" from="StartMenu/SettingsText/SettingsButton" to="." method="settingsPressed"]
 [connection signal="pressed" from="StartMenu/QuitText/QuitButton" to="." method="quitPressed"]
 [connection signal="pressed" from="SettingsMenu/BackText/BackButton" to="." method="hideSettingsMenu"]

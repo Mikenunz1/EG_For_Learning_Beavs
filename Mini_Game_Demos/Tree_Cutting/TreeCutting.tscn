@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Mini_Game_Demos/Tree_Cutting/world.gd" id="1_wsuws"]
 [ext_resource type="Script" path="res://Mini_Game_Demos/Tree_Cutting/beaver.gd" id="2_2x7l1"]
-[ext_resource type="Texture2D" uid="uid://dyrdoh7i54t8q" path="res://Mini_Game_Demos/Tree_Cutting/Beaver64.png" id="3_pd71k"]
+[ext_resource type="Texture2D" uid="uid://bndvvrjhkx25x" path="res://Mini_Game_Demos/Tree_Cutting/Beaver64.png" id="3_pd71k"]
 [ext_resource type="Script" path="res://Mini_Game_Demos/Tree_Cutting/tree.gd" id="4_bxeqw"]
-[ext_resource type="Texture2D" uid="uid://bf1u3flhuk20q" path="res://Mini_Game_Demos/Tree_Cutting/OldTree.png" id="5_1xcss"]
-[ext_resource type="Texture2D" uid="uid://dqkoblw1lqejq" path="res://Mini_Game_Demos/Tree_Cutting/goose.png" id="6_0idr3"]
+[ext_resource type="Texture2D" uid="uid://pjr2ushactcr" path="res://Mini_Game_Demos/Tree_Cutting/OldTree.png" id="5_1xcss"]
+[ext_resource type="Texture2D" uid="uid://dch8jgegg5kdt" path="res://Mini_Game_Demos/Tree_Cutting/goose.png" id="6_0idr3"]
 [ext_resource type="Script" path="res://Mini_Game_Demos/Tree_Cutting/goose.gd" id="6_6m57a"]
 [ext_resource type="Script" path="res://Mini_Game_Demos/Tree_Cutting/maple_tree.gd" id="8_fu3o6"]
-[ext_resource type="Texture2D" uid="uid://dy781gewg5vka" path="res://Mini_Game_Demos/Tree_Cutting/Maple.png" id="8_n1bx8"]
+[ext_resource type="Texture2D" uid="uid://cjdsuldqsdx8x" path="res://Mini_Game_Demos/Tree_Cutting/Maple.png" id="8_n1bx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt7pk"]
 size = Vector2(131, 72.5)
