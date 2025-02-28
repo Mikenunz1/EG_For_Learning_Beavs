@@ -13,24 +13,48 @@ extends Control
 
 #Variables for the specific buttons in the settings memu
 @onready var settingsBackButton = $SettingsMenu/BackText/BackButton
+@onready var resolutionChoice = $SettingsMenu/ResolutionsDropdown
+@onready var textSizeChoice = $SettingsMenu/TextSizeDropdown
+
+#Variables to hold AudioStreamPlayers
+@onready var menuAudioStream: = $"AudioStreamPlayer-MenuSFX"
+
+#Variables to hold imported audio files for menu sfx
+@onready var blip = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx2.mp3")
+@onready var select = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx3.mp3")
+@onready var exit = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx.mp3")
+
+func playSound(file):
+	menuAudioStream.stream = (file)
+	menuAudioStream.play()
 
 func newGamePressed():
 	#This is a temporary scenechange until we have a proper first scene
-	get_tree().call_group("GameManager", "loadSceneByName", "Forest")
+	playSound(select)
+	await get_tree().create_timer(0.1).timeout
+	get_tree().call_group("GameManager", "loadSceneByName", "MainMap")
 	
 func loadGamePressed():
 	#This is a temporary scencehange until we have a proper load sequence
+	playSound(select)
+	await get_tree().create_timer(0.1).timeout
 	get_tree().call_group("GameManager", "loadSceneByFile")
 	
 func onlinePressed():
+	playSound(blip)
+	await get_tree().create_timer(0.1).timeout
 	pass
 	
 func settingsPressed():
+	playSound(select)
+	await get_tree().create_timer(0.1).timeout
 	hideStartMenu()
 	showSettingsMenu()
 	
 #This functions exits the game. It does not save any data as that functionality happens within game
 func quitPressed():
+	playSound(exit)
+	await get_tree().create_timer(0.2).timeout
 	get_tree().quit()
 	
 #This function is used to hide and disable the main menu whenever another menu is open
@@ -54,12 +78,23 @@ func showStartMenu():
 func hideSettingsMenu():
 	settingsMenu.hide()
 	settingsBackButton.disabled = true
+	playSound(exit)
+	get_tree().call_group("GameManager", "saveSettings")
 	showStartMenu()
 
 func showSettingsMenu():
+	get_tree().call_group("GameManager", "setSelected")
 	settingsMenu.show()
 	settingsBackButton.disabled = false
 	
 #Fuction that all scenes have that remove them from tree
 func removeSelf():
 	queue_free()
+	
+func setProperty(settingName, val):
+	match settingName:
+		"resolution": 
+			resolutionChoice.selected = val
+		"textSize":
+			textSizeChoice.selected = val
+	

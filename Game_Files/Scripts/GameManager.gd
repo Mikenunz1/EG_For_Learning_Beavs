@@ -13,6 +13,7 @@ extends Node2D
 #GM1a : Preloads for specific scenes ---------------------------------------------------------------
 var MainMenu = preload("res:///Game_Files/Scenes/UI/MainMenu.tscn")
 var ForestScene = preload("res://Game_Files/Scenes/Environmental/Forest.tscn")
+var MainMap = preload("res://Traversable_Map/main_map.tscn")
 
 #GM1b: Raw Variables tracked by the game manager throughout runtime --------------------------------
 var playerX = 0
@@ -21,20 +22,43 @@ var playerY = 0
 var playerScene = ""
 
 #Settings Variables
-#var resolutionWidth = 0
-#var resolutionHeight = 0
+var resolutionSelection = 0
+var textsizeSelection = 0
+var masterVolume = 0.0
+var soundVolume = 0.0
+var musicVolume = 0.0
 
 #GM2a : Ready and Process --------------------------------------------------------------------------
 
 #Called on game startup when game manager finishes loading in 
 func _ready():
+	add_to_group("GameManager")
 	loadSceneByName("MainMenu")
+	loadSettings()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
 #GM2b : Load and save functions --------------------------------------------------------------------
+
+#This function is used for loading the saved settings
+func loadSettings():
+	#Checking if settings have been saved before
+	if (!FileAccess.file_exists("user://gameSettings.save")):
+		return #Error, no file by that name exists 
+		
+	var settingsSave = FileAccess.open("user://gameSettings.save", FileAccess.READ)
+	var json_string = settingsSave.get_line()	
+	var json = JSON.new()	
+	var _parse_result = json.parse(json_string)
+	var dict_data = json.data 
+	
+	#After data has been processed
+	resolutionSelection = dict_data["resolution"]
+	textsizeSelection = dict_data["textSize"]
+	
+	get_tree().call_group("Settings", "setGameResolution", resolutionSelection)
 
 #This function is used for loading based on name, typically when user traverses maps
 func loadSceneByName(sceneName):
@@ -51,6 +75,9 @@ func loadSceneByName(sceneName):
 			
 		"Forest":
 			sceneSpecifier = ForestScene
+			
+		"MainMap":
+			sceneSpecifier = MainMap
 		
 	var instance = sceneSpecifier.instantiate()
 	instance.position = Vector2(0,0)
@@ -62,11 +89,10 @@ func loadSceneByFile():
 	if (!FileAccess.file_exists("user://gameSave.save")):
 		return #Error, no file by that name exists 
 		
-	#TESTING THESE STILL
 	var gameSave = FileAccess.open("user://gameSave.save", FileAccess.READ)
 	var json_string = gameSave.get_line()	
 	var json = JSON.new()	
-	var parse_result = json.parse(json_string)
+	var _parse_result = json.parse(json_string)
 	var dict_data = json.data 
 	
 	#After data has been processed
@@ -96,9 +122,48 @@ func saveGame():
 	var jsonGame = JSON.stringify(gameDict)
 	gameSave.store_line(jsonGame)
 
+#Called whenever exiting the settings menu
+func saveSettings():
+	var settingsSave = FileAccess.open("user://gameSettings.save", FileAccess.WRITE)
+	
+	var settingsDict = {
+		"resolution" : resolutionSelection,
+		"textSize" : textsizeSelection
+	}
+	
+	#Saving for the game settings elements
+	var jsonSettings = JSON.stringify(settingsDict)
+	settingsSave.store_line(jsonSettings)
+
 #GM2c Data updating functions ----------------------------------------------------------------------
 
 #This function is used to pass player location data to the game manager
 func updatePlayerLocation(x, y):
 	playerX = x
 	playerY = y
+
+#This function is used to pass resolution settings to the game manager
+func updateResolution(val):
+	resolutionSelection = val
+	
+#This function is used to pass text size settings to the game manager
+func updateTextSize(val):
+	textsizeSelection = val
+	
+func updateMasterVolume(val):
+	masterVolume = val
+	
+func updatesoundVolume(val):
+	soundVolume = val
+	
+func updatemusicVolume(val):
+	musicVolume = val
+
+#This function is used set the selected choices that appear in the settings menu
+func setSelected():
+	get_tree().call_group("MainMenu", "setProperty", "resolution", resolutionSelection)
+	get_tree().call_group("MainMenu", "setProperty", "textSize", textsizeSelection)
+	
+func updateMapUI():
+	get_tree().call_group("Player", "sendToManager")
+	get_tree().call_group("InGameUI", "setPlayerWorldPosition", playerX, playerY)

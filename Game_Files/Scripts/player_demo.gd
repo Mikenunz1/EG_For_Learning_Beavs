@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 const SPEED = 350.0
 
 func _physics_process(_delta):	

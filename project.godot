@@ -33,6 +33,8 @@ enabled=PackedStringArray("res://addons/gut/plugin.cfg")
 
 GameScene=""
 GameComponent=""
+Settings=""
+MainMenu=""
 
 [input]
 
