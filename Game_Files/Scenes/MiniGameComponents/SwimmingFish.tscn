@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://7xvhu11swgme"]
+
+[ext_resource type="Script" path="res://Game_Files/Scripts/ObstacleSwimming.gd" id="1_r2odx"]
+[ext_resource type="Texture2D" uid="uid://bbyatar85wgw8" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Salmon.png" id="2_ein86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eurov"]
+size = Vector2(154, 62)
+
+[node name="SwimmingRock" type="Area2D" groups=["Obstacle"]]
+script = ExtResource("1_r2odx")
+SPEED = 550
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999992, -0.999998)
+scale = Vector2(0.538, 0.538)
+texture = ExtResource("2_ein86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 6)
+shape = SubResource("RectangleShape2D_eurov")

@@ -21,6 +21,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_82jot")]
+visible = true
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1920.0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://nviirwqs1qbv"]
+
+[ext_resource type="Script" path="res://Game_Files/Scripts/ObstacleSwimming.gd" id="1_3btqw"]
+[ext_resource type="Texture2D" uid="uid://cwceso8qfbwmp" path="res://Game_Files/Assets/Sprites/Sprite_Statics/SwimmingLog.png" id="2_5n140"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eurov"]
+size = Vector2(257.391, 83.0066)
+
+[node name="SwimmingRock" type="Area2D" groups=["Obstacle"]]
+script = ExtResource("1_3btqw")
+SPEED = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 0)
+scale = Vector2(0.709104, 0.709104)
+texture = ExtResource("2_5n140")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-14.0008, -6.34588)
+rotation = -1.04725
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_eurov")

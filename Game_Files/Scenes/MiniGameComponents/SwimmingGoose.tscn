@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgcdk87fl17mh"]
+
+[ext_resource type="Texture2D" uid="uid://bmntbere52yss" path="res://Game_Files/Assets/Sprites/Sprite_Statics/goose.png" id="1_bi0vr"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/ObstacleSwimming.gd" id="1_pbhol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt82v"]
+size = Vector2(188, 132)
+
+[node name="SwimmingLogVert" type="Area2D" groups=["Obstacle"]]
+script = ExtResource("1_pbhol")
+SPEED = 400
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-40, -2.00001)
+scale = Vector2(1.29581, 1.29581)
+texture = ExtResource("1_bi0vr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_lt82v")
