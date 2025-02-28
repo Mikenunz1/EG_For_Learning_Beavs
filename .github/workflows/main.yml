@@ -28,6 +28,15 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: Get latest tag
+        run: |
+          git fetch --tags
+          LATEST_TAG=$(git tag -l --sort=-v:refname | head -n 1)
+          IFS='.' read -r MAJOR MINOR PATCH <<<"${LATEST_TAG//v/}"
+          PATCH=$((PATCH + 1)) # Increment the patch version
+          NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+          echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
+
       - name: Run godot-tester
         uses: RGonzalezTech/godot-tester@rg/custom-godot-binary
         with:
@@ -54,7 +63,7 @@ jobs:
           generateReleaseNotes: true
           #change the below release tag to the current version number
           #if the version tag already exists, it will update that release
-          tag: v0.0.2
+          tag: ${{ env.NEW_TAG }}
           #the above can be replaced with ${{ github.ref_name }} to auto name
           artifacts: ${{ steps.export.outputs.archive_directory }}/*
               
