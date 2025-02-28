@@ -5,7 +5,7 @@ class_name Player
 const SPEED = 350.0
 
 #variables for player AudioStreamPlayers
-@onready var playerWalkingAudioStream = $AudioStreamPlayer2DWalking
+@onready var playerWalkingAudioStream = get_node_or_null("AudioStreamPlayer2DWalking")
 
 #variables for movement audio streams
 @onready var playerWalkingGrassSound = load("res://Game_Files/Assets/Audio/Sounds/Movement SFX/Leaves walk fast.mp3")
@@ -28,12 +28,13 @@ func _physics_process(_delta):
 	velocity = input_direction * SPEED
 	
 	#player movement sound control
-	if input_direction:
-		if!playerWalkingAudioStream.playing:
-			playerWalkingAudioStream.stream = (getMovementSound())
-			playerWalkingAudioStream.play()
-	else: 
-		playerWalkingAudioStream.stop()
+	if playerWalkingAudioStream:
+		if input_direction:
+			if!playerWalkingAudioStream.playing:
+				playerWalkingAudioStream.stream = (getMovementSound())
+				playerWalkingAudioStream.play()
+		else: 
+			playerWalkingAudioStream.stop()
 
 	#Built in function within Godot that deals with player movement
 	move_and_slide()
