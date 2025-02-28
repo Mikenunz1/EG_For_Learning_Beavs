@@ -4,6 +4,8 @@ extends Control
 @onready var health2 = $Health2
 @onready var health3 = $Health3
 
+@onready var progress = $Progress
+
 var noHealth = preload("res://Game_Files/Assets/UI/Minigames/Health_Missing.png")
 
 var healthAmount = 3
@@ -30,3 +32,7 @@ func changeHealthUI():
 	if (healthAmount == 0):
 		health3.texture = noHealth
 		get_tree().call_group("Minigame", "noHealth")
+		
+func updateProgress(val):
+	progress.value = 120 - val
+	

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var SPEED = 600
+var gameWon = false
 
 func _physics_process(_delta):	
 	
@@ -29,5 +30,6 @@ func _on_scripting_area_area_entered(area):
 	if (area.is_in_group("Obstacle")):
 		get_tree().call_group("MinigameUI", "decreaseHealth")
 
-func lost():
+func stopPlayer():
 	SPEED = 0
+	

@@ -10,11 +10,19 @@ var rng = RandomNumberGenerator.new()
 var health = 3
 
 @onready var gameOverText = $MinigameUI/RestartText
+@onready var timer = $GameTimer
+@onready var spawnTimer = $SpawnTimer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if (health == 0):
+		timer.stop()
+	
 	if (health == 0 && Input.is_action_just_pressed("Action")):
 		get_tree().reload_current_scene()
+		
+	get_tree().call_group("MinigameUI", "updateProgress", timer.time_left)
 
 func create_Obstacle():
 	var choice = rng.randi_range(1,4)
@@ -35,29 +43,34 @@ func create_Obstacle():
 func noHealth():
 	gameOverText.show()
 	health = 0	
-	get_tree().call_group("Player", "lost")
+	get_tree().call_group("Player", "stopPlayer")
 
 #The below functions spawn specifc obstacles for the minigame
 func spawn_Rock():
-	var spawnHeight = rng.randi_range(750, 820)
+	var spawnHeight = rng.randi_range(800, 820)
 	var newRock = rock.instantiate()
 	get_tree().current_scene.add_child(newRock)
 	newRock.global_position = Vector2(spawn_offset, spawnHeight)
 	
 func spawn_Log():
-	var spawnHeight = rng.randi_range(150, 650)
+	var spawnHeight = rng.randi_range(50, 650)
 	var newLog = log.instantiate()
 	get_tree().current_scene.add_child(newLog)
 	newLog.global_position = Vector2(spawn_offset, spawnHeight)
 	
 func spawn_fish():
-	var spawnHeight = rng.randi_range(250, 800)
+	var spawnHeight = rng.randi_range(150, 800)
 	var newFish = fish.instantiate()
 	get_tree().current_scene.add_child(newFish)
 	newFish.global_position = Vector2(spawn_offset, spawnHeight)
 	
 func spawn_goose():
-	var spawnHeight = rng.randi_range(250, 800)
+	var spawnHeight = rng.randi_range(250, 600)
 	var newGoose = goose.instantiate()
 	get_tree().current_scene.add_child(newGoose)
 	newGoose.global_position = Vector2(spawn_offset, spawnHeight)
+	
+func game_win():
+	get_tree().call_group("Player", "stopPlayer")
+	get_tree().call_group("Obstacle", "stop_movement")
+	spawnTimer.stop()
