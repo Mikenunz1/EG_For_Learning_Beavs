@@ -13,6 +13,8 @@ extends Control
 
 #Variables for the specific buttons in the settings memu
 @onready var settingsBackButton = $SettingsMenu/BackText/BackButton
+@onready var resolutionChoice = $SettingsMenu/ResolutionsDropdown
+@onready var textSizeChoice = $SettingsMenu/TextSizeDropdown
 
 func newGamePressed():
 	#This is a temporary scenechange until we have a proper first scene
@@ -54,12 +56,22 @@ func showStartMenu():
 func hideSettingsMenu():
 	settingsMenu.hide()
 	settingsBackButton.disabled = true
+	get_tree().call_group("GameManager", "saveSettings")
 	showStartMenu()
 
 func showSettingsMenu():
+	get_tree().call_group("GameManager", "setSelected")
 	settingsMenu.show()
 	settingsBackButton.disabled = false
 	
 #Fuction that all scenes have that remove them from tree
 func removeSelf():
 	queue_free()
+	
+func setProperty(settingName, val):
+	match settingName:
+		"resolution": 
+			resolutionChoice.selected = val
+		"textSize":
+			textSizeChoice.selected = val
+	
