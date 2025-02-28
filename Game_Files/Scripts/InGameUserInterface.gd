@@ -1,5 +1,7 @@
 extends Control
 
+@onready var inv = $InvUI
+
 @onready var map = $MapUI
 @onready var player = $MapUI/PlayerIcon
 
@@ -13,8 +15,10 @@ var UIoriginY = 285
 var playerWorldX = 0
 var playerWorldY = 0
 
-#Minimap UI functionality ------------------------------------------------------
-var open = false
+# UI functionality ------------------------------------------------------
+var menuOpen = false
+var mapOpen = false
+var invOpen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,15 +29,18 @@ func _process(delta):
 	pass
 	
 func _on_map_button_pressed():
-	if (open):
+	
+	if (mapOpen):
 		map.hide()
-		open = false
-			
-	else:	
+		mapOpen = false
+		menuOpen = false
+		
+	elif (!menuOpen):
 		map.show()
 		get_tree().call_group("GameManager", "updateMapUI")
 		set_player_location()
-		open = true
+		mapOpen = true
+		menuOpen = true
 
 #Used by game manager to set the player location locally to the map
 func setPlayerWorldPosition(x, y):
@@ -45,3 +52,15 @@ func set_player_location():
 	#TODO FIX this function based on map and proper variables
 	player.global_position.x = UIoriginX + playerWorldX * 0.1
 	player.global_position.y = UIoriginY + playerWorldY * 0.1
+
+
+func _on_inv_button_pressed():
+	if (invOpen):
+		inv.hide()
+		invOpen = false
+		menuOpen = false
+			
+	elif (!menuOpen):
+		inv.show()
+		invOpen = true
+		menuOpen = true
