@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt6acfsjujrc4"]
+[gd_scene load_steps=6 format=3 uid="uid://bt6acfsjujrc4"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/player_demo.gd" id="1_f2wjx"]
 [ext_resource type="Texture2D" uid="uid://di315tvgh7qrv" path="res://Game_Files/Assets/Sprites/Sprite_Statics/beaver-3.png" id="2_gpvoj"]
+[ext_resource type="PackedScene" uid="uid://duc3gqbdcfnii" path="res://Game_Files/Scenes/UI/GameUserInterface.tscn" id="3_hdd3n"]
+[ext_resource type="PackedScene" uid="uid://d3sodiaul1hnv" path="res://Game_Files/Scenes/UI/PauseMenu.tscn" id="4_3ciw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvovo"]
 size = Vector2(90.5, 54)
@@ -30,6 +32,21 @@ limit_left = -6050
 limit_top = 16
 limit_right = 21737
 limit_bottom = 6373
+
+[node name="GameUserInterface" parent="Camera2D2" instance=ExtResource("3_hdd3n")]
+z_index = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PauseMenu" parent="Camera2D2" instance=ExtResource("4_3ciw3")]
+z_index = 2
+offset_top = -537.0
+offset_bottom = 543.0
 
 [node name="AudioStreamPlayer2DWalking" type="AudioStreamPlayer2D" parent="."]
 volume_db = -14.857

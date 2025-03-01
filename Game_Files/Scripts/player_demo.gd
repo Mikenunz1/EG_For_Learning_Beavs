@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
-const SPEED = 350.0
+#const SPEED = 350.0
+const SPEED = 1800.0
 
 #variables for player AudioStreamPlayers
 @onready var playerWalkingAudioStream = get_node_or_null("AudioStreamPlayer2DWalking")
@@ -40,8 +41,6 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func setPosition(x,y):
-	print(x)
-	print(y)
 	global_position = Vector2(x,y)
 
 func sendToManager():

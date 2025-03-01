@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=4 uid="uid://2plykxaqh366"]
+[gd_scene load_steps=35 format=4 uid="uid://2plykxaqh366"]
 
 [ext_resource type="Texture2D" uid="uid://dcb63k8qmh45u" path="res://Traversable_Map/Tile_Assets/grass.png" id="1_m4y45"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/MainMap.gd" id="1_qf2a8"]
 [ext_resource type="PackedScene" uid="uid://bt6acfsjujrc4" path="res://Game_Files/Scenes/Player/Player_Demo.tscn" id="2_y1nm2"]
 [ext_resource type="Texture2D" uid="uid://crvtpmfbxg3ui" path="res://Traversable_Map/Tile_Assets/forest.png" id="3_07pjt"]
 [ext_resource type="Texture2D" uid="uid://clhd2k5qjvmm" path="res://Traversable_Map/Tile_Assets/aspen.png" id="4_y0hsn"]
@@ -332,8 +333,10 @@ sources/0 = SubResource("TileSetAtlasSource_sriyh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yky5"]
 size = Vector2(413, 538)
 
-[node name="GameMap" type="Node2D"]
+[node name="GameMap" type="Node2D" groups=["GameScene"]]
 y_sort_enabled = true
+position = Vector2(6075, 0)
+script = ExtResource("1_qf2a8")
 
 [node name="Base" type="Node2D" parent="."]
 
@@ -377,7 +380,7 @@ tile_set = SubResource("TileSet_jq2xt")
 y_sort_enabled = true
 
 [node name="PlayerDemo" parent="Y-sort" instance=ExtResource("2_y1nm2")]
-position = Vector2(-502, 3511)
+position = Vector2(7510, 2064)
 
 [node name="Forest" type="TileMapLayer" parent="Y-sort"]
 y_sort_enabled = true
@@ -412,10 +415,11 @@ tile_map_data = PackedByteArray("AAASAAwAAAACAAIAAAAQAAwAAAACAAEAAAATAAwAAAAAAAM
 tile_set = SubResource("TileSet_jdejn")
 
 [node name="GameDetection" type="Area2D" parent="."]
+position = Vector2(6273, 2171)
 script = ExtResource("13_iyyu7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameDetection"]
-position = Vector2(-2970, 3218)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_2yky5")
 
 [connection signal="body_entered" from="GameDetection" to="GameDetection" method="_on_body_entered"]
