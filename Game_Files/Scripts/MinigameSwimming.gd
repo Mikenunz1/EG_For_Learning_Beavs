@@ -8,8 +8,12 @@ var goose = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingGoose.ts
 var spawn_offset = -300
 var rng = RandomNumberGenerator.new()
 var health = 3
+var win = false
+var playX = 0
+var playY = 0
 
 @onready var gameOverText = $MinigameUI/RestartText
+@onready var gameWinText = $MinigameUI/WinText
 @onready var timer = $GameTimer
 @onready var spawnTimer = $SpawnTimer
 
@@ -23,7 +27,14 @@ func _process(delta):
 		get_tree().reload_current_scene()
 		
 	get_tree().call_group("MinigameUI", "updateProgress", timer.time_left)
-
+	
+	if (win && Input.is_action_just_pressed("Action")):
+		get_tree().call_group("GameManager", "updatePlayerLocation", 6873, 2171)
+		get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
+		get_tree().call_group("GameManager", "saveGame")
+		get_tree().call_group("GameManager", "loadSceneByFile")
+		removeSelf()
+		
 func create_Obstacle():
 	var choice = rng.randi_range(1,4)
 	
@@ -71,6 +82,12 @@ func spawn_goose():
 	newGoose.global_position = Vector2(spawn_offset, spawnHeight)
 	
 func game_win():
+	gameWinText.show()
 	get_tree().call_group("Player", "stopPlayer")
 	get_tree().call_group("Obstacle", "stop_movement")
 	spawnTimer.stop()
+	win = true
+
+#Fuction that all scenes have that remove them from tree
+func removeSelf():
+	queue_free()

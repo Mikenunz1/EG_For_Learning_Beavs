@@ -6,8 +6,8 @@ extends Control
 @onready var player = $MapUI/PlayerIcon
 
 #THESE ARE TEMP VARIABLES BASED AROUND THE CURRENT MAP UI
-var UIoriginX = 481
-var UIoriginY = 285
+var UIoriginX = 640
+var UIoriginY = 280
 
 #Minimap functionality variables -----------------------------------------------
 
@@ -42,18 +42,6 @@ func _on_map_button_pressed():
 		mapOpen = true
 		menuOpen = true
 
-#Used by game manager to set the player location locally to the map
-func setPlayerWorldPosition(x, y):
-	playerWorldX = x
-	playerWorldY = y
-	
-#Function used by UI to determine where to place the player on the map
-func set_player_location():
-	#TODO FIX this function based on map and proper variables
-	player.global_position.x = UIoriginX + playerWorldX * 0.1
-	player.global_position.y = UIoriginY + playerWorldY * 0.1
-
-
 func _on_inv_button_pressed():
 	if (invOpen):
 		inv.hide()
@@ -64,3 +52,21 @@ func _on_inv_button_pressed():
 		inv.show()
 		invOpen = true
 		menuOpen = true
+		
+#Used by game manager to set the player location locally to the map
+func setPlayerWorldPosition(x, y):
+	playerWorldX = x
+	playerWorldY = y
+		
+#Function used by UI to determine where to place the player on the map
+func set_player_location():
+	#TODO FIX this function based on map and proper variables
+	
+	player.position.x = UIoriginX + playerWorldX * 0.03449
+	player.position.y = UIoriginY + playerWorldY * 0.03449
+	
+	print("Player in game position :")
+	print(playerWorldX)
+	
+	print("UI Map position:")
+	print(player.position.x)
