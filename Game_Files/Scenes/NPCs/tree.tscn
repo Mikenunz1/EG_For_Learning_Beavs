@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://diimy6sg0dc3x"]
+
+[ext_resource type="Script" path="res://maple_tree.gd" id="1_wf8ek"]
+[ext_resource type="Texture2D" uid="uid://cct0y7ajg0dvj" path="res://Maple.png" id="2_w4qk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sclm"]
+size = Vector2(172, 58)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["trees"]]
+script = ExtResource("1_wf8ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w4qk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-20, 129)
+shape = SubResource("RectangleShape2D_0sclm")
