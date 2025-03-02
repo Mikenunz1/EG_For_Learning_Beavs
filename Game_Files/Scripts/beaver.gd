@@ -5,7 +5,7 @@ var last_direction = 1  # 1 for right, -1 for left
 const SPEED = 600
 
 func _ready():
-	position = Vector2(50,200)
+	
 	
 	# Make sure beaver has collision
 	if !has_node("CollisionShape2D"):
