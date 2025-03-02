@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csj67ncrvatpn" path="res://Game_Files/Assets/UI/MenuPanel.png" id="1_5pmjm"]
 [ext_resource type="Texture2D" uid="uid://b5vijf8vsxmob" path="res://Game_Files/Assets/UI/InGameOverlay.png" id="1_qs7px"]
-[ext_resource type="Script" path="res://Game_Files/Scripts/InGameUserInterface.gd" id="1_y2bcy"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/UI/InGameUserInterface.gd" id="1_qxiyi"]
 [ext_resource type="Texture2D" uid="uid://0wnajjjio4af" path="res://Game_Files/Assets/UI/MapButton.png" id="2_2j8bg"]
 [ext_resource type="Texture2D" uid="uid://73wk1n6c4h5x" path="res://Game_Files/Assets/UI/PlaceHolder.png" id="2_a2tpd"]
 [ext_resource type="Texture2D" uid="uid://cvgemc7t2spdx" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Beaver64.png" id="3_2osxs"]
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_y2bcy")
+script = ExtResource("1_qxiyi")
 
 [node name="MapUI" type="Control" parent="."]
 visible = false

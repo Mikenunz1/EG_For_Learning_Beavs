@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgojnksales8v"]
 
-[ext_resource type="Script" path="res://Game_Files/Scripts/VolumeSlider.gd" id="1_2kqby"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/UI/VolumeSlider.gd" id="1_2kqby"]
+
 
 [node name="VolumeSlider" type="HSlider"]
 offset_right = 8.0

@@ -12,7 +12,7 @@ func _ready():
 	DisplayServer.window_set_size(Vector2i(2000, 2000))
 	# Create background using ground.png
 	var background = Sprite2D.new()
-	var texture = load("res://ground.png")  # Make sure the path is correct
+	var texture = load("res://Mini_Game_Demos/Tree_Cutting/Ground.png")  # Make sure the path is correct
 	background.texture = texture
 	
 	# Center the background
