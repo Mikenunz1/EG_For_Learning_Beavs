@@ -1,5 +1,4 @@
 extends Node2D
-
 #                     GAME MANAGER OVERVIEW                       #
 # --------------------------------------------------------------- #
 # 1. Variables and Variable Tracking                              #
@@ -12,13 +11,14 @@ extends Node2D
 
 #GM1a : Preloads for specific scenes ---------------------------------------------------------------
 var MainMenu = preload("res:///Game_Files/Scenes/UI/MainMenu.tscn")
-var MainMap = preload("res://Traversable_Map/main_map.tscn")
+var MainMap = preload("res://Game_Files/Scenes/Environmental/main_map.tscn")
 var MinigameSwimming = preload("res://Game_Files/Scenes/Interactive/MinigameSwimming.tscn")
 
 #GM1b: Raw Variables tracked by the game manager throughout runtime --------------------------------
+
+#Ingame Variables
 var playerX = 0
 var playerY = 0
-
 var playerScene = ""
 
 #Settings Variables
@@ -142,8 +142,8 @@ func updatePlayerLocation(x, y):
 	playerX = x
 	playerY = y
 	
-func setPlayerScene(name):
-	playerScene = name
+func setPlayerScene(newName):
+	playerScene = newName
 
 #This function is used to pass resolution settings to the game manager
 func updateResolution(val):
@@ -153,20 +153,12 @@ func updateResolution(val):
 func updateTextSize(val):
 	textsizeSelection = val
 	
-func updateMasterVolume(val):
-	masterVolume = val
-	
-func updatesoundVolume(val):
-	soundVolume = val
-	
-func updatemusicVolume(val):
-	musicVolume = val
-
 #This function is used set the selected choices that appear in the settings menu
 func setSelected():
 	get_tree().call_group("MainMenu", "setProperty", "resolution", resolutionSelection)
 	get_tree().call_group("MainMenu", "setProperty", "textSize", textsizeSelection)
 	
+#This function is used to update the ingame minimap player marker
 func updateMapUI():
 	get_tree().call_group("Player", "sendToManager")
 	get_tree().call_group("InGameUI", "setPlayerWorldPosition", playerX, playerY)

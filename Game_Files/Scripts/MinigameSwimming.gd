@@ -1,7 +1,7 @@
 extends Node2D
 
 var rock = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingRock.tscn")
-var log = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingLogVert.tscn")
+var vertlog = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingLogVert.tscn")
 var fish = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingFish.tscn")
 var goose = preload("res://Game_Files/Scenes/MiniGameComponents/SwimmingGoose.tscn")
 
@@ -65,7 +65,7 @@ func spawn_Rock():
 	
 func spawn_Log():
 	var spawnHeight = rng.randi_range(50, 650)
-	var newLog = log.instantiate()
+	var newLog = vertlog.instantiate()
 	get_tree().current_scene.add_child(newLog)
 	newLog.global_position = Vector2(spawn_offset, spawnHeight)
 	
