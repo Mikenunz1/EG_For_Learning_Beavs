@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://crvtpmfbxg3ui" path="res://Game_Files/Assets/Sprites/Tile_Assets/forest.png" id="8_d6m80"]
 [ext_resource type="Texture2D" uid="uid://clhd2k5qjvmm" path="res://Game_Files/Assets/Sprites/Tile_Assets/aspen.png" id="9_qg8wn"]
 
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6wuy"]
 texture = ExtResource("4_rklvf")
 texture_region_size = Vector2i(64, 64)
@@ -229,6 +228,7 @@ sources/2 = SubResource("TileSetAtlasSource_vcw2c")
 texture = ExtResource("5_yorn1")
 texture_region_size = Vector2i(1000, 1000)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(316, 424, 252, 308, 120, 184, 52, 140, -164, 128, -260, 244, -304, 392)
 
 [sub_resource type="TileSet" id="TileSet_6yxlc"]
 tile_size = Vector2i(1000, 1000)
@@ -240,6 +240,7 @@ texture = ExtResource("6_f8dmm")
 texture_region_size = Vector2i(160, 160)
 0:0/0 = 0
 0:0/0/y_sort_origin = 60
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(54, 80, 80, 63, 63, 54, 12, 49, -50, 52, -80, 55, -68, 72, -58, 80)
 
 [sub_resource type="TileSet" id="TileSet_ctfkm"]
 tile_size = Vector2i(160, 160)

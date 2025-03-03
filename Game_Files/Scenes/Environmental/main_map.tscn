@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://2plykxaqh366"]
+[gd_scene load_steps=47 format=4 uid="uid://2plykxaqh366"]
 
 [ext_resource type="Texture2D" uid="uid://dcb63k8qmh45u" path="res://Game_Files/Assets/Sprites/Tile_Assets/grass.png" id="1_m4y45"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MainMap.gd" id="1_qf2a8"]
@@ -8,13 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://dpwpelqg4lss0" path="res://Game_Files/Assets/Sprites/Tile_Assets/sand_animated.png" id="5_jb08q"]
 [ext_resource type="Texture2D" uid="uid://dqah5p7s8bpuj" path="res://Game_Files/Assets/Sprites/Tile_Assets/animated_water.png" id="6_tqdqc"]
 [ext_resource type="Texture2D" uid="uid://cobcnf6jdlwyq" path="res://Game_Files/Assets/Sprites/Tile_Assets/beaver_prints.png" id="7_8kq6h"]
+[ext_resource type="Texture2D" uid="uid://c5nx8a4oahnso" path="res://Game_Files/Assets/Sprites/Tile_Assets/path.png" id="7_diu62"]
+[ext_resource type="Texture2D" uid="uid://duk7n44vne7uc" path="res://Game_Files/Assets/Sprites/Tile_Assets/mini_game_sign.png" id="8_c8cwf"]
 [ext_resource type="Texture2D" uid="uid://bbv80pree764s" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Maple.png" id="8_m4yg0"]
 [ext_resource type="Texture2D" uid="uid://ly54tw158nxl" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Rock.png" id="9_i4ao4"]
+[ext_resource type="Texture2D" uid="uid://btebxg2xysnaw" path="res://Game_Files/Assets/Sprites/Tile_Assets/wasd_sign.png" id="9_ucm5i"]
+[ext_resource type="Texture2D" uid="uid://fr71si5gtq8a" path="res://Game_Files/Assets/Sprites/Tile_Assets/dam_sign.png" id="10_12ftm"]
 [ext_resource type="Texture2D" uid="uid://dedl72j332l1i" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Bush.png" id="10_eunma"]
 [ext_resource type="PackedScene" uid="uid://d0cavcbf8newo" path="res://Game_Files/Scenes/Environmental/forest_map.tscn" id="11_tbg12"]
 [ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Game_Files/Scenes/Environmental/wetlands_map.tscn" id="12_jyrrp"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/Game_Detection.gd" id="13_iyyu7"]
-[ext_resource type="PackedScene" uid="uid://432xxo0hixyb" path="res://Game_Files/Scenes/NPCs/NPC_Placeholder.tscn" id="15_va5kw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5bbr"]
 texture = ExtResource("1_m4y45")
@@ -170,6 +173,44 @@ texture_region_size = Vector2i(1000, 1000)
 tile_size = Vector2i(1000, 1000)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8sfy1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b7ok2"]
+texture = ExtResource("7_diu62")
+texture_region_size = Vector2i(64, 64)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rme2f"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_b7ok2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvpju"]
+texture = ExtResource("8_c8cwf")
+texture_region_size = Vector2i(192, 256)
+0:0/animation_columns = 2
+0:0/animation_frame_0/duration = 2.0
+0:0/animation_frame_1/duration = 2.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dfgl"]
+texture = ExtResource("9_ucm5i")
+texture_region_size = Vector2i(192, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ft1s"]
+texture = ExtResource("10_12ftm")
+texture_region_size = Vector2i(192, 256)
+0:0/animation_columns = 2
+0:0/animation_frame_0/duration = 2.0
+0:0/animation_frame_1/duration = 2.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_x3v44"]
+tile_size = Vector2i(192, 256)
+sources/0 = SubResource("TileSetAtlasSource_rvpju")
+sources/1 = SubResource("TileSetAtlasSource_0dfgl")
+sources/2 = SubResource("TileSetAtlasSource_1ft1s")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikexk"]
 texture = ExtResource("3_07pjt")
@@ -334,6 +375,12 @@ sources/0 = SubResource("TileSetAtlasSource_sriyh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yky5"]
 size = Vector2(413, 538)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf7kn"]
+size = Vector2(547.5, 6631)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0wsp"]
+size = Vector2(28783, 332)
+
 [node name="GameMap" type="Node2D" groups=["GameScene"]]
 y_sort_enabled = true
 position = Vector2(6075, 0)
@@ -377,11 +424,22 @@ scale = Vector2(0.2, -0.15)
 tile_map_data = PackedByteArray("AADr/wYAAAAAAAAAAAD0/wMAAAAAAAAAAAD8/wQAAAAAAAAAAAD+/wIAAAAAAAAAAAD2/xwAAAAAAAAAAAD3/w8AAAAAAAAAAAD4/w8AAAAAAAAAAAD8/xAAAAAAAAAAAAD8/xEAAAAAAAAAAAD+/w8AAAAAAAAAAAD+/yIAAAAAAAAAAADo/yMAAAAAAAAAAADo/yUAAAAAAAAAAADp/xsAAAAAAAAAAADq/yQAAAAAAAAAAADr/yUAAAAAAAAAAADs/yAAAAAAAAAAAADs/ycAAAAAAAAAAADv/yEAAAAAAAAAAACy/w0AAAAAAAAAAACz/x4AAAAAAAAAAACz/yYAAAAAAAAAAAC0/yEAAAAAAAAAAAC1/yQAAAAAAAAAAAC2/x8AAAAAAAAAAAC3/xUAAAAAAAAAAAC4/wUAAAAAAAAAAAC4/xEAAAAAAAAAAAC6/wgAAAAAAAAAAAC8/wkAAAAAAAAAAAC8/w8AAAAAAAAAAAC9/xoAAAAAAAAAAAC+/xoAAAAAAAAAAAC//xcAAAAAAAAAAADA/ycAAAAAAAAAAADB/wsAAAAAAAAAAADD/xoAAAAAAAAAAADE/xUAAAAAAAAAAADF/yYAAAAAAAAAAADG/yYAAAAAAAAAAADH/w8AAAAAAAAAAADH/xQAAAAAAAAAAADJ/w0AAAAAAAAAAADM/yAAAAAAAAAAAADN/wkAAAAAAAAAAADO/xsAAAAAAAAAAADO/yEAAAAAAAAAAADP/ygAAAAAAAAAAADR/xQAAAAAAAAAAADS/wEAAAAAAAAAAADS/wcAAAAAAAAAAADW/xMAAAAAAAAAAADX/ycAAAAAAAAAAADZ/xYAAAAAAAAAAADZ/ygAAAAAAAAAAADd/xwAAAAAAAAAAADe/wcAAAAAAAAAAADg/xAAAAAAAAAAAADg/xsAAAAAAAAAAADg/yAAAAAAAAAAAADg/ygAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_jq2xt")
 
+[node name="TutorialPath" type="TileMapLayer" parent="Base"]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAA7AAYAAAADAAEAAAA6AAYAAAACAAEAAAA5AAYAAAACAAEAAAA4AAYAAAACAAEAAAA3AAYAAAACAAEAAAA2AAYAAAACAAEAAAA1AAYAAAACAAEAAAA0AAYAAAACAAEAAAAzAAYAAAABAAEAAGAzAAUAAAABAAEAAFAyAAUAAAACAAEAAAAxAAUAAAACAAEAAAAwAAUAAAACAAEAAAAvAAUAAAACAAEAAAAuAAUAAAACAAEAAAAtAAUAAAACAAEAAAAsAAUAAAACAAEAAAArAAUAAAACAAEAAAAqAAUAAAACAAEAAAApAAUAAAABAAEAAAApAAYAAAABAAEAADAoAAYAAAACAAEAAAAnAAYAAAACAAEAAAAmAAYAAAACAAEAAAAlAAYAAAACAAEAAAAkAAYAAAACAAEAAAAjAAYAAAACAAEAAAAiAAYAAAACAAEAAAAhAAYAAAACAAEAAAAgAAYAAAABAAEAAAAgAAcAAAACAAEAAFAfAAgAAAACAAEAAAAeAAgAAAACAAEAAAAdAAgAAAACAAEAAAAcAAgAAAACAAEAAAAbAAgAAAADAAEAABAgAAgAAAABAAEAADA=")
+tile_set = SubResource("TileSet_rme2f")
+
+[node name="Signs" type="TileMapLayer" parent="Base"]
+position = Vector2(3480, 322)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAkAAIAAQAAAAAAAAAcAAMAAgAAAAAAAAAWAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_x3v44")
+
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="PlayerDemo" parent="Y-sort" instance=ExtResource("2_y1nm2")]
-position = Vector2(7510, 2064)
+position = Vector2(14724, 1635)
 
 [node name="Forest" type="TileMapLayer" parent="Y-sort"]
 y_sort_enabled = true
@@ -423,7 +481,22 @@ script = ExtResource("13_iyyu7")
 position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_2yky5")
 
-[node name="NpcPlaceholder" parent="." instance=ExtResource("15_va5kw")]
-position = Vector2(8321, 1798)
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="leftWall" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-6332, 3217)
+shape = SubResource("RectangleShape2D_hf7kn")
+
+[node name="rightWall" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(22013, 3161)
+shape = SubResource("RectangleShape2D_hf7kn")
+
+[node name="topWall" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(7845, -162)
+shape = SubResource("RectangleShape2D_m0wsp")
+
+[node name="bottomWall" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(7887, 6562)
+shape = SubResource("RectangleShape2D_m0wsp")
 
 [connection signal="body_entered" from="GameDetection" to="GameDetection" method="_on_body_entered"]
