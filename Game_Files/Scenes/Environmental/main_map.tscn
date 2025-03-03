@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://2plykxaqh366"]
+[gd_scene load_steps=36 format=4 uid="uid://2plykxaqh366"]
 
 [ext_resource type="Texture2D" uid="uid://dcb63k8qmh45u" path="res://Game_Files/Assets/Sprites/Tile_Assets/grass.png" id="1_m4y45"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MainMap.gd" id="1_qf2a8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d0cavcbf8newo" path="res://Game_Files/Scenes/Environmental/forest_map.tscn" id="11_tbg12"]
 [ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Game_Files/Scenes/Environmental/wetlands_map.tscn" id="12_jyrrp"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/Game_Detection.gd" id="13_iyyu7"]
+[ext_resource type="PackedScene" uid="uid://432xxo0hixyb" path="res://Game_Files/Scenes/NPCs/NPC_Placeholder.tscn" id="15_va5kw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5bbr"]
 texture = ExtResource("1_m4y45")
@@ -421,5 +422,8 @@ script = ExtResource("13_iyyu7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameDetection"]
 position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_2yky5")
+
+[node name="NpcPlaceholder" parent="." instance=ExtResource("15_va5kw")]
+position = Vector2(8321, 1798)
 
 [connection signal="body_entered" from="GameDetection" to="GameDetection" method="_on_body_entered"]

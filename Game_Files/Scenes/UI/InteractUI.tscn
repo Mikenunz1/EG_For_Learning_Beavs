@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://53vbx76t0afo"]
+
+[ext_resource type="Texture2D" uid="uid://3iv5464odkaq" path="res://Game_Files/Assets/UI/MenuBackground.png" id="1_0vssy"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/UI/InteractUI.gd" id="1_brcta"]
+[ext_resource type="Shader" path="res://Game_Files/Assets/UI/Shaders/PauseMenu.gdshader" id="1_n2nfk"]
+[ext_resource type="Texture2D" uid="uid://6b7rrkrkcwpw" path="res://Game_Files/Assets/UI/BeaverPortrait.png" id="2_pulf1"]
+[ext_resource type="Texture2D" uid="uid://52v5w0pd6iyy" path="res://Game_Files/Assets/UI/TextBox.png" id="2_vg6lm"]
+[ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="3_17dml"]
+[ext_resource type="Texture2D" uid="uid://bclu1ru88gtu0" path="res://Game_Files/Assets/UI/MenuButton.png" id="6_7dt5t"]
+[ext_resource type="Texture2D" uid="uid://cpb4iy5a8r452" path="res://Game_Files/Assets/UI/MenuButtonHover.png" id="7_tigg2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blkta"]
+shader = ExtResource("1_n2nfk")
+shader_parameter/color_over = null
+
+[node name="InteractUI" type="Control" groups=["Interaction"]]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_brcta")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -920.0
+offset_bottom = -500.0
+texture = ExtResource("1_0vssy")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_blkta")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -541.0
+offset_right = 960.0
+offset_bottom = 539.0
+
+[node name="Character" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -276.0
+offset_right = 1197.0
+offset_bottom = 744.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pulf1")
+
+[node name="TextBoxPanel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = 193.0
+offset_right = 72.0
+offset_bottom = 541.0
+texture = ExtResource("2_vg6lm")
+
+[node name="GameText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -893.0
+offset_top = 281.0
+offset_right = 19.0
+offset_bottom = 463.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_17dml")
+theme_override_font_sizes/normal_font_size = 21
+text = "this is placeholder text"
+
+[node name="NextText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = 335.0
+offset_right = 146.0
+offset_bottom = 520.0
+scale = Vector2(0.59301, 0.59301)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/normal_font = ExtResource("3_17dml")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "
+[center]  NEXT[/center]"
+
+[node name="NextButton" type="TextureButton" parent="NextText"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -3.37262
+offset_top = 10.1178
+offset_right = 316.627
+offset_bottom = 175.118
+texture_normal = ExtResource("6_7dt5t")
+texture_pressed = ExtResource("7_tigg2")
+texture_hover = ExtResource("7_tigg2")
+
+[connection signal="pressed" from="NextText/NextButton" to="." method="loadDialogue"]

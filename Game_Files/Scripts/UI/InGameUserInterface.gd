@@ -64,9 +64,3 @@ func set_player_location():
 	
 	player.position.x = UIoriginX + playerWorldX * 0.03449
 	player.position.y = UIoriginY + playerWorldY * 0.03449
-	
-	print("Player in game position :")
-	print(playerWorldX)
-	
-	print("UI Map position:")
-	print(player.position.x)
