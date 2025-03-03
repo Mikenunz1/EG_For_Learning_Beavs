@@ -185,33 +185,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_b7ok2")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvpju"]
-texture = ExtResource("8_c8cwf")
-texture_region_size = Vector2i(192, 256)
-0:0/animation_columns = 2
-0:0/animation_frame_0/duration = 2.0
-0:0/animation_frame_1/duration = 2.0
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dfgl"]
-texture = ExtResource("9_ucm5i")
-texture_region_size = Vector2i(192, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ft1s"]
-texture = ExtResource("10_12ftm")
-texture_region_size = Vector2i(192, 256)
-0:0/animation_columns = 2
-0:0/animation_frame_0/duration = 2.0
-0:0/animation_frame_1/duration = 2.0
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_x3v44"]
-tile_size = Vector2i(192, 256)
-sources/0 = SubResource("TileSetAtlasSource_rvpju")
-sources/1 = SubResource("TileSetAtlasSource_0dfgl")
-sources/2 = SubResource("TileSetAtlasSource_1ft1s")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikexk"]
 texture = ExtResource("3_07pjt")
 texture_region_size = Vector2i(64, 64)
@@ -323,6 +296,40 @@ tile_size = Vector2i(160, 160)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_73p0x")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvpju"]
+texture = ExtResource("8_c8cwf")
+texture_region_size = Vector2i(192, 256)
+0:0/animation_columns = 2
+0:0/animation_frame_0/duration = 2.0
+0:0/animation_frame_1/duration = 2.0
+0:0/0 = 0
+0:0/0/z_index = 20
+0:0/0/y_sort_origin = 45
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0dfgl"]
+texture = ExtResource("9_ucm5i")
+texture_region_size = Vector2i(192, 256)
+0:0/0 = 0
+0:0/0/y_sort_origin = 45
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, 37, -23, 75, -46, 79, -49, 87, 41, 87, 35, 78, 14, 78, 13, 37)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ft1s"]
+texture = ExtResource("10_12ftm")
+texture_region_size = Vector2i(192, 256)
+0:0/animation_columns = 2
+0:0/animation_frame_0/duration = 2.0
+0:0/animation_frame_1/duration = 2.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 45
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-22, 37, -23, 75, -51, 76, -51, 84, 46, 85, 48, 72, 15, 73, 13, 37)
+
+[sub_resource type="TileSet" id="TileSet_x3v44"]
+tile_size = Vector2i(192, 256)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rvpju")
+sources/1 = SubResource("TileSetAtlasSource_0dfgl")
+sources/2 = SubResource("TileSetAtlasSource_1ft1s")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sriyh"]
 texture = ExtResource("6_tqdqc")
 texture_region_size = Vector2i(64, 64)
@@ -429,12 +436,6 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAA7AAYAAAADAAEAAAA6AAYAAAACAAEAAAA5AAYAAAACAAEAAAA4AAYAAAACAAEAAAA3AAYAAAACAAEAAAA2AAYAAAACAAEAAAA1AAYAAAACAAEAAAA0AAYAAAACAAEAAAAzAAYAAAABAAEAAGAzAAUAAAABAAEAAFAyAAUAAAACAAEAAAAxAAUAAAACAAEAAAAwAAUAAAACAAEAAAAvAAUAAAACAAEAAAAuAAUAAAACAAEAAAAtAAUAAAACAAEAAAAsAAUAAAACAAEAAAArAAUAAAACAAEAAAAqAAUAAAACAAEAAAApAAUAAAABAAEAAAApAAYAAAABAAEAADAoAAYAAAACAAEAAAAnAAYAAAACAAEAAAAmAAYAAAACAAEAAAAlAAYAAAACAAEAAAAkAAYAAAACAAEAAAAjAAYAAAACAAEAAAAiAAYAAAACAAEAAAAhAAYAAAACAAEAAAAgAAYAAAABAAEAAAAgAAcAAAACAAEAAFAfAAgAAAACAAEAAAAeAAgAAAACAAEAAAAdAAgAAAACAAEAAAAcAAgAAAACAAEAAAAbAAgAAAADAAEAABAgAAgAAAABAAEAADA=")
 tile_set = SubResource("TileSet_rme2f")
 
-[node name="Signs" type="TileMapLayer" parent="Base"]
-position = Vector2(3480, 322)
-scale = Vector2(1.5, 1.5)
-tile_map_data = PackedByteArray("AAAkAAIAAQAAAAAAAAAcAAMAAgAAAAAAAAAWAAIAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_x3v44")
-
 [node name="Y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -458,6 +459,13 @@ tile_set = SubResource("TileSet_ydivj")
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAcAAAAAAAAAAAAGAAQAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAgAAAAAAAAAAAAPAAcAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAgAAAAAAAAAAAACABkAAAAAAAAAAAACACQAAAAAAAAAAAADAB4AAAAAAAAAAAAHABkAAAAAAAAAAAAHABsAAAAAAAAAAAAJACAAAAAAAAAAAAAOACIAAAAAAAAAAAARACAAAAAAAAAAAAAVABoAAAAAAAAAAAAVAB4AAAAAAAAAAAAWACAAAAAAAAAAAAAdABwAAAAAAAAAAAAnABgAAAAAAAAAAAAqAAUAAAAAAAAAAAAqACYAAAAAAAAAAAAsAB4AAAAAAAAAAAAtACAAAAAAAAAAAAAuAAUAAAAAAAAAAAAvAAUAAAAAAAAAAAAwAAQAAAAAAAAAAAAwABcAAAAAAAAAAAAzAAEAAAAAAAAAAAAzABcAAAAAAAAAAAA2ABMAAAAAAAAAAAA5AAMAAAAAAAAAAAA5ABQAAAAAAAAAAAA8ABEAAAAAAAAAAABAACQAAAAAAAAAAABEAA8AAAAAAAAAAABEABwAAAAAAAAAAABEACMAAAAAAAAAAABFAA0AAAAAAAAAAABFAA8AAAAAAAAAAABGACQAAAAAAAAAAABJABAAAAAAAAAAAABJACIAAAAAAAAAAABKABgAAAAAAAAAAABLABUAAAAAAAAAAABNAAIAAAAAAAAAAABPAAcAAAAAAAAAAABPAAwAAAAAAAAAAABPABcAAAAAAAAAAABQAAoAAAAAAAAAAABRAAQAAAAAAAAAAABTABcAAAAAAAAAAABVACIAAAAAAAAAAABWABoAAAAAAAAAAABXACEAAAAAAAAAAABYABQAAAAAAAAAAABYABgAAAAAAAAAAABZAA0AAAAAAAAAAABZAB8AAAAAAAAAAABaAAcAAAAAAAAAAABaAA4AAAAAAAAAAABbABQAAAAAAAAAAABdACEAAAAAAAAAAABeAAkAAAAAAAAAAABfAA0AAAAAAAAAAABgABIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ar6bn")
+
+[node name="Signs" type="TileMapLayer" parent="Y-sort"]
+y_sort_enabled = true
+position = Vector2(3480, 322)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAkAAIAAQAAAAAAAAAcAAMAAgAAAAAAAAAWAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_x3v44")
 
 [node name="ForestMap" parent="Y-sort" instance=ExtResource("11_tbg12")]
 
