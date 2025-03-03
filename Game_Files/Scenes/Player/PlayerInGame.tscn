@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt6acfsjujrc4"]
+[gd_scene load_steps=7 format=3 uid="uid://bt6acfsjujrc4"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/player_demo.gd" id="1_b2ror"]
 [ext_resource type="Texture2D" uid="uid://di315tvgh7qrv" path="res://Game_Files/Assets/Sprites/Sprite_Statics/beaver-3.png" id="2_23kko"]
 [ext_resource type="PackedScene" uid="uid://duc3gqbdcfnii" path="res://Game_Files/Scenes/UI/GameUserInterface.tscn" id="3_3j4ix"]
 [ext_resource type="PackedScene" uid="uid://d3sodiaul1hnv" path="res://Game_Files/Scenes/UI/PauseMenu.tscn" id="4_651gh"]
+[ext_resource type="PackedScene" uid="uid://53vbx76t0afo" path="res://Game_Files/Scenes/UI/InteractUI.tscn" id="5_61pvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvovo"]
 size = Vector2(90.5, 54)
@@ -34,6 +35,7 @@ limit_right = 21737
 limit_bottom = 6373
 
 [node name="GameUserInterface" parent="Camera2D" instance=ExtResource("3_3j4ix")]
+visible = false
 z_index = 1
 anchors_preset = 0
 anchor_right = 0.0
@@ -43,8 +45,13 @@ offset_bottom = 2.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="PauseMenu" parent="Camera2D" instance=ExtResource("4_651gh")]
+[node name="InteractUi" parent="Camera2D" instance=ExtResource("5_61pvt")]
+visible = false
 z_index = 2
+anchors_preset = 15
+
+[node name="PauseMenu" parent="Camera2D" instance=ExtResource("4_651gh")]
+z_index = 3
 offset_top = -537.0
 offset_bottom = 543.0
 
