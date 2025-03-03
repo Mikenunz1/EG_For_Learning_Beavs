@@ -1,30 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://432xxo0hixyb"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/NPCtest.gd" id="1_e2j5h"]
-[ext_resource type="Texture2D" uid="uid://cva0i2i5bk3e4" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Owl.png" id="2_37dv4"]
+[ext_resource type="Texture2D" uid="uid://di315tvgh7qrv" path="res://Game_Files/Assets/Sprites/Sprite_Statics/beaver-3.png" id="2_i07j6"]
 [ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="3_wxsnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjogs"]
-size = Vector2(321, 409)
+size = Vector2(321, 284)
 
 [node name="NpcPlaceholder" type="Node2D"]
 script = ExtResource("1_e2j5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_37dv4")
+texture = ExtResource("2_i07j6")
+flip_h = true
 
 [node name="InteractArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(-2.5, -1.5)
+position = Vector2(-2.5, -17)
 shape = SubResource("RectangleShape2D_vjogs")
 
 [node name="InteractText" type="RichTextLabel" parent="."]
-visible = false
 offset_left = -163.0
-offset_top = -198.0
+offset_top = -106.0
 offset_right = 160.0
-offset_bottom = -128.0
+offset_bottom = -36.0
 theme_override_fonts/normal_font = ExtResource("3_wxsnr")
 bbcode_enabled = true
 text = "
