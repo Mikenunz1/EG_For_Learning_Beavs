@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://2plykxaqh366"]
+[gd_scene load_steps=49 format=4 uid="uid://2plykxaqh366"]
 
 [ext_resource type="Texture2D" uid="uid://dcb63k8qmh45u" path="res://Game_Files/Assets/Sprites/Tile_Assets/grass.png" id="1_m4y45"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MainMap.gd" id="1_qf2a8"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Game_Files/Scenes/Environmental/wetlands_map.tscn" id="12_jyrrp"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/Game_Detection.gd" id="13_iyyu7"]
 [ext_resource type="AudioStream" uid="uid://cdm1otutediph" path="res://Game_Files/Assets/Audio/Music/Track-3.mp3" id="19_ktrln"]
+[ext_resource type="AudioStream" uid="uid://bnwyta5haw4p0" path="res://Game_Files/Assets/Audio/Sounds/Enviroment Ambience/river-quiet.mp3" id="20_h8rkq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5bbr"]
 texture = ExtResource("1_m4y45")
@@ -508,9 +509,14 @@ shape = SubResource("RectangleShape2D_m0wsp")
 position = Vector2(7887, 6562)
 shape = SubResource("RectangleShape2D_m0wsp")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer-BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_ktrln")
 autoplay = true
 bus = &"Music"
+
+[node name="AudioStreamPlayer-EnvironmentalAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_h8rkq")
+volume_db = -7.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="GameDetection" to="GameDetection" method="_on_body_entered"]
