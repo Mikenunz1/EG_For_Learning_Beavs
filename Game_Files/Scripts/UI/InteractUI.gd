@@ -8,6 +8,10 @@ var dialogueLength = 0
 var dialogueCounter = 0
 var dialogue = []
 
+#use to assign the narration sound effect
+@onready var dialogueAudioStreamPlayer = $"AudioStreamPlayer-DialogueSFX"
+@onready var talk = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/text-narration-sfx.mp3")
+
 func startInteraction(newDialogue, newLength):
 	dialogueLength = newLength
 	dialogue = newDialogue
@@ -20,6 +24,8 @@ func endInteraction():
 	hide()
 	
 func loadDialogue():
+	dialogueAudioStreamPlayer.stream = talk
+	dialogueAudioStreamPlayer.play()
 	dialogueCounter = dialogueCounter + 1
 	
 	if (dialogueCounter > dialogueLength):

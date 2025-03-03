@@ -130,4 +130,7 @@ texture_normal = ExtResource("6_7dt5t")
 texture_pressed = ExtResource("7_tigg2")
 texture_hover = ExtResource("7_tigg2")
 
+[node name="AudioStreamPlayer-DialogueSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
 [connection signal="pressed" from="NextText/NextButton" to="." method="loadDialogue"]
