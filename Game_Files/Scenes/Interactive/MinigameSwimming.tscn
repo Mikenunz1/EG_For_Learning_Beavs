@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://875rqppouh7j"]
+[gd_scene load_steps=16 format=3 uid="uid://875rqppouh7j"]
 
 [ext_resource type="PackedScene" uid="uid://bjkj2lj72x47a" path="res://Game_Files/Scenes/Player/PlayerSwimming.tscn" id="1_uvy0x"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MinigameSwimming.gd" id="1_w1r3m"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b8hk0rdtfb2p8" path="res://Game_Files/Assets/UI/Minigames/Health.png" id="8_31220"]
 [ext_resource type="Texture2D" uid="uid://db5wahatnnq3u" path="res://Game_Files/Assets/UI/Minigames/SwimmingBar.png" id="10_1b0p4"]
 [ext_resource type="Texture2D" uid="uid://c44gxk0kc7d46" path="res://Game_Files/Assets/UI/Minigames/SwimmingProgress.png" id="11_nsvmp"]
+[ext_resource type="AudioStream" uid="uid://bb8fpsjdx00jb" path="res://Game_Files/Assets/Audio/Music/Track-4 Underwater.mp3" id="12_dbua3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiq1b"]
 size = Vector2(107, 1126)
@@ -149,6 +150,15 @@ texture_progress = ExtResource("11_nsvmp")
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
+
+[node name="AudioStreamPlayer-MinigameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_dbua3")
+autoplay = true
+bus = &"Music"
+
+[node name="AudioStreamPlayer-MinigameSFX" type="AudioStreamPlayer" parent="."]
+volume_db = -19.676
+bus = &"SFX"
 
 [connection signal="timeout" from="GameTimer" to="." method="game_win"]
 [connection signal="area_entered" from="ObstacleCatcher" to="ObstacleCatcher" method="_on_area_entered"]

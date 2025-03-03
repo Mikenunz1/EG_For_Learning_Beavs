@@ -166,6 +166,7 @@ texture_normal = ExtResource("3_lvb2v")
 texture_hover = ExtResource("4_sh2fs")
 
 [node name="AudioStreamPlayer-PauseMenuSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="pressed" from="ResumeText/ResumeButton" to="." method="hideMenu"]
 [connection signal="pressed" from="QuitText/QuitButton" to="." method="quitPressed"]

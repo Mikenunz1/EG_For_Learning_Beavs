@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjkj2lj72x47a"]
+[gd_scene load_steps=7 format=3 uid="uid://bjkj2lj72x47a"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/PlayerSwimming.gd" id="1_gnxwi"]
 [ext_resource type="Texture2D" uid="uid://di315tvgh7qrv" path="res://Game_Files/Assets/Sprites/Sprite_Statics/beaver-3.png" id="1_me3ud"]
+[ext_resource type="AudioStream" uid="uid://cdw7ret6hp7b" path="res://Game_Files/Assets/Audio/Sounds/Minigame SFX/Bone-Crunch.mp3" id="3_s43xu"]
+[ext_resource type="AudioStream" uid="uid://dd52e62e8fdsw" path="res://Game_Files/Assets/Audio/Sounds/Environment Interaction SFX/Water sloshing.mp3" id="4_2054s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3autd"]
 radius = 30.0141
@@ -29,5 +31,14 @@ shape = SubResource("RectangleShape2D_g11jo")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_me3ud")
 flip_h = true
+
+[node name="AudioStreamPlayer2D-HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_s43xu")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2D-MovementSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2054s")
+volume_db = -15.848
+bus = &"SFX"
 
 [connection signal="area_entered" from="ScriptingArea" to="." method="_on_scripting_area_area_entered"]

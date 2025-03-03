@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdw7ret6hp7b"
+path="res://.godot/imported/Bone-Crunch.mp3-400471e6f2f9e8bdbe2c37b69086e59e.mp3str"
+
+[deps]
+
+source_file="res://Game_Files/Assets/Audio/Sounds/Minigame SFX/Bone-Crunch.mp3"
+dest_files=["res://.godot/imported/Bone-Crunch.mp3-400471e6f2f9e8bdbe2c37b69086e59e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

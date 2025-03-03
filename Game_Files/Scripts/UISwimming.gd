@@ -8,7 +8,7 @@ extends Control
 
 var noHealth = preload("res://Game_Files/Assets/UI/Minigames/Health_Missing.png")
 var healthAmount = 3
-	
+
 #Called when player hits an obstacle
 func decreaseHealth():
 	healthAmount = healthAmount - 1

@@ -50,3 +50,4 @@ offset_bottom = 543.0
 
 [node name="AudioStreamPlayer2DWalking" type="AudioStreamPlayer2D" parent="."]
 volume_db = -14.857
+bus = &"SFX"

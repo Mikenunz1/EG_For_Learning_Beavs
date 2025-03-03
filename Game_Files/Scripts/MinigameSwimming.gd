@@ -17,6 +17,14 @@ var playY = 0
 @onready var timer = $GameTimer
 @onready var spawnTimer = $SpawnTimer
 
+@onready var minigameMusicAudioStreamPlayer = $"AudioStreamPlayer-MinigameMusic"
+@onready var minigameSFXAudioStreamPlayer = $"AudioStreamPlayer-MinigameSFX"
+
+@onready var victorySound = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/victory-sfx.mp3")
+@onready var gameoverSound = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/gameover.mp3")
+@onready var exit = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx.mp3")
+@onready var select = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx3.mp3")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -24,11 +32,17 @@ func _process(delta):
 		timer.stop()
 	
 	if (health == 0 && Input.is_action_just_pressed("Action")):
+		minigameSFXAudioStreamPlayer.stream = exit
+		minigameSFXAudioStreamPlayer.play()
+		await get_tree().create_timer(0.1).timeout
 		get_tree().reload_current_scene()
 		
 	get_tree().call_group("MinigameUI", "updateProgress", timer.time_left)
 	
 	if (win && Input.is_action_just_pressed("Action")):
+		minigameSFXAudioStreamPlayer.stream = select
+		minigameSFXAudioStreamPlayer.play()
+		await get_tree().create_timer(0.1).timeout
 		get_tree().call_group("GameManager", "updatePlayerLocation", 6873, 2171)
 		get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
 		get_tree().call_group("GameManager", "saveGame")
@@ -52,6 +66,8 @@ func create_Obstacle():
 			spawn_goose()
 	
 func noHealth():
+	minigameSFXAudioStreamPlayer.stream = gameoverSound
+	minigameSFXAudioStreamPlayer.play()
 	gameOverText.show()
 	health = 0	
 	get_tree().call_group("Player", "stopPlayer")
@@ -82,6 +98,9 @@ func spawn_goose():
 	newGoose.global_position = Vector2(spawn_offset, spawnHeight)
 	
 func game_win():
+	minigameMusicAudioStreamPlayer.stop()
+	minigameSFXAudioStreamPlayer.stream = victorySound
+	minigameSFXAudioStreamPlayer.play()
 	gameWinText.show()
 	get_tree().call_group("Player", "stopPlayer")
 	get_tree().call_group("Obstacle", "stop_movement")
