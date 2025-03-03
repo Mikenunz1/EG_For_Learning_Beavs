@@ -7,6 +7,7 @@ extends Control
 @onready var progress = $Progress
 
 var noHealth = preload("res://Game_Files/Assets/UI/Minigames/Health_Missing.png")
+var fullHealth = preload("res://Game_Files/Assets/UI/Minigames/Health.png")
 var healthAmount = 3
 
 #Called when player hits an obstacle
@@ -29,4 +30,11 @@ func changeHealthUI():
 #Function used to update the progress tracker UI		
 func updateProgress(val):
 	progress.value = 120 - val
+	
+func restartProgress():
+	healthAmount = 3
+	health1.texture = fullHealth
+	health2.texture = fullHealth
+	health3.texture = fullHealth
+	
 	

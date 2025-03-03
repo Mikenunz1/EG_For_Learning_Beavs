@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://875rqppouh7j"]
+[gd_scene load_steps=17 format=3 uid="uid://875rqppouh7j"]
 
 [ext_resource type="PackedScene" uid="uid://bjkj2lj72x47a" path="res://Game_Files/Scenes/Player/PlayerSwimming.tscn" id="1_uvy0x"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MinigameSwimming.gd" id="1_w1r3m"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Game_Files/Scripts/UISwimming.gd" id="7_byvwc"]
 [ext_resource type="Texture2D" uid="uid://b8hk0rdtfb2p8" path="res://Game_Files/Assets/UI/Minigames/Health.png" id="8_31220"]
 [ext_resource type="Texture2D" uid="uid://db5wahatnnq3u" path="res://Game_Files/Assets/UI/Minigames/SwimmingBar.png" id="10_1b0p4"]
+[ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="10_p6833"]
 [ext_resource type="Texture2D" uid="uid://c44gxk0kc7d46" path="res://Game_Files/Assets/UI/Minigames/SwimmingProgress.png" id="11_nsvmp"]
 [ext_resource type="AudioStream" uid="uid://bb8fpsjdx00jb" path="res://Game_Files/Assets/Audio/Music/Track-4 Underwater.mp3" id="12_dbua3"]
 
@@ -27,8 +28,7 @@ position = Vector2(-2, -2)
 script = ExtResource("1_w1r3m")
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
+wait_time = 120.0
 autostart = true
 
 [node name="Background" type="Node2D" parent="."]
@@ -121,7 +121,8 @@ layout_mode = 0
 offset_top = 418.0
 offset_right = 1922.0
 offset_bottom = 556.0
-theme_override_font_sizes/normal_font_size = 100
+theme_override_fonts/normal_font = ExtResource("10_p6833")
+theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[center]PRESS SPACE TO RESTART[/center]"
 
@@ -130,10 +131,12 @@ visible = false
 layout_mode = 0
 offset_top = 418.0
 offset_right = 1922.0
-offset_bottom = 556.0
-theme_override_font_sizes/normal_font_size = 100
+offset_bottom = 759.0
+theme_override_fonts/normal_font = ExtResource("10_p6833")
+theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[center]YOU WIN[/center]"
+text = "[center]YOU WIN
+[font_size={40}]press space to continue[/font_size][/center]"
 
 [node name="Progress" type="TextureProgressBar" parent="MinigameUI"]
 layout_mode = 0

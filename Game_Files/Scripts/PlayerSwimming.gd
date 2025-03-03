@@ -46,3 +46,6 @@ func _on_scripting_area_area_entered(area):
 func stopPlayer():
 	SPEED = 0
 	
+func startPlayer():
+	SPEED = 600
+	

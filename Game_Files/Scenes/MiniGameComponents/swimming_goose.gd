@@ -24,3 +24,6 @@ func _process(delta):
 
 func stop_movement():
 	SPEED = 0
+	
+func remove():
+	queue_free()

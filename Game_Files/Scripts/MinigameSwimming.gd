@@ -29,13 +29,13 @@ var playY = 0
 func _process(delta):
 	
 	if (health == 0):
-		timer.stop()
+		timer.paused = true
 	
 	if (health == 0 && Input.is_action_just_pressed("Action")):
 		minigameSFXAudioStreamPlayer.stream = exit
 		minigameSFXAudioStreamPlayer.play()
 		await get_tree().create_timer(0.1).timeout
-		get_tree().reload_current_scene()
+		restart()
 		
 	get_tree().call_group("MinigameUI", "updateProgress", timer.time_left)
 	
@@ -70,6 +70,7 @@ func noHealth():
 	minigameSFXAudioStreamPlayer.play()
 	gameOverText.show()
 	health = 0	
+	get_tree().call_group("Obstacle", "stop_movement")
 	get_tree().call_group("Player", "stopPlayer")
 
 #The below functions spawn specifc obstacles for the minigame
@@ -106,6 +107,17 @@ func game_win():
 	get_tree().call_group("Obstacle", "stop_movement")
 	spawnTimer.stop()
 	win = true
+
+func restart():
+	get_tree().call_group("Obstacle", "remove")
+	get_tree().call_group("Player", "startPlayer")
+	get_tree().call_group("MinigameUI", "restartProgress")
+	health = 3
+	timer.start()
+	timer.paused = false
+	spawnTimer.start()
+	gameOverText.hide()
+	
 
 #Fuction that all scenes have that remove them from tree
 func removeSelf():
