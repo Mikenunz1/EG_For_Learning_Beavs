@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx86pp3wclnwh"]
 
-[ext_resource type="Texture2D" uid="uid://bwdbciol1dyox" path="res://Beaver64.png" id="1_af8fg"]
-[ext_resource type="Script" path="res://beaver.gd" id="1_ve0jg"]
+[ext_resource type="Script" path="res://Game_Files/Scripts/Minigames/TreeCutting/TreeBeaver.gd" id="1_ve0jg"]
+[ext_resource type="Texture2D" uid="uid://cvgemc7t2spdx" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Beaver64.png" id="2_ead82"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_linvl"]
 size = Vector2(112, 65)
@@ -11,7 +11,7 @@ script = ExtResource("1_ve0jg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.1, 2.4)
-texture = ExtResource("1_af8fg")
+texture = ExtResource("2_ead82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, 1.5)

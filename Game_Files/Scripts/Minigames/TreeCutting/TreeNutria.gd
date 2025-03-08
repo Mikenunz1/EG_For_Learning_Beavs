@@ -1,22 +1,18 @@
-# Goose.gd
+# Nutria.gd
 extends CharacterBody2D
-
 const SPEED = 450
 var move_direction = Vector2.RIGHT
 var move_timer = 0
-const DIRECTION_CHANGE_TIME = 2.0  # Change direction every 2 seconds
+const DIRECTION_CHANGE_TIME = 1.0  # Change direction every second
 
 func _ready():
 	# Create collision shape if it doesn't exist
 	if !has_node("CollisionShape2D"):
 		var collision = CollisionShape2D.new()
 		var shape = RectangleShape2D.new()
-		shape.size = Vector2(50, 50)  # Adjust based on your goose sprite
+		shape.size = Vector2(50, 50)  # Adjust based on your nutria sprite
 		collision.shape = shape
 		add_child(collision)
-	
-	# Set initial position
-	position = Vector2(600, 400)
 	
 	# Add to group for easier detection
 	add_to_group("enemies")
@@ -33,7 +29,7 @@ func _physics_process(delta):
 	# Set velocity based on current direction
 	velocity = move_direction * SPEED
 	
-	# Move the goose and handle collisions
+	# Move the nutria and handle collisions
 	move_and_slide()
 	
 	# Check for collisions with StaticBody2D
@@ -52,7 +48,7 @@ func _physics_process(delta):
 			move_timer = 0
 			
 			# Print debug info
-			print("Goose collided with StaticBody2D! New direction: ", move_direction)
+			print("Nutria collided with StaticBody2D! New direction: ", move_direction)
 			break
 		elif collider is CharacterBody2D and !collider.is_in_group("enemies"):
 			# Assume it's the beaver - trigger game over in World
@@ -61,17 +57,20 @@ func _physics_process(delta):
 				world.game_over()
 	
 	# Check for edge of screen/boundaries
-	var screen_size = Vector2(1000, 1000)
+	var screen_size = Vector2(2000, 2000)  # Updated to match your 2000x2000 window
 	if position.x < 0 or position.x > screen_size.x or position.y < 0 or position.y > screen_size.y:
 		position = position.clamp(Vector2.ZERO, screen_size)
 		choose_random_direction()
 	
-	# Update sprite orientation
+	# Update sprite orientation - FIXED
+	# For nutria, we need to flip the sprite in the OPPOSITE way compared to beaver
 	if has_node("Sprite2D"):
 		if move_direction.x < 0:
-			$Sprite2D.flip_h = true
-		elif move_direction.x > 0:
+			# Moving left, sprite should face LEFT
 			$Sprite2D.flip_h = false
+		elif move_direction.x > 0:
+			# Moving right, sprite should face RIGHT
+			$Sprite2D.flip_h = true
 
 func choose_random_direction():
 	# Choose a random cardinal direction (no diagonals)

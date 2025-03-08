@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bar3wtms18k5d"
-path="res://.godot/imported/Ground.png-66e11c155f84cac148b479cc8b30bf56.ctex"
+uid="uid://bm0x4k41ypgr0"
+path="res://.godot/imported/goose.png-54e74c895298afa55f57091d2a1023cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mini_Game_Demos/Tree_Cutting/Ground.png"
-dest_files=["res://.godot/imported/Ground.png-66e11c155f84cac148b479cc8b30bf56.ctex"]
+source_file="res://Mini_Game_Demos/treecutting/goose.png"
+dest_files=["res://.godot/imported/goose.png-54e74c895298afa55f57091d2a1023cd.ctex"]
 
 [params]
 

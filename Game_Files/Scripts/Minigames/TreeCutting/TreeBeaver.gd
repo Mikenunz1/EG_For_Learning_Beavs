@@ -5,7 +5,7 @@ var last_direction = 1  # 1 for right, -1 for left
 const SPEED = 600
 
 func _ready():
-	position = Vector2(50,200)
+	
 	
 	# Make sure beaver has collision
 	if !has_node("CollisionShape2D"):
@@ -17,8 +17,8 @@ func _ready():
 	
 func _physics_process(_delta):
 	# Get horizontal and vertical input
-	var h_direction = Input.get_axis("ui_left", "ui_right")
-	var v_direction = Input.get_axis("ui_up", "ui_down")
+	var h_direction = Input.get_axis("Move_Left", "Move_Right")
+	var v_direction = Input.get_axis("Move_Up", "Move_Down")
 	
 	# Set velocity based on input
 	velocity.x = h_direction * SPEED

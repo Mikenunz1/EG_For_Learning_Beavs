@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0vle7tnv8wko"]
+
+[ext_resource type="Script" path="res://Mini_Game_Demos/treecutting/world.gd" id="1_r12fk"]
+[ext_resource type="Texture2D" uid="uid://cpjlb1upos2eo" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/Ground.png" id="2_yrce8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_r12fk")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_yrce8")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://2plykxaqh366"]
+[gd_scene load_steps=48 format=4 uid="uid://2plykxaqh366"]
 
 [ext_resource type="Texture2D" uid="uid://dcb63k8qmh45u" path="res://Game_Files/Assets/Sprites/Tile_Assets/grass.png" id="1_m4y45"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MainMap.gd" id="1_qf2a8"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dedl72j332l1i" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Bush.png" id="10_eunma"]
 [ext_resource type="PackedScene" uid="uid://d0cavcbf8newo" path="res://Game_Files/Scenes/Environmental/forest_map.tscn" id="11_tbg12"]
 [ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Game_Files/Scenes/Environmental/wetlands_map.tscn" id="12_jyrrp"]
-[ext_resource type="Script" path="res://Game_Files/Scripts/Game_Detection.gd" id="13_iyyu7"]
+[ext_resource type="PackedScene" uid="uid://dffetjf24imvp" path="res://Game_Files/Scenes/Functional/miniGameStartNode.tscn" id="18_npxbu"]
 [ext_resource type="AudioStream" uid="uid://cdm1otutediph" path="res://Game_Files/Assets/Audio/Music/Track-3.mp3" id="19_ktrln"]
 [ext_resource type="AudioStream" uid="uid://bnwyta5haw4p0" path="res://Game_Files/Assets/Audio/Sounds/Enviroment Ambience/river-quiet.mp3" id="20_h8rkq"]
 
@@ -381,9 +381,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_sriyh")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yky5"]
-size = Vector2(413, 538)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf7kn"]
 size = Vector2(547.5, 6631)
 
@@ -483,14 +480,6 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAASAAwAAAACAAIAAAAQAAwAAAACAAEAAAATAAwAAAAAAAMAAGAUAAwAAAAAAAQAABAOAAwAAAAAAAQAAAAPAAwAAAAEAAIAAAAUAA0AAAAFAAMAAAAUAA4AAAAFAAMAAAAOAA0AAAAFAAMAABAOAA4AAAAFAAMAABAOAA8AAAAFAAMAABAOABAAAAAFAAMAABAOABEAAAAFAAMAABAPABEAAAAEAAEAAAATABEAAAAEAAEAAAAUABEAAAAFAAMAAAAUABAAAAAAAAEAAAAPAA0AAAADAAAAAFAQAA0AAAAAAAUAAFASAA0AAAAEAAEAAAASAA4AAAAEAAEAAAATAA4AAAAEAAEAAAATAA8AAAAAAAAAAFATAA0AAAAEAAEAAAATABAAAAAEAAEAAAASABAAAAAEAAEAAAAQABAAAAAEAAEAAAAPABAAAAAAAAUAAFAPAA8AAAAEAAEAAAAPAA4AAAAEAAEAAAAQAA4AAAAEAAEAAAAQAA8AAAAEAAEAAAASAA8AAAAEAAEAAAASABEAAAAEAAEAAAAQABEAAAAEAAEAAAAUAA8AAAACAAIAAAAVAA8AAAAEAAIAAAAWAA8AAAAEAAIAAAAVABAAAAAEAAIAACAWABAAAAAEAAIAACAXABAAAAAEAAIAACAXAA8AAAAEAAIAAAAYAA8AAAACAAEAAAAYABAAAAACAAMAAAAYABEAAAAEAAMAABAYABIAAAACAAQAAAAYAA4AAAAEAAMAABAYAA0AAAAAAAQAAAAZAA0AAAAAAAMAAGAaAA0AAAAEAAIAAAAbAA0AAAAEAAIAAAAcAA0AAAAEAAIAAAAdAA0AAAAAAAQAABAdAA4AAAAFAAMAAAAdAA8AAAAFAAMAAAAdABAAAAAFAAMAAAAdABEAAAAFAAMAAAAdABIAAAACAAQAABAZABIAAAAEAAIAACAaABIAAAAEAAIAACAbABIAAAAAAAMAAFAcABIAAAAEAAIAACAZAA4AAAAEAAEAAAAaAA4AAAAEAAEAAAAbAA4AAAAEAAEAAAAcAA4AAAADAAAAAFAcAA8AAAAEAAEAAAAcABAAAAAEAAEAAAAcABEAAAAEAAEAAAAbABEAAAAAAAAAAFAaABEAAAAEAAEAAAAZABEAAAAAAAUAAFAZABAAAAAEAAEAAAAZAA8AAAAEAAEAAAAaAA8AAAADAAAAAFAbAA8AAAAEAAEAAAAbABAAAAAEAAEAAAAaABAAAAAEAAEAAAAOABIAAAACAAQAAAAUABIAAAACAAQAABAPABIAAAAEAAIAACATABIAAAAAAAMAAFAQABIAAAACAAMAAAASABIAAAABAAEAAAARAA4AAAADAAAAAFARABAAAAAAAAAAAFARABEAAAADAAAAAFARAA8AAAAEAAEAAAARAA0AAAAEAAEAAAARAAwAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_jdejn")
 
-[node name="GameDetection" type="Area2D" parent="."]
-position = Vector2(6273, 2171)
-script = ExtResource("13_iyyu7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameDetection"]
-position = Vector2(-1, 2)
-shape = SubResource("RectangleShape2D_2yky5")
-
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
 [node name="leftWall" type="CollisionShape2D" parent="Boundaries"]
@@ -509,6 +498,11 @@ shape = SubResource("RectangleShape2D_m0wsp")
 position = Vector2(7887, 6562)
 shape = SubResource("RectangleShape2D_m0wsp")
 
+[node name="MiniGameStartNode" parent="." instance=ExtResource("18_npxbu")]
+position = Vector2(6108, 2989)
+rotation = 3.14031
+gameID = 1
+
 [node name="AudioStreamPlayer-BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_ktrln")
 autoplay = true
@@ -518,5 +512,3 @@ bus = &"Music"
 stream = ExtResource("20_h8rkq")
 volume_db = -7.0
 bus = &"SFX"
-
-[connection signal="body_entered" from="GameDetection" to="GameDetection" method="_on_body_entered"]
