@@ -38,14 +38,38 @@ Some potential textual options to include in the game
 “Kids these days\! I can’t believe our two-year old isn’t moving out just because there is no space for a new lodge\! When I was his age I built this lodge when I had nothing but two sticks to my name\!” 
 
 **Item or Interactive** \- Either the tooltip for a fish item, or a dialogue pop-up for a dead fish on the ground that you can interact with  
-	“Beavers share more in common with fish than you might think. Back in the 1700’s they were classified as fish because of their scaly tail\! This was mainly so they could be eaten on fasting days.”
+	“Beavers share more in common with fish than you might think. Back in the 1700’s they were classified as fish because of their scaly tail\!”
 
 **Item** \- Clump of fur, which has the tooltip  
 	“Beavers have an insane amount of hair\! Just one square centimeter patch of their skin can contain 23,000 hairs\!”
 
+**Item \-** Stick  
+	“Beavers use a combination of logs, sticks, mud, rocks, grass, leaves and plants to build their dams. How resourceful\!”
+
 ## Miscellaneous Dialogue
 
 **Tutorial Section**
+
+*Start of the Game*
+
+(Bottom of Screen) \- Use WASD to move\! (goes away once they move)  
+*Then*  
+(Bottom of Screen) \- Use E to interact with objects around you\! (goes away once they interact)  
+Sign \- “A beaver family normally consists of two babies (kits), two yearlings (less than 2 years old) and 2 adults. Go find the rest of your family\!”  
+*Let them walk to their sibling \-* Once they get next to their sibling  
+(Bottom of Screen) \- Use E to interact with other beavers\! (goes away once they interact)  
+Bridgette (Bobo’s Sister, Yearling) \- “Did you get those sticks that mom and dad asked you to get? You’re always slacking off, I can’t believe we’re the same age.”  
+Bobo \- “Oh I forgot\!”  
+(Bottom of Screen) \- Go find a stick, then press E to pick it up\!
+
+- Once they find a stick
+
+(Bottom of Screen) \- Great\! You can use “i” to look at what is in your inventory\!  
+(Bottom of Screen) \- Now go find your parents\!
+
+*\_\_\_\_\_\_*
+
+**POTENTIAL OPTIONS (NOT REQUIRED)**
 
 *Inside Bobo’s parents house*  
 *\[Goal: Establish Bobo as slightly lazy for a beaver.\]*
@@ -97,3 +121,30 @@ Bobo \- “I don’t know if I’m ready to leave. \*whine\* Can I just stay wit
 
 Bobo’s Dad \- “Sorry bud, but you need to learn how to take control of your own life now. It’ll be hard at first, but I know you can stick through it.” 
 
+Bobo \- “Is there really no way I can stay with you guys?”
+
+Bobo’s Mom \- “(Honey), it's time for you to show the world what you can do. We all believe in you\!”
+
+*End Scene*
+
+**\_\_\_\_\_\_**
+
+**River Minigame**
+
+“This is the River minigame\! Beavers use rivers and bodies of water as their main means of transportation, as well as many other things. The ponds they create with their dams are used as a canal, escape route, hiding place, food storage, bathtub, swimming pool, and toilet\! They really make the most of their pond\!”
+
+“In this minigame, you will have to dodge obstacles, as you work your way towards one of the perfect logs\! Watch out though, beavers don’t have very good eyesight, so be careful to not get hit by any debris in the water\!”
+
+“Beavers often swim with their eyes, ears and nose above the water, just like an alligator or a crocodile.”
+
+“Beavers normally dive for up to 5-6 minutes, but they can hold their breath for up to 15 minutes in extraordinary circumstances\!”
+
+**Woodcutting Minigame**
+
+**“**This is the Woodcutting minigame\! Use your mouse to chop down the tree, and claim the log for your dam\!”
+
+“Beavers can chop a tree of 6 inches in diameter in as little as 30 minutes, so get choppin’\!”
+
+“Beavers eat about 2-4 pounds of wood per day, and love to eat certain kinds of wood\! Some of their favorite types of wood include aspen and willow trees.”
+
+“Dragging logs can be difficult and expose beavers to damage, so they can build canals to let them transport the logs more easily.”
