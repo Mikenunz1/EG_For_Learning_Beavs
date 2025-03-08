@@ -40,3 +40,12 @@ func _physics_process(_delta):
 			var collider = collision.get_collider()
 			if collider.is_in_group("trees"):
 				collider.take_hit()
+
+func _on_scripting_area_entered(area):
+	print("Area entered")
+	if (area.is_in_group("enemies")):
+		print("Game Over")
+		get_tree().call_group("Minigame", "game_over")	
+		
+func remove_self():
+	queue_free()

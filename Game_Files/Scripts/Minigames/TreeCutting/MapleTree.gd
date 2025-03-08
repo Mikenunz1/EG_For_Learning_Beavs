@@ -27,8 +27,6 @@ func take_hit():
 	
 	# Add points to the score
 	var world = get_parent()
-	if world.has_method("add_score"):
-		world.add_score(POINTS_PER_HIT)
 	
 	# Handle scaling and position based on hit count
 	if hits < HITS_TO_DESTROY:
@@ -50,24 +48,15 @@ func take_hit():
 		remove_from_group("trees")
 		
 		# Direct counter method (most reliable)
-		if world.has_method("tree_destroyed"):
-			world.tree_destroyed()
-			print("Called world.tree_destroyed()")
-		
-		# Indirect group-based method
-		if world.has_method("check_win_condition"):
-			world.check_win_condition()
-			print("Called world.check_win_condition()")
+		get_tree().call_group("Minigame", "tree_destroyed")		
 		
 		# Finally, remove the tree
 		queue_free()  # Remove the tree from the scene
-		
-		# Add a deferred call to check win condition after the current frame completes
-		# This ensures the queue_free has time to fully process
-		if world.has_method("check_win_condition"):
-			call_deferred("_check_win_after_delay", world)
 
 # Helper function to check win condition after a delay
 func _check_win_after_delay(world):
 	if world and world.has_method("check_win_condition"):
 		world.check_win_condition()
+
+func remove_self():
+	queue_free()

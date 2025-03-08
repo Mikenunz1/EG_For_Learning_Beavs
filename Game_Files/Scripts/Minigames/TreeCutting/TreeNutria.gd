@@ -13,9 +13,6 @@ func _ready():
 		shape.size = Vector2(50, 50)  # Adjust based on your nutria sprite
 		collision.shape = shape
 		add_child(collision)
-	
-	# Add to group for easier detection
-	add_to_group("enemies")
 
 func _physics_process(delta):
 	# Update movement timer
@@ -56,13 +53,6 @@ func _physics_process(delta):
 			if world.has_method("game_over"):
 				world.game_over()
 	
-	# Check for edge of screen/boundaries
-	var screen_size = Vector2(2000, 2000)  # Updated to match your 2000x2000 window
-	if position.x < 0 or position.x > screen_size.x or position.y < 0 or position.y > screen_size.y:
-		position = position.clamp(Vector2.ZERO, screen_size)
-		choose_random_direction()
-	
-	# Update sprite orientation - FIXED
 	# For nutria, we need to flip the sprite in the OPPOSITE way compared to beaver
 	if has_node("Sprite2D"):
 		if move_direction.x < 0:
@@ -89,3 +79,6 @@ func choose_random_direction():
 			break
 	
 	move_direction = new_direction
+	
+func remove_self():
+	queue_free()

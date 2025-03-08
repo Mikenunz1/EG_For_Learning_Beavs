@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx86pp3wclnwh"]
+[gd_scene load_steps=5 format=3 uid="uid://dx86pp3wclnwh"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/Minigames/TreeCutting/TreeBeaver.gd" id="1_ve0jg"]
 [ext_resource type="Texture2D" uid="uid://cvgemc7t2spdx" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Beaver64.png" id="2_ead82"]
@@ -6,7 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_linvl"]
 size = Vector2(112, 65)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twxyp"]
+size = Vector2(112, 64)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ve0jg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +19,11 @@ texture = ExtResource("2_ead82")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, 1.5)
 shape = SubResource("RectangleShape2D_linvl")
+
+[node name="ScriptingArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScriptingArea"]
+position = Vector2(9, 2)
+shape = SubResource("RectangleShape2D_twxyp")
+
+[connection signal="area_entered" from="ScriptingArea" to="." method="_on_scripting_area_entered"]

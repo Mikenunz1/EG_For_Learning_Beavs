@@ -12,23 +12,19 @@ var nutria = preload("res://Game_Files/Scenes/MiniGameComponents/CuttingNutria.t
 @onready var treeNum = $GameUI/TreeCuttingOverlay/TreesNumber
 
 #Ingame Variables
-var game_over_screen
-var win_screen
 var is_game_over = false
 var is_game_won = false
 var rng = RandomNumberGenerator.new()
-var spawn_offset = -300
-
-# Track the number of trees directly
 var tree_count = 0
 
-func _ready():
-	
+func spawnGame():
+	#Spawn player
 	beaver_spawn(960,540)
 	
+	#Spawn enemy nutria 
 	nutria_spawn(700,900)
 	nutria_spawn(700,1100)
-	nutria_spawn(100,1000)
+	nutria_spawn(100,300)
 
 	# Spawn trees and count them
 	tree_count = 0
@@ -42,20 +38,10 @@ func _ready():
 	
 	print("Total trees spawned: ", tree_count)
 
-func tree_spawn(xpos, ypos):
-	var newtree = tree.instantiate()
-	get_tree().current_scene.add_child(newtree)
-	newtree.global_position = Vector2(xpos,ypos)
-	tree_count += 1  # Increment our tree counter
+func _ready():
+	spawnGame()
 
-func tree_destroyed():
-	tree_count -= 1  # Decrement counter when a tree is destroyed
-	updateUI()
-	print("Tree destroyed! Trees remaining: ", tree_count)
-	if tree_count <= 0:
-		print("All trees destroyed - WINNING!")
-		win_game()
-
+#Fucntions for spawning different scene objects --------------------------------
 func nutria_spawn(xpos, ypos):
 	var newnutria = nutria.instantiate()
 	get_tree().current_scene.add_child(newnutria)
@@ -65,25 +51,28 @@ func beaver_spawn(xpos, ypos):
 	var newbeaver = beaver.instantiate()
 	get_tree().current_scene.add_child(newbeaver)
 	newbeaver.global_position = Vector2(xpos,ypos)
+
+func tree_spawn(xpos, ypos):
+	var newtree = tree.instantiate()
+	get_tree().current_scene.add_child(newtree)
+	newtree.global_position = Vector2(xpos,ypos)
+	tree_count += 1  # Increment our tree counter
+
+#Function to update UI and game state when tree is cut -------------------------
+func tree_destroyed():
+	tree_count -= 1  # Decrement counter when a tree is destroyed
+	updateUI()
+	print("Tree destroyed! Trees remaining: ", tree_count)
+	if tree_count <= 0:
+		print("All trees destroyed - WINNING!")
+		win_game()
 	
+#Updates the progress tracker in UI --------------------------------------------
 func updateUI():
 	treeNum.text = str(tree_count)
 	
-func check_win_condition():
-	# Method 1: Check using tree_count
-	if tree_count <= 0:
-		print("Win check: No trees left by counter!")
-		win_game()
-		return
-	
-	# Method 2: Check using group count
-	var trees_left = get_tree().get_nodes_in_group("trees").size()
-	print("Win check: Trees left by group count: ", trees_left)
-	
-	if trees_left == 0:
-		print("Win check: No trees left by group count!")
-		win_game()
 
+#Game Functionality functions --------------------------------------------------		
 func game_over():
 	if is_game_over or is_game_won:
 		return
@@ -101,32 +90,40 @@ func win_game():
 	is_game_won = true
 	print("YOU WIN!")
 	
-	# Update the score on the win screen
-	var score_label = win_screen.get_node("ScoreLabel")
-	
 	# Show the win screen
 	winText.show()
+	
+func restartGame():
+	get_tree().call_group("trees", "remove_self")	
+	get_tree().call_group("enemies", "remove_self")	
+	get_tree().call_group("player", "remove_self")	
+	is_game_over = false
+	spawnGame()
+	restartText.hide()
 
 func _process(_delta):
 	# Check for ESC key to quit the game
-	if Input.is_action_just_pressed("ui_cancel"):  # ESC key
-		print("ESC key pressed - quitting game")
-		get_tree().quit()
+	#if Input.is_action_just_pressed("ui_cancel"):  # ESC key
+	#	print("ESC key pressed - quitting game")
+	#	get_tree().quit()
 	
 	# Handle game over restart
 	if is_game_over and Input.is_action_just_pressed("Action"):  # Space bar
-		get_tree().reload_current_scene()  # Restart the game
+		restartGame()
 	
 	# Handle win screen controls
 	if is_game_won:
-		if Input.is_action_just_pressed("Action"):  # R key to restart
-			print("R key pressed - restarting game")
-			get_tree().reload_current_scene()
-		
+		if Input.is_action_just_pressed("Interact"):
+			get_tree().call_group("GameManager", "updatePlayerLocation", 300, 1200)
+			get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
+			get_tree().call_group("GameManager", "saveGame")
+			get_tree().call_group("GameManager", "loadSceneByFile")
+			removeSelf()
+
 		if Input.is_key_pressed(KEY_Q):  # Q key to quit
 			print("Q key pressed - quitting game")
 			get_tree().quit()
 	
-	# Alternative win condition check every few frames
-	if not is_game_won and not is_game_over and Engine.get_physics_frames() % 30 == 0:  # Check every 30 frames
-		check_win_condition()
+#Fuction that all scenes have that remove them from tree
+func removeSelf():
+	queue_free()
