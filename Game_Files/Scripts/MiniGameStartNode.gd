@@ -18,7 +18,7 @@ func startMinigame():
 		1:
 			gameSpecifer = "MinigameSwimming"
 		2:
-			gameSpecifer = 'MinigamwTreeCutting'
+			gameSpecifer = "MinigameTreeCutting"
 			
 	get_tree().call_group("GameManager", "saveGame")
 	get_tree().call_group("GameManager", "loadSceneByName", gameSpecifer)

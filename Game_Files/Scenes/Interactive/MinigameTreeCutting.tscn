@@ -1,10 +1,97 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0vle7tnv8wko"]
+[gd_scene load_steps=8 format=3 uid="uid://c0vle7tnv8wko"]
 
 [ext_resource type="Script" path="res://Mini_Game_Demos/treecutting/world.gd" id="1_r12fk"]
-[ext_resource type="Texture2D" uid="uid://cpjlb1upos2eo" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/Ground.png" id="2_yrce8"]
+[ext_resource type="Texture2D" uid="uid://cdxxeg0f5a3qt" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/MGTreeCuttingBG.png" id="2_brhag"]
+[ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="3_3ygpf"]
+[ext_resource type="Shader" path="res://Game_Files/Assets/UI/Shaders/PauseMenu.gdshader" id="3_tv6oo"]
+[ext_resource type="Texture2D" uid="uid://cd1mnhlr7qcfy" path="res://Game_Files/Assets/UI/Minigames/TreeCuttingUIOverLay.png" id="4_ra3cr"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2yulk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8533e"]
+shader = ExtResource("3_tv6oo")
+shader_parameter/color_over = null
+
+[node name="MiniGameTreeCutting" type="Node2D"]
 script = ExtResource("1_r12fk")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_yrce8")
+position = Vector2(960, 540)
+texture = ExtResource("2_brhag")
+
+[node name="GameUI" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RestartScreen" type="ColorRect" parent="GameUI"]
+visible = false
+material = SubResource("ShaderMaterial_2yulk")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0.27451, 0.701961)
+
+[node name="BlurEffect" type="ColorRect" parent="GameUI/RestartScreen"]
+material = SubResource("ShaderMaterial_8533e")
+layout_mode = 0
+offset_right = 1926.0
+offset_bottom = 1097.0
+
+[node name="RestartText" type="RichTextLabel" parent="GameUI/RestartScreen"]
+offset_top = 418.0
+offset_right = 1922.0
+offset_bottom = 556.0
+theme_override_fonts/normal_font = ExtResource("3_3ygpf")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]PRESS SPACE TO RESTART[/center]"
+
+[node name="WinScreen" type="ColorRect" parent="GameUI"]
+visible = false
+material = SubResource("ShaderMaterial_2yulk")
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0.27451, 0.701961)
+
+[node name="BlurEffect" type="ColorRect" parent="GameUI/WinScreen"]
+material = SubResource("ShaderMaterial_8533e")
+offset_right = 1926.0
+offset_bottom = 1097.0
+
+[node name="WinText" type="RichTextLabel" parent="GameUI/WinScreen"]
+offset_top = 418.0
+offset_right = 1922.0
+offset_bottom = 759.0
+theme_override_fonts/normal_font = ExtResource("3_3ygpf")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]YOU WIN
+[font_size={40}]press space to continue[/font_size][/center]"
+
+[node name="TreeCuttingOverlay" type="TextureRect" parent="GameUI"]
+offset_left = 1020.0
+offset_right = 1920.0
+offset_bottom = 220.0
+texture = ExtResource("4_ra3cr")
+
+[node name="TreesText" type="RichTextLabel" parent="GameUI/TreeCuttingOverlay"]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 37.0
+offset_right = 704.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("3_3ygpf")
+theme_override_font_sizes/normal_font_size = 40
+text = "TREES LEFT:"
+
+[node name="TreesNumber" type="RichTextLabel" parent="GameUI/TreeCuttingOverlay"]
+offset_left = 716.0
+offset_top = 21.0
+offset_right = 813.0
+offset_bottom = 131.0
+theme_override_fonts/normal_font = ExtResource("3_3ygpf")
+theme_override_font_sizes/normal_font_size = 49
+text = "7"

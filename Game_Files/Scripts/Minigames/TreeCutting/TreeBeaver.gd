@@ -34,7 +34,7 @@ func _physics_process(_delta):
 	if has_node("Sprite2D"):
 		$Sprite2D.flip_h = last_direction < 0
 	
-	if Input.is_action_just_pressed("ui_select"):
+	if Input.is_action_just_pressed("Action"):
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()

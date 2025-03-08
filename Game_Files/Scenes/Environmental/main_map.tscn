@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dedl72j332l1i" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Bush.png" id="10_eunma"]
 [ext_resource type="PackedScene" uid="uid://d0cavcbf8newo" path="res://Game_Files/Scenes/Environmental/forest_map.tscn" id="11_tbg12"]
 [ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Game_Files/Scenes/Environmental/wetlands_map.tscn" id="12_jyrrp"]
-[ext_resource type="PackedScene" uid="uid://dffetjf24imvp" path="res://Game_Files/Scenes/Functional/miniGameStartNode.tscn" id="18_npxbu"]
+[ext_resource type="PackedScene" uid="uid://dffetjf24imvp" path="res://Game_Files/Scenes/Functional/MiniGameStartNode.tscn" id="18_npxbu"]
 [ext_resource type="AudioStream" uid="uid://cdm1otutediph" path="res://Game_Files/Assets/Audio/Music/Track-3.mp3" id="19_ktrln"]
 [ext_resource type="AudioStream" uid="uid://bnwyta5haw4p0" path="res://Game_Files/Assets/Audio/Sounds/Enviroment Ambience/river-quiet.mp3" id="20_h8rkq"]
 
@@ -498,10 +498,15 @@ shape = SubResource("RectangleShape2D_m0wsp")
 position = Vector2(7887, 6562)
 shape = SubResource("RectangleShape2D_m0wsp")
 
-[node name="MiniGameStartNode" parent="." instance=ExtResource("18_npxbu")]
+[node name="SwimmingMG" parent="." instance=ExtResource("18_npxbu")]
 position = Vector2(6108, 2989)
 rotation = 3.14031
 gameID = 1
+
+[node name="TreeCuttingMG" parent="." instance=ExtResource("18_npxbu")]
+position = Vector2(-28.0001, 1046)
+rotation = -3.13292
+gameID = 2
 
 [node name="AudioStreamPlayer-BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_ktrln")
