@@ -13,6 +13,7 @@ extends Node2D
 var MainMenu = preload("res:///Game_Files/Scenes/UI/MainMenu.tscn")
 var MainMap = preload("res://Game_Files/Scenes/Environmental/main_map.tscn")
 var MinigameSwimming = preload("res://Game_Files/Scenes/Interactive/MinigameSwimming.tscn")
+var MinigameTreeCutting = preload("res://Game_Files/Scenes/Interactive/MinigameTreeCutting.tscn")
 
 #GM1b: Raw Variables tracked by the game manager throughout runtime --------------------------------
 
@@ -78,6 +79,9 @@ func loadSceneByName(sceneName):
 			
 		"MinigameSwimming":
 			sceneSpecifier = MinigameSwimming
+			
+		"MinigameTreeCutting":
+			sceneSpecifier = MinigameTreeCutting
 		
 	var instance = sceneSpecifier.instantiate()
 	instance.position = Vector2(0,0)

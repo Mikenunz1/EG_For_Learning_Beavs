@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciri1teah2ubn"]
+[gd_scene load_steps=5 format=3 uid="uid://ciri1teah2ubn"]
 
-[ext_resource type="Texture2D" uid="uid://2w50hhxfippn" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Nutria.png" id="1_4g8rd"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/Minigames/TreeCutting/TreeNutria.gd" id="1_lc2mk"]
-
+[ext_resource type="Texture2D" uid="uid://2w50hhxfippn" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Nutria.png" id="2_5cps3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmxt1"]
 size = Vector2(152.5, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akjht"]
+size = Vector2(160, 73)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_lc2mk")
@@ -13,8 +15,15 @@ script = ExtResource("1_lc2mk")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-79, -40)
 scale = Vector2(0.50625, 0.5)
-texture = ExtResource("1_4g8rd")
+texture = ExtResource("2_5cps3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-77.25, -38.5)
 shape = SubResource("RectangleShape2D_wmxt1")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-78, -38.5)
+shape = SubResource("RectangleShape2D_akjht")

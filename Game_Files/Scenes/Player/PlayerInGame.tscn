@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://di315tvgh7qrv" path="res://Game_Files/Assets/Sprites/Sprite_Statics/beaver-3.png" id="2_23kko"]
 [ext_resource type="PackedScene" uid="uid://duc3gqbdcfnii" path="res://Game_Files/Scenes/UI/GameUserInterface.tscn" id="3_3j4ix"]
 [ext_resource type="PackedScene" uid="uid://d3sodiaul1hnv" path="res://Game_Files/Scenes/UI/PauseMenu.tscn" id="4_651gh"]
-[ext_resource type="PackedScene" path="res://Game_Files/Scenes/UI/InteractUI.tscn" id="5_61pvt"]
+[ext_resource type="PackedScene" uid="uid://53vbx76t0afo" path="res://Game_Files/Scenes/UI/InteractUI.tscn" id="5_61pvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvovo"]
 size = Vector2(90.5, 54)

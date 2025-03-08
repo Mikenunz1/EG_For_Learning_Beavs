@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bar3wtms18k5d"
-path="res://.godot/imported/Ground.png-66e11c155f84cac148b479cc8b30bf56.ctex"
+uid="uid://cd1mnhlr7qcfy"
+path="res://.godot/imported/TreeCuttingUIOverLay.png-809adef82355090fe21b3fea8aa5772d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mini_Game_Demos/Tree_Cutting/Ground.png"
-dest_files=["res://.godot/imported/Ground.png-66e11c155f84cac148b479cc8b30bf56.ctex"]
+source_file="res://Game_Files/Assets/UI/Minigames/TreeCuttingUIOverLay.png"
+dest_files=["res://.godot/imported/TreeCuttingUIOverLay.png-809adef82355090fe21b3fea8aa5772d.ctex"]
 
 [params]
 

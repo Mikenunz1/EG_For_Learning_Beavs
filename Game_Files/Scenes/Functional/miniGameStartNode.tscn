@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dffetjf24imvp"]
+
+[ext_resource type="Script" path="res://Game_Files/Scripts/MiniGameStartNode.gd" id="1_lpjpo"]
+[ext_resource type="Texture2D" uid="uid://cobcnf6jdlwyq" path="res://Game_Files/Assets/Sprites/Tile_Assets/beaver_prints.png" id="1_n8155"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkb4j"]
+size = Vector2(83, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhah7"]
+atlas = ExtResource("1_n8155")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcn8f"]
+atlas = ExtResource("1_n8155")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1efo7"]
+atlas = ExtResource("1_n8155")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8vrs"]
+atlas = ExtResource("1_n8155")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gy2vl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhah7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcn8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1efo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8vrs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="MiniGameStartNode" type="Area2D"]
+scale = Vector2(4.25017, 4.25017)
+script = ExtResource("1_lpjpo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56.5, -15)
+shape = SubResource("RectangleShape2D_pkb4j")
+
+[node name="TracksSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gy2vl")
+frame_progress = 0.8297
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
