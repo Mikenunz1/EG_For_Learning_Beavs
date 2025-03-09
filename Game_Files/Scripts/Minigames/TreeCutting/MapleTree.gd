@@ -5,6 +5,9 @@ const HITS_TO_DESTROY = 5
 const POINTS_PER_HIT = 20
 var original_scale = Vector2(1, 1)  # Store the original scale
 
+@onready var treeAudioStream = $"AudioStreamPlayer2D-TreeSFX"
+@onready var hit = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/Wood chop.mp3")
+
 func _ready():
 	add_to_group("trees")
 	
@@ -25,6 +28,10 @@ func take_hit():
 	hits += 1
 	print("Hit #", hits)
 	
+	#tree hit sfx
+	treeAudioStream.stream = hit
+	treeAudioStream.play()
+	
 	# Add points to the score
 	var world = get_parent()
 	
@@ -43,6 +50,7 @@ func take_hit():
 			var collision = get_node("CollisionShape2D")
 			collision.scale = Vector2(1, 1) / scale_percent  # Inverse scaling to maintain collision
 	else:
+		
 		# Tree is about to be destroyed
 		# First remove from group BEFORE queue_free to avoid timing issues
 		remove_from_group("trees")

@@ -6,6 +6,11 @@ var move_timer = 0
 var paused = false
 const DIRECTION_CHANGE_TIME = 1.0  # Change direction every second
 
+@onready var grumbleAudioStream = $"AudioStreamPlayer2D-GrumbleSFX"
+@onready var grumble1 = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/Nutria.mp3")
+@onready var grumble2 = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/Nutria2.mp3")
+var rng = RandomNumberGenerator.new()
+
 func _ready():
 	# Create collision shape if it doesn't exist
 	if !has_node("CollisionShape2D"):
@@ -28,6 +33,14 @@ func _physics_process(delta):
 	
 	# Set velocity based on current direction
 	velocity = move_direction * SPEED
+	
+	var random_num = rng.randf_range(0, 100.0)
+	if ((grumbleAudioStream != null) && (!grumbleAudioStream.is_playing()) && (random_num > 99.9)):
+		if (rng.randf_range(0, 2) >= 1):
+			grumbleAudioStream.stream = grumble1
+		else:
+			grumbleAudioStream.stream = grumble2
+		grumbleAudioStream.play()
 	
 	# Move the nutria and handle collisions
 	move_and_slide()

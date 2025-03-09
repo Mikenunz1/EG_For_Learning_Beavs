@@ -15,3 +15,6 @@ texture = ExtResource("2_86s5w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-20, 129)
 shape = SubResource("RectangleShape2D_0sclm")
+
+[node name="AudioStreamPlayer2D-TreeSFX" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

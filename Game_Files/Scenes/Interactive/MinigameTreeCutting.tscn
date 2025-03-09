@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0vle7tnv8wko"]
+[gd_scene load_steps=12 format=3 uid="uid://c0vle7tnv8wko"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/Minigames/TreeCutting/world.gd" id="1_r12fk"]
 [ext_resource type="Texture2D" uid="uid://cdxxeg0f5a3qt" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Backgrounds/MGTreeCuttingBG.png" id="2_brhag"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Game_Files/Assets/UI/Shaders/PauseMenu.gdshader" id="3_tv6oo"]
 [ext_resource type="Texture2D" uid="uid://cd1mnhlr7qcfy" path="res://Game_Files/Assets/UI/Minigames/TreeCuttingUIOverLay.png" id="4_ra3cr"]
 [ext_resource type="PackedScene" uid="uid://cvkv0x0tvnpdl" path="res://Game_Files/Scenes/UI/MiniGameMenu.tscn" id="6_3s0ki"]
+[ext_resource type="AudioStream" uid="uid://dcrf4eq8eklv6" path="res://Game_Files/Assets/Audio/Music/Track-5 Cave.mp3" id="7_ti5t4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5qth"]
 size = Vector2(57, 1223)
@@ -141,8 +142,18 @@ text = "7"
 
 [node name="MiniGameMenu" parent="." instance=ExtResource("6_3s0ki")]
 z_index = 2
-anchors_preset = 8
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="AudioStreamPlayer-TreeSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer-MinigameSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer-MinigameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ti5t4")
+autoplay = true
+bus = &"Music"

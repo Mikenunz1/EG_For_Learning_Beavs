@@ -20,6 +20,16 @@ var tree_count = 0
 var playX = 300
 var playY = 1200
 
+@onready var minigameMusicAudioStreamPlayer = $"AudioStreamPlayer-MinigameMusic"
+@onready var treeAudioStream = $"AudioStreamPlayer-TreeSFX"
+@onready var minigameSFXAudioStreamPlayer = $"AudioStreamPlayer-MinigameSFX"
+
+@onready var victorySound = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/victory-sfx.mp3")
+@onready var gameoverSound = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/gameover.mp3")
+@onready var exit = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx.mp3")
+@onready var select = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx3.mp3")
+@onready var timber = load("res://Game_Files/Assets/Audio/Sounds/Minigame SFX/Timber.mp3")
+
 func spawnGame():
 	#Spawn player
 	beaver_spawn(960,540)
@@ -63,6 +73,9 @@ func tree_spawn(xpos, ypos):
 
 #Function to update UI and game state when tree is cut -------------------------
 func tree_destroyed():
+	#tree timber sfx
+	treeAudioStream.stream = timber
+	treeAudioStream.play()
 	tree_count -= 1  # Decrement counter when a tree is destroyed
 	updateUI()
 	print("Tree destroyed! Trees remaining: ", tree_count)
@@ -83,6 +96,10 @@ func game_over():
 	is_game_over = true
 	print("GAME OVER!")
 	
+	minigameMusicAudioStreamPlayer.stop()
+	minigameSFXAudioStreamPlayer.stream = gameoverSound
+	minigameSFXAudioStreamPlayer.play()
+	
 	# Show the game over screen
 	restartText.show()
 
@@ -93,6 +110,10 @@ func win_game():
 	is_game_won = true
 	print("YOU WIN!")
 	
+	minigameMusicAudioStreamPlayer.stop()
+	minigameSFXAudioStreamPlayer.stream = victorySound
+	minigameSFXAudioStreamPlayer.play()
+	
 	# Show the win screen
 	winText.show()
 	
@@ -102,6 +123,7 @@ func restartGame():
 	get_tree().call_group("player", "remove_self")	
 	is_game_over = false
 	spawnGame()
+	minigameMusicAudioStreamPlayer.play()
 	restartText.hide()
 
 func pause():
@@ -128,6 +150,9 @@ func _process(_delta):
 	# Handle win screen controls
 	if is_game_won:
 		if Input.is_action_just_pressed("Interact"):
+			minigameSFXAudioStreamPlayer.stream = exit
+			minigameSFXAudioStreamPlayer.play()
+			await get_tree().create_timer(0.1).timeout
 			get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
 			get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
 			get_tree().call_group("GameManager", "saveGame")

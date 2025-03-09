@@ -5,6 +5,14 @@ extends Control
 
 var open = false
 
+#Variables to hold AudioStreamPlayers
+@onready var menuAudioStream: = $"AudioStreamPlayer-MiniGameMenuSFX"
+
+#Variables to hold imported audio files for menu sfx
+@onready var blip = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx2.mp3")
+@onready var select = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx3.mp3")
+@onready var exit = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx.mp3")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	resumeButton.disabled = true
@@ -20,8 +28,12 @@ func _process(delta):
 			openMenu()
 			open = true
 		
+func playSound(file):
+	menuAudioStream.stream = (file)
+	menuAudioStream.play()
 
 func openMenu():
+	playSound(blip)
 	show()
 	resumeButton.disabled = false
 	quitButton.disabled = false
@@ -29,6 +41,7 @@ func openMenu():
 	open = true
 	
 func hideMenu():
+	playSound(blip)
 	hide()
 	resumeButton.disabled = true
 	quitButton.disabled = true
@@ -42,4 +55,6 @@ func unpause():
 	get_tree().call_group("Minigame", "unpause")
 	
 func quit():
+	playSound(exit)
+	await get_tree().create_timer(0.2).timeout
 	get_tree().call_group("Minigame", "gameExit")

@@ -166,7 +166,6 @@ bus = &"SFX"
 
 [node name="MiniGameMenu" parent="." instance=ExtResource("14_tvodx")]
 z_index = 2
-anchors_preset = 8
 offset_left = 4.0
 offset_top = 1.0
 offset_right = 1924.0
