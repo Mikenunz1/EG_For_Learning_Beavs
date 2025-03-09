@@ -9,8 +9,8 @@ var spawn_offset = -300
 var rng = RandomNumberGenerator.new()
 var health = 3
 var win = false
-var playX = 0
-var playY = 0
+var playX = 6673
+var playY = 3200
 
 @onready var gameOverText = $MinigameUI/RestartText
 @onready var gameWinText = $MinigameUI/WinText
@@ -43,7 +43,7 @@ func _process(delta):
 		minigameSFXAudioStreamPlayer.stream = select
 		minigameSFXAudioStreamPlayer.play()
 		await get_tree().create_timer(0.1).timeout
-		get_tree().call_group("GameManager", "updatePlayerLocation", 6873, 2171)
+		get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
 		get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
 		get_tree().call_group("GameManager", "saveGame")
 		get_tree().call_group("GameManager", "loadSceneByFile")
@@ -118,6 +118,24 @@ func restart():
 	spawnTimer.start()
 	gameOverText.hide()
 	
+func gameExit():
+	get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
+	get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
+	get_tree().call_group("GameManager", "saveGame")
+	get_tree().call_group("GameManager", "loadSceneByFile")
+	removeSelf()
+	
+func pause():
+	get_tree().call_group("Obstacle", "stop_movement")
+	get_tree().call_group("Player", "stopPlayer")
+	timer.paused = true
+	spawnTimer.paused = true
+	
+func unpause():
+	get_tree().call_group("Obstacle", "start_movement")
+	get_tree().call_group("Player", "startPlayer")
+	timer.paused = false
+	spawnTimer.paused = false
 
 #Fuction that all scenes have that remove them from tree
 func removeSelf():

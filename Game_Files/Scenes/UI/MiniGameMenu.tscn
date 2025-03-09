@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvkv0x0tvnpdl"]
+
+[ext_resource type="Script" path="res://Game_Files/Scripts/UI/MinigameMenu.gd" id="1_fawww"]
+[ext_resource type="Shader" path="res://Game_Files/Assets/UI/Shaders/PauseMenu.gdshader" id="2_ml16l"]
+[ext_resource type="Texture2D" uid="uid://csj67ncrvatpn" path="res://Game_Files/Assets/UI/MenuPanel.png" id="2_ojhca"]
+[ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="3_lkil5"]
+[ext_resource type="Texture2D" uid="uid://bclu1ru88gtu0" path="res://Game_Files/Assets/UI/MenuButton.png" id="4_vr5au"]
+[ext_resource type="Texture2D" uid="uid://cpb4iy5a8r452" path="res://Game_Files/Assets/UI/MenuButtonHover.png" id="5_buifr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pbud"]
+shader = ExtResource("2_ml16l")
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[node name="MiniGameMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fawww")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6pbud")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.49
+anchor_right = 0.5
+anchor_bottom = 0.49
+offset_left = -420.0
+offset_top = -468.2
+offset_right = 380.0
+offset_bottom = 467.8
+texture = ExtResource("2_ojhca")
+
+[node name="ResumeText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.128
+anchor_right = 0.5
+anchor_bottom = 0.128
+offset_left = -179.0
+offset_top = 144.76
+offset_right = 141.0
+offset_bottom = 334.76
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_lkil5")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "
+
+[center]    RESUME[/center]"
+
+[node name="ResumeButton" type="TextureButton" parent="ResumeText"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.584
+anchor_right = 0.5
+anchor_bottom = 0.584
+offset_left = -160.0
+offset_top = -90.96
+offset_right = 160.0
+offset_bottom = 69.04
+texture_normal = ExtResource("4_vr5au")
+texture_hover = ExtResource("5_buifr")
+
+[node name="QuitText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.128
+anchor_right = 0.5
+anchor_bottom = 0.128
+offset_left = -179.0
+offset_top = 333.76
+offset_right = 141.0
+offset_bottom = 526.76
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/line_separation = 15
+theme_override_fonts/normal_font = ExtResource("3_lkil5")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "
+[center]   QUIT[/center]
+[center]    MINIGAME[/center]"
+
+[node name="QuitButton" type="TextureButton" parent="QuitText"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.584
+anchor_right = 0.5
+anchor_bottom = 0.584
+offset_left = -160.0
+offset_top = -90.96
+offset_right = 160.0
+offset_bottom = 69.04
+texture_normal = ExtResource("4_vr5au")
+texture_hover = ExtResource("5_buifr")
+
+[connection signal="pressed" from="ResumeText/ResumeButton" to="." method="hideMenu"]
+[connection signal="pressed" from="QuitText/QuitButton" to="." method="quit"]

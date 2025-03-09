@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://875rqppouh7j"]
+[gd_scene load_steps=18 format=3 uid="uid://875rqppouh7j"]
 
 [ext_resource type="PackedScene" uid="uid://bjkj2lj72x47a" path="res://Game_Files/Scenes/Player/PlayerSwimming.tscn" id="1_uvy0x"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MinigameSwimming.gd" id="1_w1r3m"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="10_p6833"]
 [ext_resource type="Texture2D" uid="uid://c44gxk0kc7d46" path="res://Game_Files/Assets/UI/Minigames/SwimmingProgress.png" id="11_nsvmp"]
 [ext_resource type="AudioStream" uid="uid://bb8fpsjdx00jb" path="res://Game_Files/Assets/Audio/Music/Track-4 Underwater.mp3" id="12_dbua3"]
+[ext_resource type="PackedScene" uid="uid://cvkv0x0tvnpdl" path="res://Game_Files/Scenes/UI/MiniGameMenu.tscn" id="14_tvodx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiq1b"]
 size = Vector2(107, 1126)
@@ -28,7 +29,7 @@ position = Vector2(-2, -2)
 script = ExtResource("1_w1r3m")
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 60.0
 autostart = true
 
 [node name="Background" type="Node2D" parent="."]
@@ -146,7 +147,7 @@ offset_right = 2505.0
 offset_bottom = 1163.0
 rotation = 3.14127
 scale = Vector2(0.9, 0.9)
-max_value = 120.0
+max_value = 60.0
 texture_under = ExtResource("10_1b0p4")
 texture_progress = ExtResource("11_nsvmp")
 
@@ -162,6 +163,14 @@ bus = &"Music"
 [node name="AudioStreamPlayer-MinigameSFX" type="AudioStreamPlayer" parent="."]
 volume_db = -19.676
 bus = &"SFX"
+
+[node name="MiniGameMenu" parent="." instance=ExtResource("14_tvodx")]
+z_index = 2
+anchors_preset = 8
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 1924.0
+offset_bottom = 1081.0
 
 [connection signal="timeout" from="GameTimer" to="." method="game_win"]
 [connection signal="area_entered" from="ObstacleCatcher" to="ObstacleCatcher" method="_on_area_entered"]

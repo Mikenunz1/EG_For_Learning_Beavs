@@ -5,6 +5,7 @@ extends Area2D
 @onready var honkAudioStream = $"AudioStreamPlayer2D-HonkSFX"
 var rng = RandomNumberGenerator.new()
 var max_honks = 2
+var pauseSpeed = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position.x += SPEED * delta;
+	global_position.x += SPEED * delta * pauseSpeed;
 	
 	#randomly iniate honking noise
 	if max_honks > 0:
@@ -23,7 +24,10 @@ func _process(delta):
 			max_honks -= 1
 
 func stop_movement():
-	SPEED = 0
+	pauseSpeed = 0
+	
+func start_movement():
+	pauseSpeed = 1
 	
 func remove():
 	queue_free()

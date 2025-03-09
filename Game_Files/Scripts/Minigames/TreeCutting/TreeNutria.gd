@@ -1,8 +1,9 @@
 # Nutria.gd
 extends CharacterBody2D
-const SPEED = 450
+var SPEED = 450
 var move_direction = Vector2.RIGHT
 var move_timer = 0
+var paused = false
 const DIRECTION_CHANGE_TIME = 1.0  # Change direction every second
 
 func _ready():
@@ -16,7 +17,9 @@ func _ready():
 
 func _physics_process(delta):
 	# Update movement timer
-	move_timer += delta
+	
+	if (!paused):
+		move_timer += delta
 	
 	# Change direction periodically
 	if move_timer >= DIRECTION_CHANGE_TIME:
@@ -79,6 +82,14 @@ func choose_random_direction():
 			break
 	
 	move_direction = new_direction
+	
+func stop_movement():
+	SPEED = 0
+	paused = true
+	
+func start_movement():
+	SPEED = 400
+	paused = false
 	
 func remove_self():
 	queue_free()
