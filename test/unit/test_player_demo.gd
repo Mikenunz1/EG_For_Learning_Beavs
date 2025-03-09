@@ -1,6 +1,5 @@
 extends GutTest
 
-
 var Level = load('res://Game_Files/Scenes/Functional/GameManager.tscn')
 
 var Player = load('res://Game_Files/Scripts/player_demo.gd')
