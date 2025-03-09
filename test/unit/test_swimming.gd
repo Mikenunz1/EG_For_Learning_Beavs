@@ -22,6 +22,7 @@ func before_each():
 func after_each():
 	_sender.release_all()
 	_sender.clear()
+	game.removeSelf()
 	
 #Tests that game exists
 func test_game_exists():
