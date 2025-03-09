@@ -140,3 +140,8 @@ func unpause():
 #Fuction that all scenes have that remove them from tree
 func removeSelf():
 	queue_free()
+	
+#GUT testing helper functions
+func setHealth(val):
+	health = val
+	

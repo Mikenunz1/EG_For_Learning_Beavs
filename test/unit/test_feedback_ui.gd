@@ -7,7 +7,7 @@ extends "res://addons/gut/test.gd"
 
 # Instantiate the feedback UI scene.
 func setup_feedback_ui() -> Control:
-	var scene = preload("res://feedback.tscn").instantiate()
+	var scene = preload("res://Game_Files/Scenes/UI/FeedBack.tscn").instantiate()
 	# Add to the scene tree so _ready() is invoked.
 	get_tree().root.add_child(scene)
 	return scene
