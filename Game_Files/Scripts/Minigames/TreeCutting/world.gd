@@ -17,6 +17,9 @@ var is_game_won = false
 var rng = RandomNumberGenerator.new()
 var tree_count = 0
 
+var playX = 300
+var playY = 1200
+
 func spawnGame():
 	#Spawn player
 	beaver_spawn(960,540)
@@ -101,11 +104,22 @@ func restartGame():
 	spawnGame()
 	restartText.hide()
 
+func pause():
+	get_tree().call_group("enemies", "stop_movement")
+	get_tree().call_group("player", "stopPlayer")
+	
+func unpause():
+	get_tree().call_group("enemies", "start_movement")
+	get_tree().call_group("player", "startPlayer")
+
+func gameExit():
+	get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
+	get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
+	get_tree().call_group("GameManager", "saveGame")
+	get_tree().call_group("GameManager", "loadSceneByFile")
+	removeSelf()
+
 func _process(_delta):
-	# Check for ESC key to quit the game
-	#if Input.is_action_just_pressed("ui_cancel"):  # ESC key
-	#	print("ESC key pressed - quitting game")
-	#	get_tree().quit()
 	
 	# Handle game over restart
 	if is_game_over and Input.is_action_just_pressed("Action"):  # Space bar
@@ -114,7 +128,7 @@ func _process(_delta):
 	# Handle win screen controls
 	if is_game_won:
 		if Input.is_action_just_pressed("Interact"):
-			get_tree().call_group("GameManager", "updatePlayerLocation", 300, 1200)
+			get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
 			get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
 			get_tree().call_group("GameManager", "saveGame")
 			get_tree().call_group("GameManager", "loadSceneByFile")

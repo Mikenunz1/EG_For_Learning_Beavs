@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 var last_direction = 1  # 1 for right, -1 for left
-const SPEED = 600
+var SPEED = 600
 
 func _ready():
 	
@@ -38,7 +38,7 @@ func _physics_process(_delta):
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()
-			if collider.is_in_group("trees"):
+			if (collider.is_in_group("trees") && SPEED == 600):
 				collider.take_hit()
 
 func _on_scripting_area_entered(area):
@@ -46,6 +46,13 @@ func _on_scripting_area_entered(area):
 	if (area.is_in_group("enemies")):
 		print("Game Over")
 		get_tree().call_group("Minigame", "game_over")	
+		
+func stopPlayer():
+	SPEED = 0
+	
+func startPlayer():
+	SPEED = 600
+	
 		
 func remove_self():
 	queue_free()
