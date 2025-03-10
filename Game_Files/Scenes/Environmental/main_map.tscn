@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://2plykxaqh366"]
+[gd_scene load_steps=54 format=4 uid="uid://2plykxaqh366"]
 
 [ext_resource type="Texture2D" uid="uid://dcb63k8qmh45u" path="res://Game_Files/Assets/Sprites/Tile_Assets/grass.png" id="1_m4y45"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/MainMap.gd" id="1_qf2a8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://clhd2k5qjvmm" path="res://Game_Files/Assets/Sprites/Tile_Assets/aspen.png" id="4_y0hsn"]
 [ext_resource type="Texture2D" uid="uid://dpwpelqg4lss0" path="res://Game_Files/Assets/Sprites/Tile_Assets/sand_animated.png" id="5_jb08q"]
 [ext_resource type="Texture2D" uid="uid://dqah5p7s8bpuj" path="res://Game_Files/Assets/Sprites/Tile_Assets/animated_water.png" id="6_tqdqc"]
+[ext_resource type="Texture2D" uid="uid://cobcnf6jdlwyq" path="res://Game_Files/Assets/Sprites/Tile_Assets/beaver_prints.png" id="7_8kq6h"]
 [ext_resource type="Texture2D" uid="uid://c5nx8a4oahnso" path="res://Game_Files/Assets/Sprites/Tile_Assets/path.png" id="7_diu62"]
 [ext_resource type="Texture2D" uid="uid://duk7n44vne7uc" path="res://Game_Files/Assets/Sprites/Tile_Assets/mini_game_sign.png" id="8_c8cwf"]
 [ext_resource type="Texture2D" uid="uid://bbv80pree764s" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Maple.png" id="8_m4yg0"]
@@ -20,6 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://dffetjf24imvp" path="res://Game_Files/Scenes/Functional/miniGameStartNode.tscn" id="18_npxbu"]
 [ext_resource type="AudioStream" uid="uid://cdm1otutediph" path="res://Game_Files/Assets/Audio/Music/Track-3.mp3" id="19_ktrln"]
 [ext_resource type="AudioStream" uid="uid://bnwyta5haw4p0" path="res://Game_Files/Assets/Audio/Sounds/Enviroment Ambience/river-quiet.mp3" id="20_h8rkq"]
+[ext_resource type="PackedScene" uid="uid://1u4hl4pducu7" path="res://Game_Files/Scenes/NPCs/BridgetteNPC.tscn" id="21_snaul"]
+[ext_resource type="PackedScene" uid="uid://b2nwforymodji" path="res://Game_Files/Scenes/NPCs/DadNPC.tscn" id="22_i8jm6"]
+[ext_resource type="PackedScene" uid="uid://cuaiwbkpxuve1" path="res://Game_Files/Scenes/NPCs/MomNPC.tscn" id="23_5grlg"]
+[ext_resource type="PackedScene" uid="uid://cmvytivvkkdo8" path="res://Game_Files/Scenes/NPCs/RiverNPC.tscn" id="24_r5lyo"]
+[ext_resource type="PackedScene" uid="uid://buq3mets7qk7j" path="res://Game_Files/Scenes/NPCs/TreeCuttingNPC.tscn" id="25_thcas"]
+[ext_resource type="PackedScene" uid="uid://bellksb7l6uau" path="res://Game_Files/Scenes/NPCs/TerritorialNPC.tscn" id="26_ccedq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5bbr"]
 texture = ExtResource("1_m4y45")
@@ -144,6 +151,26 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_jrovj"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_61bnp")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psa8h"]
+texture = ExtResource("7_8kq6h")
+texture_region_size = Vector2i(128, 64)
+0:1/animation_columns = 4
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/animation_frame_3/duration = 1.0
+0:1/0 = 0
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_32wsw"]
+tile_size = Vector2i(128, 64)
+sources/0 = SubResource("TileSetAtlasSource_psa8h")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8sfy1"]
 texture = ExtResource("9_i4ao4")
@@ -312,33 +339,6 @@ sources/0 = SubResource("TileSetAtlasSource_rvpju")
 sources/1 = SubResource("TileSetAtlasSource_0dfgl")
 sources/2 = SubResource("TileSetAtlasSource_1ft1s")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex5i0"]
-size = Vector2(152.3, 119.6)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wqmt"]
-texture_region_size = Vector2i(192, 64)
-0:2/0 = 0
-1:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5np1r"]
-texture = ExtResource("18_dlm3a")
-texture_region_size = Vector2i(192, 64)
-0:2/0 = 0
-1:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_teicv"]
-tile_size = Vector2i(192, 64)
-sources/0 = SubResource("TileSetAtlasSource_2wqmt")
-sources/1 = SubResource("TileSetAtlasSource_5np1r")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sriyh"]
 texture = ExtResource("6_tqdqc")
 texture_region_size = Vector2i(64, 64)
@@ -394,12 +394,9 @@ size = Vector2(547.5, 6631)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0wsp"]
 size = Vector2(28783, 332)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbx6r"]
-size = Vector2(3383.5, 1571)
-
 [node name="GameMap" type="Node2D" groups=["GameScene"]]
 y_sort_enabled = true
-position = Vector2(6075, 0)
+position = Vector2(6112, -32)
 script = ExtResource("1_qf2a8")
 
 [node name="Base" type="Node2D" parent="."]
@@ -425,6 +422,14 @@ scale = Vector2(8, 8)
 tile_map_data = PackedByteArray("AAAgAAkAAAABAAUAAAAgAAoAAAABAAUAAAAgAAsAAAABAAUAAAAgAAwAAAABAAUAAAAgAA0AAAABAAUAAAAgAA4AAAABAAUAAAAgAA8AAAABAAUAAAAgABAAAAABAAUAAAAXABEAAAAGAAEAADAYABEAAAAGAAIAAFAZABEAAAAGAAIAAFAaABEAAAAGAAIAAFAbABEAAAAGAAIAAFAcABEAAAAGAAIAAFAdABEAAAAGAAIAAFAeABEAAAAGAAIAAFAfABEAAAAGAAIAAFAgABEAAAABAAIAAAAgAAgAAAABAAMAAAAXABAAAAAGAAIAABAXAA8AAAAGAAIAABAXAA4AAAAGAAIAABAXAA0AAAAGAAIAABAXAAwAAAAGAAIAABAXAAgAAAAGAAEAABAXAAkAAAAGAAIAABAXAAoAAAAGAAIAABAXAAsAAAAGAAIAABAYAAgAAAAGAAIAAGAZAAgAAAAGAAIAAGAaAAgAAAAGAAIAAGAbAAgAAAAGAAIAAGAcAAgAAAAGAAIAAGAdAAgAAAAGAAIAAGAeAAgAAAAGAAIAAGAfAAgAAAAGAAIAAGAYAAkAAAAGAAMAAAAZAAoAAAAGAAMAAAAaAAoAAAAGAAMAAAAaAAsAAAAGAAMAAAAbAAwAAAAGAAMAAAAcAAwAAAAGAAMAAAAcAA0AAAAGAAMAAAAdAA4AAAAGAAMAAAAdAA8AAAAGAAMAAAAeAA8AAAAGAAMAAAAeABAAAAAGAAMAAAAYAAoAAAAGAAMAAAAYAAsAAAAGAAMAAAAYAAwAAAAGAAMAAAAYAA0AAAAGAAMAAAAYAA4AAAAGAAMAAAAYAA8AAAAGAAMAAAAYABAAAAAGAAMAAAAZAAkAAAAGAAMAAAAZAAsAAAAGAAMAAAAZAAwAAAAGAAMAAAAZAA0AAAAGAAMAAAAZAA4AAAAGAAMAAAAZAA8AAAAGAAMAAAAZABAAAAAGAAMAAAAaAAkAAAAGAAMAAAAaAAwAAAAGAAMAAAAaAA0AAAAGAAMAAAAaAA4AAAAGAAMAAAAaAA8AAAAGAAMAAAAaABAAAAAGAAMAAAAbAAkAAAAGAAMAAAAbAAoAAAAGAAMAAAAbAAsAAAAGAAMAAAAbAA0AAAAGAAMAAAAbAA4AAAAGAAMAAAAbAA8AAAAGAAMAAAAbABAAAAAGAAMAAAAcAAkAAAAGAAMAAAAcAAoAAAAGAAMAAAAcAAsAAAAGAAMAAAAcAA4AAAAGAAMAAAAcAA8AAAAGAAMAAAAcABAAAAAGAAMAAAAdAAkAAAAGAAMAAAAdAAoAAAAGAAMAAAAdAAsAAAAGAAMAAAAdAAwAAAAGAAMAAAAdAA0AAAAGAAMAAAAdABAAAAAGAAMAAAAeAAkAAAAGAAMAAAAeAAoAAAAGAAMAAAAeAAsAAAAGAAMAAAAeAAwAAAAGAAMAAAAeAA0AAAAGAAMAAAAeAA4AAAAGAAMAAAAfAAkAAAAGAAMAAAAfAAoAAAAGAAMAAAAfAAsAAAAGAAMAAAAfAAwAAAAGAAMAAAAfAA0AAAAGAAMAAAAfAA4AAAAGAAMAAAAfAA8AAAAGAAMAAAAfABAAAAAGAAMAAAA=")
 tile_set = SubResource("TileSet_jrovj")
 
+[node name="BeaverPrints" type="TileMapLayer" parent="Base"]
+y_sort_enabled = true
+texture_filter = 3
+position = Vector2(-18846, -8431)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAxACkAAAAAAAAAABA=")
+tile_set = SubResource("TileSet_32wsw")
+
 [node name="Rocks" type="TileMapLayer" parent="Base"]
 texture_filter = 3
 rotation = 3.14159
@@ -434,7 +439,7 @@ tile_set = SubResource("TileSet_jq2xt")
 
 [node name="TutorialPath" type="TileMapLayer" parent="Base"]
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAA7AAYAAAADAAEAAAA6AAYAAAACAAEAAAA5AAYAAAACAAEAAAA4AAYAAAACAAEAAAA3AAYAAAACAAEAAAA2AAYAAAACAAEAAAA1AAYAAAACAAEAAAA0AAYAAAACAAEAAAAzAAYAAAABAAEAAGAzAAUAAAABAAEAAFAyAAUAAAACAAEAAAAxAAUAAAACAAEAAAAwAAUAAAACAAEAAAAvAAUAAAACAAEAAAAuAAUAAAACAAEAAAAtAAUAAAACAAEAAAAsAAUAAAACAAEAAAArAAUAAAACAAEAAAAqAAUAAAACAAEAAAApAAUAAAABAAEAAAApAAYAAAABAAEAADAoAAYAAAACAAEAAAAnAAYAAAACAAEAAAAmAAYAAAACAAEAAAAlAAYAAAACAAEAAAAkAAYAAAACAAEAAAAjAAYAAAACAAEAAAAiAAYAAAACAAEAAAAhAAYAAAACAAEAAAAgAAYAAAABAAEAAAAgAAcAAAACAAEAAFAgAAgAAAACAAEAAGAaAAwAAAADAAEAABAbAAwAAAACAAEAAAAcAAwAAAACAAEAAAAdAAwAAAABAAEAADAdAAsAAAACAAEAAFAdAAoAAAABAAEAAAAeAAoAAAACAAEAAAAfAAoAAAACAAEAAAAgAAoAAAABAAEAADAgAAkAAAACAAEAAGA=")
+tile_map_data = PackedByteArray("AAA7AAYAAAADAAEAAAA6AAYAAAACAAEAAAA5AAYAAAACAAEAAAA4AAYAAAACAAEAAAA3AAYAAAACAAEAAAA2AAYAAAACAAEAAAA1AAYAAAACAAEAAAA0AAYAAAACAAEAAAAzAAYAAAABAAEAAGAzAAUAAAABAAEAAFAyAAUAAAACAAEAAAAxAAUAAAACAAEAAAAwAAUAAAACAAEAAAAvAAUAAAACAAEAAAAuAAUAAAACAAEAAAAtAAUAAAACAAEAAAAsAAUAAAACAAEAAAArAAUAAAACAAEAAAAqAAUAAAACAAEAAAApAAUAAAABAAEAAAApAAYAAAABAAEAADAoAAYAAAACAAEAAAAnAAYAAAACAAEAAAAmAAYAAAACAAEAAAAlAAYAAAACAAEAAAAkAAYAAAACAAEAAAAjAAYAAAACAAEAAAAiAAYAAAACAAEAAAAhAAYAAAACAAEAAAAgAAYAAAABAAEAAAAgAAcAAAACAAEAAFAfAAgAAAACAAEAAAAeAAgAAAACAAEAAAAdAAgAAAACAAEAAAAcAAgAAAACAAEAAAAbAAgAAAADAAEAABAgAAgAAAABAAEAADA=")
 tile_set = SubResource("TileSet_rme2f")
 
 [node name="Y-sort" type="Node2D" parent="."]
@@ -448,17 +453,17 @@ y_sort_enabled = true
 texture_filter = 3
 position = Vector2(-2706, 11)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAcAAEAAgABAAAAAAAcAAQAAgABAAEAAAAfAAUAAgABAAAAAAAfAA0AAgABAAAAAAAgAAIAAgABAAEAAAAhAAQAAgABAAEAAAAjAAUAAgAAAAAAAAAlAAAAAgABAAEAAAAmAAYAAgABAAAAAAAnAAsAAgABAAEAAAAnAA4AAgABAAAAAAAoAAEAAgABAAAAAAAoAAoAAgAAAAEAAAApAAEAAgABAAEAAAApABEAAgABAAEAAAAqAAIAAgAAAAAAAAArAAcAAgAAAAAAAAAvAAEAAgAAAAEAAAAxAAMAAgABAAEAAAAxAAUAAgABAAEAAAAxAA0AAgABAAAAAAA0AAAAAgAAAAEAAAA1AA8AAgAAAAAAAAA3AAEAAgABAAAAAAA3ABAAAgAAAAAAAAA4AAEAAgABAAAAAAA4AA4AAgAAAAEAAAA0AAcAAgAAAAAAAAA1AAcAAgABAAAAAAA1AAkAAgAAAAEAAAA2AAkAAgABAAEAAAA3AAkAAgABAAEAAAA4AAcAAgAAAAEAAAAMAAcAAgABAAEAAAAMAAsAAgABAAEAAAANAAsAAgABAAAAAAANABMAAgAAAAEAAAAOAAYAAgABAAAAAAAPAAAAAgAAAAEAAAAPAAQAAgAAAAEAAAAPABIAAgAAAAEAAAAUABIAAgABAAEAAAAVABIAAgAAAAEAAAAXABAAAgAAAAEAAAAKAAAAAgAAAAAAAAAhAAkAAgABAAAAAAAiABAAAgABAAEAAAAjABAAAgAAAAEAAAAkABAAAgABAAAAAAAgAA8AAgABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAcAAEAAgABAAAAAAAcAAQAAgABAAEAAAAfAAUAAgABAAAAAAAfAA0AAgABAAAAAAAfABAAAgAAAAAAAAAgAAIAAgABAAEAAAAgAA8AAgABAAEAAAAhAAQAAgABAAEAAAAiABAAAgABAAEAAAAjAAUAAgAAAAAAAAAjABAAAgAAAAEAAAAkABAAAgABAAAAAAAlAAAAAgABAAEAAAAmAAYAAgABAAAAAAAnAAsAAgABAAEAAAAnAA4AAgABAAAAAAAoAAEAAgABAAAAAAAoAAoAAgAAAAEAAAApAAEAAgABAAEAAAApABEAAgABAAEAAAAqAAIAAgAAAAAAAAArAAcAAgAAAAAAAAAvAAEAAgAAAAEAAAAxAAMAAgABAAEAAAAxAAUAAgABAAEAAAAxAA0AAgABAAAAAAA0AAAAAgAAAAEAAAA1AA8AAgAAAAAAAAA3AAEAAgABAAAAAAA3ABAAAgAAAAAAAAA4AAEAAgABAAAAAAA4AA4AAgAAAAEAAAA0AAcAAgAAAAAAAAA1AAcAAgABAAAAAAA1AAkAAgAAAAEAAAA2AAkAAgABAAEAAAA3AAkAAgABAAEAAAA4AAcAAgAAAAEAAAAMAAcAAgABAAEAAAAMAAsAAgABAAEAAAANAAsAAgABAAAAAAANABMAAgAAAAEAAAAOAAYAAgABAAAAAAAPAAAAAgAAAAEAAAAPAAQAAgAAAAEAAAAPABIAAgAAAAEAAAAUABIAAgABAAEAAAAVABIAAgAAAAEAAAAXABAAAgAAAAEAAAAKAAAAAgAAAAAAAAAhAAkAAgABAAAAAAA=")
 tile_set = SubResource("TileSet_ksqrf")
 
 [node name="MapleTree" type="TileMapLayer" parent="Y-sort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAADAAgAAAAAAAAAAAAGAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAIAA4AAAAAAAAAAAALABAAAAAAAAAAAAAZAAoAAAAAAAAAAAAUABEAAAAAAAAAAAAVAAMAAAAAAAAAAAAWAAQAAAAAAAAAAAAaAAAAAAAAAAAAAAAdAAgAAAAAAAAAAAAdAAkAAAAAAAAAAAAeAAUAAAAAAAAAAAAfAAMAAAAAAAAAAAAgAAsAAAAAAAAAAAAkAAEAAAAAAAAAAAAlAAgAAAAAAAAAAAAlABAAAAAAAAAAAAAmAAYAAAAAAAAAAAAoAAoAAAAAAAAAAAApAAwAAAAAAAAAAAAqAAkAAAAAAAAAAAAtAAAAAAAAAAAAAAAtABAAAAAAAAAAAAAuABIAAAAAAAAAAAAvAAQAAAAAAAAAAAAwAAUAAAAAAAAAAAAwAAkAAAAAAAAAAAAwABIAAAAAAAAAAAABAAQAAAAAAAAAAAALAAIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAAgAAAAAAAAAAAAGAAEAAAAAAAAAAAABAAEAAAAAAAAAAAAIAA4AAAAAAAAAAAALABAAAAAAAAAAAAAZAAoAAAAAAAAAAAAUABEAAAAAAAAAAAAVAAMAAAAAAAAAAAAWAAQAAAAAAAAAAAAaAAAAAAAAAAAAAAAdAAgAAAAAAAAAAAAdAAkAAAAAAAAAAAAeAAUAAAAAAAAAAAAfAAMAAAAAAAAAAAAgAAsAAAAAAAAAAAAkAAEAAAAAAAAAAAAlAAgAAAAAAAAAAAAlABAAAAAAAAAAAAAmAAYAAAAAAAAAAAAoAAoAAAAAAAAAAAApAAwAAAAAAAAAAAAqAAkAAAAAAAAAAAAtAAAAAAAAAAAAAAAtABAAAAAAAAAAAAAuABIAAAAAAAAAAAAwAAUAAAAAAAAAAAAwAAkAAAAAAAAAAAAwABIAAAAAAAAAAAABAAQAAAAAAAAAAAALAAIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ydivj")
 
 [node name="Bushes" type="TileMapLayer" parent="Y-sort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAABAAcAAAAAAAAAAAAGAAQAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAgAAAAAAAAAAAAPAAcAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAgAAAAAAAAAAAACABkAAAAAAAAAAAACACQAAAAAAAAAAAADAB4AAAAAAAAAAAAHABkAAAAAAAAAAAAHABsAAAAAAAAAAAAJACAAAAAAAAAAAAAOACIAAAAAAAAAAAARACAAAAAAAAAAAAAVABoAAAAAAAAAAAAVAB4AAAAAAAAAAAAWACAAAAAAAAAAAAAdABwAAAAAAAAAAAAnABgAAAAAAAAAAAAqAAUAAAAAAAAAAAAqACYAAAAAAAAAAAAsAB4AAAAAAAAAAAAtACAAAAAAAAAAAAAuAAUAAAAAAAAAAAAvAAUAAAAAAAAAAAAwAAQAAAAAAAAAAAAwABcAAAAAAAAAAAAzAAEAAAAAAAAAAAAzABcAAAAAAAAAAAA2ABMAAAAAAAAAAAA5AAMAAAAAAAAAAAA5ABQAAAAAAAAAAAA8ABEAAAAAAAAAAABAACQAAAAAAAAAAABEAA8AAAAAAAAAAABEABwAAAAAAAAAAABEACMAAAAAAAAAAABFAA0AAAAAAAAAAABFAA8AAAAAAAAAAABGACQAAAAAAAAAAABJABAAAAAAAAAAAABJACIAAAAAAAAAAABKABgAAAAAAAAAAABLABUAAAAAAAAAAABNAAIAAAAAAAAAAABPAAcAAAAAAAAAAABPAAwAAAAAAAAAAABPABcAAAAAAAAAAABQAAoAAAAAAAAAAABRAAQAAAAAAAAAAABTABcAAAAAAAAAAABVACIAAAAAAAAAAABWABoAAAAAAAAAAABXACEAAAAAAAAAAABYABQAAAAAAAAAAABYABgAAAAAAAAAAABZAA0AAAAAAAAAAABZAB8AAAAAAAAAAABaAAcAAAAAAAAAAABaAA4AAAAAAAAAAABbABQAAAAAAAAAAABdACEAAAAAAAAAAABeAAkAAAAAAAAAAABfAA0AAAAAAAAAAABgABIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAcAAAAAAAAAAAAGAAQAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAgAAAAAAAAAAAAPAAcAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAgAAAAAAAAAAAACABkAAAAAAAAAAAACACQAAAAAAAAAAAADAB4AAAAAAAAAAAAHABkAAAAAAAAAAAAHABsAAAAAAAAAAAAJACAAAAAAAAAAAAAOACIAAAAAAAAAAAARACAAAAAAAAAAAAAVABoAAAAAAAAAAAAVAB4AAAAAAAAAAAAWACAAAAAAAAAAAAAdABwAAAAAAAAAAAAnABgAAAAAAAAAAAAqAAUAAAAAAAAAAAAqACYAAAAAAAAAAAAsAB4AAAAAAAAAAAAtACAAAAAAAAAAAAAuAAUAAAAAAAAAAAAvAAUAAAAAAAAAAAAwAAQAAAAAAAAAAAAwABcAAAAAAAAAAAAzAAEAAAAAAAAAAAAzABcAAAAAAAAAAAA2ABMAAAAAAAAAAAA5AAMAAAAAAAAAAAA5ABQAAAAAAAAAAAA8ABEAAAAAAAAAAABAACQAAAAAAAAAAABEAA8AAAAAAAAAAABEABwAAAAAAAAAAABEACMAAAAAAAAAAABFAA0AAAAAAAAAAABFAA8AAAAAAAAAAABGACQAAAAAAAAAAABJABAAAAAAAAAAAABJACIAAAAAAAAAAABKABgAAAAAAAAAAABLABUAAAAAAAAAAABNAAIAAAAAAAAAAABPAAcAAAAAAAAAAABPAAwAAAAAAAAAAABPABcAAAAAAAAAAABQAAoAAAAAAAAAAABRAAQAAAAAAAAAAABTABcAAAAAAAAAAABVACIAAAAAAAAAAABWABoAAAAAAAAAAABXACEAAAAAAAAAAABYABQAAAAAAAAAAABYABgAAAAAAAAAAABZAA0AAAAAAAAAAABZAB8AAAAAAAAAAABaAAcAAAAAAAAAAABaAA4AAAAAAAAAAABbABQAAAAAAAAAAABdACEAAAAAAAAAAABfAA0AAAAAAAAAAABgABIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ar6bn")
 
 [node name="Signs" type="TileMapLayer" parent="Y-sort"]
@@ -469,6 +474,7 @@ tile_map_data = PackedByteArray("AAAkAAIAAQAAAAAAAAAcAAMAAgAAAAAAAAAWAAIAAAAAAAA
 tile_set = SubResource("TileSet_x3v44")
 
 [node name="ForestMap" parent="Y-sort" instance=ExtResource("11_tbg12")]
+position = Vector2(79, -25)
 
 [node name="WetlandsMap" parent="Y-sort" instance=ExtResource("12_jyrrp")]
 
@@ -480,19 +486,13 @@ position = Vector2(1284.65, 731.6)
 shape = SubResource("RectangleShape2D_ex5i0")
 
 [node name="PostDam" type="Node2D" parent="."]
-
-[node name="damBuilt" type="TileMapLayer" parent="PostDam"]
-texture_filter = 1
-position = Vector2(-20, 1250)
-scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAAFAAYAAQAAAAIAAAAFAAcAAQAAAAMAAAAFAAgAAQAAAAQAAAAGAAYAAQABAAIAAAAGAAcAAQABAAMAAAAGAAgAAQABAAQAAAA=")
-tile_set = SubResource("TileSet_teicv")
+visible = false
 
 [node name="Pond" type="TileMapLayer" parent="PostDam"]
 texture_filter = 3
-position = Vector2(4, 139)
+position = Vector2(0, -444)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAASAAwAAAACAAIAAAAQAAwAAAACAAEAAAATAAwAAAAEAAIAAAAUAAwAAAAAAAQAABAOAAwAAAAAAAQAAAAPAAwAAAAEAAIAAAAUAA0AAAAFAAMAAAAUAA4AAAAFAAMAAAAOAA0AAAAFAAMAABAOAA4AAAAFAAMAABAOAA8AAAAFAAMAABAOABAAAAAFAAMAABAOABEAAAAFAAMAABAPABEAAAAEAAEAAAATABEAAAAEAAEAAAAUABEAAAAFAAMAAAAUABAAAAAAAAEAAAAPAA0AAAAAAAAAAAAQAA0AAAAAAAUAAAASAA0AAAAEAAEAAAASAA4AAAAEAAEAAAATAA4AAAAEAAEAAAATAA8AAAAAAAAAAAATAA0AAAAEAAEAAAATABAAAAAEAAEAAAASABAAAAAEAAEAAAAQABAAAAAEAAEAAAAPABAAAAADAAAAAAAPAA8AAAAEAAEAAAAPAA4AAAAEAAEAAAAQAA4AAAAEAAEAAAAQAA8AAAAEAAEAAAASAA8AAAAEAAEAAAASABEAAAAEAAEAAAAQABEAAAAEAAEAAAAUAA8AAAACAAIAAAAVAA8AAAAEAAIAAAAWAA8AAAAEAAIAAAAVABAAAAAEAAIAACAWABAAAAAEAAIAACAXABAAAAAEAAIAACAXAA8AAAAEAAIAAAAYAA8AAAACAAEAAAAYABAAAAACAAMAAAAYABEAAAAEAAMAABAYABIAAAACAAQAAAAYAA4AAAAEAAMAABAYAA0AAAAAAAQAAAAZAA0AAAAEAAIAAAAaAA0AAAAEAAIAAAAbAA0AAAAEAAIAAAAcAA0AAAAEAAIAAAAdAA0AAAAAAAQAABAdAA4AAAAFAAMAAAAdAA8AAAAFAAMAAAAdABAAAAAFAAMAAAAdABEAAAAFAAMAAAAdABIAAAACAAQAABAZABIAAAAEAAIAACAaABIAAAAEAAIAACAbABIAAAAEAAIAADAcABIAAAAEAAIAACAZAA4AAAAEAAEAAAAaAA4AAAAEAAEAAAAbAA4AAAAEAAEAAAAcAA4AAAAAAAAAAAAcAA8AAAAEAAEAAAAcABAAAAAEAAEAAAAcABEAAAAEAAEAAAAbABEAAAADAAAAAAAaABEAAAAEAAEAAAAZABEAAAAAAAAAAAAZABAAAAAEAAEAAAAZAA8AAAAEAAEAAAAaAA8AAAADAAAAAAAbAA8AAAAEAAEAAAAbABAAAAAEAAEAAAAaABAAAAAEAAEAAAAOABIAAAACAAQAAAAUABIAAAACAAQAABAPABIAAAAEAAIAACATABIAAAAEAAIAADAQABIAAAACAAMAAAASABIAAAABAAEAAAARAA4AAAAAAAUAAAARABAAAAAAAAUAAAARABEAAAADAAAAAAARAA8AAAAEAAEAAAARAA0AAAAEAAEAAAARAAwAAAAEAAEAAAA=")
+tile_map_data = PackedByteArray("AAASAAwAAAACAAIAAAAQAAwAAAACAAEAAAATAAwAAAAAAAMAAGAUAAwAAAAAAAQAABAOAAwAAAAAAAQAAAAPAAwAAAAEAAIAAAAUAA0AAAAFAAMAAAAUAA4AAAAFAAMAAAAOAA0AAAAFAAMAABAOAA4AAAAFAAMAABAOAA8AAAAFAAMAABAOABAAAAAFAAMAABAOABEAAAAFAAMAABAPABEAAAAEAAEAAAATABEAAAAEAAEAAAAUABEAAAAFAAMAAAAUABAAAAAAAAEAAAAPAA0AAAADAAAAAFAQAA0AAAAAAAUAAFASAA0AAAAEAAEAAAASAA4AAAAEAAEAAAATAA4AAAAEAAEAAAATAA8AAAAAAAAAAFATAA0AAAAEAAEAAAATABAAAAAEAAEAAAASABAAAAAEAAEAAAAQABAAAAAEAAEAAAAPABAAAAAAAAUAAFAPAA8AAAAEAAEAAAAPAA4AAAAEAAEAAAAQAA4AAAAEAAEAAAAQAA8AAAAEAAEAAAASAA8AAAAEAAEAAAASABEAAAAEAAEAAAAQABEAAAAEAAEAAAAUAA8AAAACAAIAAAAVAA8AAAAEAAIAAAAWAA8AAAAEAAIAAAAVABAAAAAEAAIAACAWABAAAAAEAAIAACAXABAAAAAEAAIAACAXAA8AAAAEAAIAAAAYAA8AAAACAAEAAAAYABAAAAACAAMAAAAYABEAAAAEAAMAABAYABIAAAACAAQAAAAYAA4AAAAEAAMAABAYAA0AAAAAAAQAAAAZAA0AAAAAAAMAAGAaAA0AAAAEAAIAAAAbAA0AAAAEAAIAAAAcAA0AAAAEAAIAAAAdAA0AAAAAAAQAABAdAA4AAAAFAAMAAAAdAA8AAAAFAAMAAAAdABAAAAAFAAMAAAAdABEAAAAFAAMAAAAdABIAAAACAAQAABAZABIAAAAEAAIAACAaABIAAAAEAAIAACAbABIAAAAAAAMAAFAcABIAAAAEAAIAACAZAA4AAAAEAAEAAAAaAA4AAAAEAAEAAAAbAA4AAAAEAAEAAAAcAA4AAAADAAAAAFAcAA8AAAAEAAEAAAAcABAAAAAEAAEAAAAcABEAAAAEAAEAAAAbABEAAAAAAAAAAFAaABEAAAAEAAEAAAAZABEAAAAAAAUAAFAZABAAAAAEAAEAAAAZAA8AAAAEAAEAAAAaAA8AAAADAAAAAFAbAA8AAAAEAAEAAAAbABAAAAAEAAEAAAAaABAAAAAEAAEAAAAOABIAAAACAAQAAAAUABIAAAACAAQAABAPABIAAAAEAAIAACATABIAAAAAAAMAAFAQABIAAAACAAMAAAASABIAAAABAAEAAAARAA4AAAADAAAAAFARABAAAAAAAAAAAFARABEAAAADAAAAAFARAA8AAAAEAAEAAAARAA0AAAAEAAEAAAARAAwAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_jdejn")
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
@@ -512,10 +512,6 @@ shape = SubResource("RectangleShape2D_m0wsp")
 [node name="bottomWall" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(7887, 6562)
 shape = SubResource("RectangleShape2D_m0wsp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(1569, 9)
-shape = SubResource("RectangleShape2D_fbx6r")
 
 [node name="SwimmingMG" parent="." instance=ExtResource("18_npxbu")]
 position = Vector2(6108, 2989)
@@ -537,4 +533,26 @@ stream = ExtResource("20_h8rkq")
 volume_db = -7.0
 bus = &"SFX"
 
-[connection signal="area_entered" from="Dam" to="." method="_on_dam_area_entered"]
+[node name="BridgetteNPC" parent="." instance=ExtResource("21_snaul")]
+position = Vector2(13417, 1423)
+NPCDialogue = ["Bobo, do you have to ask about every little thing?!? Ugh. You can find sticks and logs in the forest west of the river, and you can grab stones from the river.", "Once you get those, you can throw a dam together with mud, plants and anything else you find floating around the dam location.", "Our uncle Buck even found a bunch of human money that he put in his dam, though I doubt you will ever be that rich (hah!)  "]
+
+[node name="DadNPC" parent="." instance=ExtResource("22_i8jm6")]
+position = Vector2(15219, 1832)
+NPCDialogue = ["Are you excited Bobo? Today is finally the day you get to go off and start your own family.", "You need to learn how to take control of your own life now. It’ll be hard at first, but I know  you can stick through it.", "The most important thing, make sure to gather enough materials to build a dam, it will be essential for creating a good place to live in.", "After all, a pond is our highway, escape route, hiding place, food storage facility, refrigerator, bathtub, swimming pool and toilet. You really need that to start your own family!"]
+
+[node name="MomNPC" parent="." instance=ExtResource("23_5grlg")]
+position = Vector2(15217, 1520)
+NPCDialogue = ["Bobo, I’m gonna miss you, but I know you’ll be alright. Just always remember what we taught you, and jump into the river as soon as you see a predator", "It’ll be hard taking care of your two younger siblings and our 2 new-born kits without you, but everyone has to go at some point. ", "Make sure you find a good stream to live in. A nice and level stream is best, with lots of different plants around you. Once you find that, building a dam will be easy peasy for you!", "It's time for you to show the world what you can do. We all believe in you!"]
+
+[node name="RiverNPC" parent="." instance=ExtResource("24_r5lyo")]
+position = Vector2(6534, 2723)
+NPCDialogue = ["This is the River minigame! Beavers use rivers and bodies of water as their main means of transportation, as well as many other things.", "In this minigame, you will have to dodge obstacles, as you work your way towards getting all the stones you need for your lodge!", "Watch out though, us beavers don’t have very good eyesight, so be careful to not get hit by any debris in the water!", "While we normally swim with our eyes, ears and nose above the water, like an alligator or a crocodile, you are going to have to dive under the water to get the stones. Make sure you are fully prepared when you go under!", "Most Beavers can only go under for 5-6 minutes,  but I once saw somebody go under for a whole 15 minutes! That's some crazy breath control!", "Good luck! I hope you get the stones to build your dam!"]
+
+[node name="TreeCuttingNPC" parent="." instance=ExtResource("25_thcas")]
+position = Vector2(22, 1473)
+NPCDialogue = ["This is the Woodcutting minigame! Dodge the evil nutria while you try to chop down each tree with the space bar.", "Nutria are semi-aquatic rodents from South america. Because they look similar to beavers, they are often mistaken for each other.", "Beavers eat about 2-4 pounds of wood per day, and love to eat certain kinds of wood! Some of their favorite types of wood include aspen and willow trees.", "Nutria have a quite different diet, not eating nearly as much bark or wood as beavers. They also do not build any structures, and can put illnesses into the water they share with beavers.", "Beavers can chop a tree of 6 inches in diameter in as little as 30 minutes, so get choppin’!"]
+
+[node name="TerritorialNPC" parent="." instance=ExtResource("26_ccedq")]
+position = Vector2(-2626, 4406)
+NPCDialogue = ["Hey You! Can’t you smell my castoreum, you better scram before yous and I have trouble.", "I thought I told you to SCRAM. My territory here is clearly marked by my castoreum, and we are about to have problems if you keep sticking around, ya hear? ", "Still here are ya? Ya better not be trying to steal my castoreum like some of them humans, I hear they even use it to make food! Yuck.", "*hiss*"]

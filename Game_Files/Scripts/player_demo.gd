@@ -16,6 +16,9 @@ const SPEED = 1800.0
 @onready var playerWalkingSandSound = load("res://Game_Files/Assets/Audio/Sounds/Movement SFX/Dirt walk fast.mp3")
 @onready var playerWalkingWoodSound = load("res://Game_Files/Assets/Audio/Sounds/Movement SFX/Wood steps fast.mp3")
 
+#player instance
+@onready var PlayerDemo = $Sprite2D
+
 #work in progress
 #needs to be able to return the audiostream for the tile the player is on
 func getMovementSound():
@@ -26,6 +29,7 @@ func _physics_process(_delta):
 	#Input_directon is a vector variable determined by user input. 
 	var input_direction = Input.get_vector("Move_Left", "Move_Right", "Move_Up", "Move_Down")
 	
+	setFlip(input_direction)
 	velocity = input_direction * SPEED
 	
 	#player movement sound control
@@ -42,6 +46,13 @@ func _physics_process(_delta):
 
 func setPosition(x,y):
 	global_position = Vector2(x,y)
+	
+func setFlip(direction):
+	if(direction[0] > 0):
+		PlayerDemo.flip_h = 0
+	elif(direction[0] < 0):
+		PlayerDemo.flip_h = 1
+	
 
 func sendToManager():
 	get_tree().call_group("GameManager", "updatePlayerLocation", global_position.x, global_position.y)
