@@ -91,6 +91,7 @@ func loadSceneByName(sceneName):
 	var instance = sceneSpecifier.instantiate()
 	instance.position = Vector2(0,0)
 	add_child(instance)
+	checkInventory()
 	
 func newGame():
 	branchCount = 0
@@ -198,3 +199,6 @@ func updateMapUI():
 func checkInventory():
 	if (branchCount == 4 && rockCount == 4):
 		get_tree().call_group("GameScene", "showDam")
+		
+	else:
+		get_tree().call_group("GameScene", "hideDam")
