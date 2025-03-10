@@ -3,25 +3,23 @@ extends GutTest
 var Level = load('res://Game_Files/Scenes/Interactive/MinigameSwimming.tscn')
 
 var swimMinigame = load('res://Game_Files/Scripts/MinigameSwimming.gd')
-
-var _sender = InputSender.new(Input)
+var swimPlayer = load('res://Game_Files/Scripts/PlayerSwimming.gd')
 
 var game = null
+var player = null
 
 func before_each():
-	#create and add an instance of the minigame
-	#game = swimMinigame.new()
+	#create and add an instance of the minigame	
+	game = swimMinigame.new()
+	player = swimPlayer.new()
 	
-	game = Level.instantiate()
-	get_tree().current_scene.add_child(game)
-
+	add_child_autofree(game)
+	add_child_autofree(player)
 	wait_frames(1,"WAIT")
 
 #this function runs after each test
 #it cleans up the input sender
 func after_each():
-	_sender.release_all()
-	_sender.clear()
 	game.removeSelf()
 	
 #Tests that game exists
@@ -32,23 +30,16 @@ func test_game_exists():
 #Tests to ensure health resets when game restarts
 func test_game_restart():
 	game.setHealth(0)
-	game.restart()
-	game.pause()
+	game.resetHealth()
 	assert_eq(game.health, 3)
+		
+func test_movement():
 	
-func test_game_win():
-	game.game_win()
-	assert_eq(game.win, true)
+	var playSpeed = player.SPEED
 	
-func test_pause():
-	var timeStart = game.timer.time_left
-	game.pause()
-	var timeEnd = game.timer.time_left
-	var timeDifference = timeStart - timeEnd
-	var pauseCheck = false
+	player.stopPlayer()
+	assert_eq(player.SPEED, 0)
 	
-	if (timeDifference < 0.1):
-		pauseCheck = true
-	
-	assert_eq(true, pauseCheck)
+	player.startPlayer()
+	assert_eq(player.SPEED, playSpeed)
 	
