@@ -3,18 +3,23 @@ extends Control
 #Variables for specifc menus
 @onready var mainMenu = $StartMenu
 @onready var settingsMenu = $SettingsMenu
+@onready var feedbackMenu = $FeedbackMenu
 
 #Variables for the specific buttons in the start menu
 @onready var newGameButton = $StartMenu/NewText/NewButton
 @onready var loadGameButton = $StartMenu/LoadText/LoadButton
-@onready var onlineButton = $StartMenu/OnlineText/OnlineButton
 @onready var settingsButton = $StartMenu/SettingsText/SettingsButton
+@onready var feedBackButton = $StartMenu/FeedText/FeedButton
 @onready var quitGameButton = $StartMenu/QuitText/QuitButton
 
 #Variables for the specific buttons in the settings memu
 @onready var settingsBackButton = $SettingsMenu/BackText/BackButton
 @onready var resolutionChoice = $SettingsMenu/ResolutionsDropdown
 @onready var textSizeChoice = $SettingsMenu/TextSizeDropdown
+
+#Variavles for specifc buttons in the feedback menu
+@onready var feedbackBackButton = $FeedbackMenu/BackText/BackButton
+
 
 #Variables to hold AudioStreamPlayers
 @onready var menuAudioStream: = $"AudioStreamPlayer-MenuSFX"
@@ -52,6 +57,12 @@ func settingsPressed():
 	hideStartMenu()
 	showSettingsMenu()
 	
+func feedbackPressed():
+	playSound(select)
+	await get_tree().create_timer(0.1).timeout
+	hideStartMenu()
+	showFeedbackMenu()
+	
 #This functions exits the game. It does not save any data as that functionality happens within game
 func quitPressed():
 	playSound(exit)
@@ -63,8 +74,8 @@ func hideStartMenu():
 	mainMenu.hide()
 	newGameButton.disabled = true
 	loadGameButton.disabled = true
-	onlineButton.disabled = true
 	settingsButton.disabled = true
+	feedBackButton.disabled = true
 	quitGameButton.disabled = true
 	
 #This function is used to show and enable the main menu whenever another menu is closed
@@ -72,8 +83,8 @@ func showStartMenu():
 	mainMenu.show()
 	newGameButton.disabled = false
 	loadGameButton.disabled = false
-	onlineButton.disabled = false
 	settingsButton.disabled = false
+	feedBackButton.disabled = false
 	quitGameButton.disabled = false
 
 func hideSettingsMenu():
@@ -87,6 +98,15 @@ func showSettingsMenu():
 	get_tree().call_group("GameManager", "setSelected")
 	settingsMenu.show()
 	settingsBackButton.disabled = false
+	
+func hideFeedbackMenu():
+	feedbackMenu.hide()
+	feedbackBackButton.disabled = true
+	showStartMenu()
+	
+func showFeedbackMenu():
+	feedbackMenu.show()
+	feedbackBackButton.disabled = false
 	
 #Fuction that all scenes have that remove them from tree
 func removeSelf():
