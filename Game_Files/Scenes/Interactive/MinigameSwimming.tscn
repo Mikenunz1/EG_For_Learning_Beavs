@@ -29,7 +29,7 @@ position = Vector2(-2, -2)
 script = ExtResource("1_w1r3m")
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 30.0
 autostart = true
 
 [node name="Background" type="Node2D" parent="."]
@@ -136,8 +136,10 @@ offset_bottom = 759.0
 theme_override_fonts/normal_font = ExtResource("10_p6833")
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[center]YOU WIN
-[font_size={40}]press space to continue[/font_size][/center]"
+text = "[center]YOU WIN!
+[font_size={40}][wave amp=50.0 freq=5.0 connected=1]collect a rock[/wave]
+
+press space to continue[/font_size][/center]"
 
 [node name="Progress" type="TextureProgressBar" parent="MinigameUI"]
 layout_mode = 0
@@ -147,12 +149,11 @@ offset_right = 2505.0
 offset_bottom = 1163.0
 rotation = 3.14127
 scale = Vector2(0.9, 0.9)
-max_value = 60.0
+max_value = 30.0
 texture_under = ExtResource("10_1b0p4")
 texture_progress = ExtResource("11_nsvmp")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 1.5
 autostart = true
 
 [node name="AudioStreamPlayer-MinigameMusic" type="AudioStreamPlayer" parent="."]

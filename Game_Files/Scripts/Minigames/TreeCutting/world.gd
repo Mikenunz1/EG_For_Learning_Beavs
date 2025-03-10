@@ -155,13 +155,10 @@ func _process(_delta):
 			await get_tree().create_timer(0.1).timeout
 			get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
 			get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
+			get_tree().call_group("GameManager", "addBranch")
 			get_tree().call_group("GameManager", "saveGame")
 			get_tree().call_group("GameManager", "loadSceneByFile")
 			removeSelf()
-
-		if Input.is_key_pressed(KEY_Q):  # Q key to quit
-			print("Q key pressed - quitting game")
-			get_tree().quit()
 	
 #Fuction that all scenes have that remove them from tree
 func removeSelf():
