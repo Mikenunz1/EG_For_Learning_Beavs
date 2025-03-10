@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://3s80payn7ur0"]
+[gd_scene load_steps=10 format=3 uid="uid://3s80payn7ur0"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/UI/MainMenu.gd" id="1_hwis5"]
 [ext_resource type="Texture2D" uid="uid://3iv5464odkaq" path="res://Game_Files/Assets/UI/MenuBackground.png" id="2_wkd3q"]
 [ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="3_4eln7"]
-[ext_resource type="Texture2D" uid="uid://cbeq6s7a40c86" path="res://Game_Files/Assets/UI/TitleCard.png" id="3_5yxjm"]
 [ext_resource type="Texture2D" uid="uid://csj67ncrvatpn" path="res://Game_Files/Assets/UI/MenuPanel.png" id="3_o2tar"]
 [ext_resource type="Texture2D" uid="uid://bclu1ru88gtu0" path="res://Game_Files/Assets/UI/MenuButton.png" id="3_o10oy"]
-[ext_resource type="PackedScene" uid="uid://drru8di7js7gn" path="res://Game_Files/Scenes/UI/FeedBack.tscn" id="4_awbwo"]
 [ext_resource type="Texture2D" uid="uid://cpb4iy5a8r452" path="res://Game_Files/Assets/UI/MenuButtonHover.png" id="4_nqh5w"]
 [ext_resource type="PackedScene" uid="uid://cgojnksales8v" path="res://Game_Files/Scenes/UI/VolumeSlider.tscn" id="7_7lek8"]
 [ext_resource type="Script" path="res://Game_Files/Scripts/UI/SettingsMenu.gd" id="7_wieba"]
@@ -33,23 +31,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_wkd3q")
 
-[node name="Title" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 79.0
-offset_top = 370.0
-offset_right = 831.0
-offset_bottom = 746.0
-texture = ExtResource("3_5yxjm")
-
 [node name="StartMenu" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.5
 anchor_top = 0.435
 anchor_right = 0.5
 anchor_bottom = 0.435
-offset_left = -68.0
+offset_left = -320.0
 offset_top = -388.8
-offset_right = 572.0
+offset_right = 320.0
 offset_bottom = 546.2
 
 [node name="MenuBackground" type="TextureRect" parent="StartMenu"]
@@ -67,10 +57,10 @@ anchor_left = 0.5
 anchor_top = 0.128
 anchor_right = 0.5
 anchor_bottom = 0.128
-offset_left = -288.0
-offset_top = -91.68
-offset_right = 32.0
-offset_bottom = 98.32
+offset_left = -291.0
+offset_top = -104.68
+offset_right = 29.0
+offset_bottom = 85.32
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
@@ -105,10 +95,10 @@ anchor_left = 0.5
 anchor_top = 0.372
 anchor_right = 0.5
 anchor_bottom = 0.372
-offset_left = -238.0
-offset_top = -139.78
-offset_right = 82.0
-offset_bottom = 50.22
+offset_left = -241.0
+offset_top = -152.78
+offset_right = 79.0
+offset_bottom = 37.22
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
@@ -135,6 +125,45 @@ offset_bottom = 69.04
 texture_normal = ExtResource("3_o10oy")
 texture_hover = ExtResource("4_nqh5w")
 
+[node name="OnlineText" type="RichTextLabel" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.614
+anchor_right = 0.5
+anchor_bottom = 0.614
+offset_left = -180.0
+offset_top = -197.05
+offset_right = 140.0
+offset_bottom = -7.04999
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_4eln7")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "
+
+[center]     ONLINE[/center]"
+
+[node name="OnlineButton" type="TextureButton" parent="StartMenu/OnlineText"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.584
+anchor_right = 0.5
+anchor_bottom = 0.584
+offset_left = -160.0
+offset_top = -90.96
+offset_right = 160.0
+offset_bottom = 69.04
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_o10oy")
+texture_hover = ExtResource("4_nqh5w")
+
 [node name="SettingsText" type="RichTextLabel" parent="StartMenu"]
 layout_mode = 1
 anchors_preset = -1
@@ -142,10 +171,10 @@ anchor_left = 0.5
 anchor_top = 0.614
 anchor_right = 0.5
 anchor_bottom = 0.614
-offset_left = -183.0
-offset_top = -183.09
-offset_right = 137.0
-offset_bottom = 6.90997
+offset_left = -135.0
+offset_top = -19.05
+offset_right = 185.0
+offset_bottom = 170.95
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
@@ -174,44 +203,6 @@ grow_vertical = 2
 texture_normal = ExtResource("3_o10oy")
 texture_hover = ExtResource("4_nqh5w")
 
-[node name="FeedText" type="RichTextLabel" parent="StartMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.128
-anchor_right = 0.5
-anchor_bottom = 0.128
-offset_left = -139.0
-offset_top = 445.32
-offset_right = 181.0
-offset_bottom = 635.32
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_outline_size = 10
-theme_override_fonts/normal_font = ExtResource("3_4eln7")
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "
-
-[center]      FEEDBACK[/center]"
-
-[node name="FeedButton" type="TextureButton" parent="StartMenu/FeedText"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.584
-anchor_right = 0.5
-anchor_bottom = 0.584
-offset_left = -160.0
-offset_top = -90.96
-offset_right = 160.0
-offset_bottom = 74.04
-scale = Vector2(1.00373, 1)
-texture_normal = ExtResource("3_o10oy")
-texture_hover = ExtResource("4_nqh5w")
-
 [node name="QuitText" type="RichTextLabel" parent="StartMenu"]
 layout_mode = 1
 anchors_preset = -1
@@ -219,10 +210,10 @@ anchor_left = 0.5
 anchor_top = 0.853
 anchor_right = 0.5
 anchor_bottom = 0.853
-offset_left = -84.0
-offset_top = -54.555
-offset_right = 236.0
-offset_bottom = 135.445
+offset_left = -79.0
+offset_top = -62.5151
+offset_right = 241.0
+offset_bottom = 127.485
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
@@ -252,9 +243,9 @@ texture_hover = ExtResource("4_nqh5w")
 [node name="SettingsMenu" type="Control" parent="." groups=["Settings"]]
 visible = false
 anchors_preset = 0
-offset_left = 824.0
+offset_left = 572.0
 offset_top = 87.0
-offset_right = 1784.0
+offset_right = 1532.0
 offset_bottom = 1047.0
 script = ExtResource("7_wieba")
 
@@ -380,46 +371,11 @@ max_value = 1.0
 step = 0.001
 bus_name = "Music"
 
-[node name="FeedbackMenu" parent="." instance=ExtResource("4_awbwo")]
+[node name="MultiplayerMenu" type="Control" parent="."]
 visible = false
-layout_mode = 1
-offset_left = 824.0
-offset_top = 87.0
-offset_right = 824.0
-offset_bottom = 111.0
-
-[node name="BackText" type="RichTextLabel" parent="FeedbackMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.128
-anchor_right = 0.5
-anchor_bottom = 0.128
-offset_left = -709.0
-offset_top = 540.688
-offset_right = -389.0
-offset_bottom = 730.688
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_outline_size = 10
-theme_override_fonts/normal_font = ExtResource("3_4eln7")
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "
-
-[center]    BACK[/center]"
-
-[node name="BackButton" type="TextureButton" parent="FeedbackMenu/BackText"]
-show_behind_parent = true
-layout_mode = 0
-offset_left = 1.0
-offset_top = 19.04
-offset_right = 321.0
-offset_bottom = 179.04
-texture_normal = ExtResource("3_o10oy")
-texture_pressed = ExtResource("4_nqh5w")
-texture_hover = ExtResource("4_nqh5w")
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="AudioStreamPlayer-BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5lr1l")
@@ -431,10 +387,9 @@ bus = &"SFX"
 
 [connection signal="pressed" from="StartMenu/NewText/NewButton" to="." method="newGamePressed"]
 [connection signal="pressed" from="StartMenu/LoadText/LoadButton" to="." method="loadGamePressed"]
+[connection signal="pressed" from="StartMenu/OnlineText/OnlineButton" to="." method="onlinePressed"]
 [connection signal="pressed" from="StartMenu/SettingsText/SettingsButton" to="." method="settingsPressed"]
-[connection signal="pressed" from="StartMenu/FeedText/FeedButton" to="." method="feedbackPressed"]
 [connection signal="pressed" from="StartMenu/QuitText/QuitButton" to="." method="quitPressed"]
 [connection signal="pressed" from="SettingsMenu/BackText/BackButton" to="." method="hideSettingsMenu"]
 [connection signal="item_selected" from="SettingsMenu/ResolutionsDropdown" to="SettingsMenu" method="setGameResolution"]
 [connection signal="item_selected" from="SettingsMenu/TextSizeDropdown" to="SettingsMenu" method="setTextSize"]
-[connection signal="pressed" from="FeedbackMenu/BackText/BackButton" to="." method="hideFeedbackMenu"]
