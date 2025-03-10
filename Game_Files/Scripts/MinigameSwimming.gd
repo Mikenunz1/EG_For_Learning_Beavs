@@ -112,7 +112,7 @@ func restart():
 	get_tree().call_group("Obstacle", "remove")
 	get_tree().call_group("Player", "startPlayer")
 	get_tree().call_group("MinigameUI", "restartProgress")
-	health = 3
+	resetHealth()
 	timer.start()
 	timer.paused = false
 	spawnTimer.start()
@@ -144,4 +144,7 @@ func removeSelf():
 #GUT testing helper functions
 func setHealth(val):
 	health = val
+	
+func resetHealth():
+	health = 3
 	
