@@ -123,6 +123,7 @@ func restartGame():
 	get_tree().call_group("player", "remove_self")	
 	is_game_over = false
 	spawnGame()
+	updateUI()
 	minigameMusicAudioStreamPlayer.play()
 	restartText.hide()
 
