@@ -6,7 +6,7 @@
 [ext_resource type="Shader" path="res://Game_Files/Assets/UI/Shaders/PauseMenu.gdshader" id="3_tv6oo"]
 [ext_resource type="Texture2D" uid="uid://cd1mnhlr7qcfy" path="res://Game_Files/Assets/UI/Minigames/TreeCuttingUIOverLay.png" id="4_ra3cr"]
 [ext_resource type="PackedScene" uid="uid://cvkv0x0tvnpdl" path="res://Game_Files/Scenes/UI/MiniGameMenu.tscn" id="6_3s0ki"]
-[ext_resource type="AudioStream" uid="uid://dcrf4eq8eklv6" path="res://Game_Files/Assets/Audio/Music/Track-5 Cave.mp3" id="7_ti5t4"]
+[ext_resource type="AudioStream" uid="uid://b8npmkv745nbv" path="res://Game_Files/Assets/Audio/Music/Track-5 Cave.mp3" id="7_ti5t4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5qth"]
 size = Vector2(57, 1223)

@@ -135,6 +135,9 @@ func unpause():
 	get_tree().call_group("player", "startPlayer")
 
 func gameExit():
+	get_tree().call_group("trees", "remove_self")	
+	get_tree().call_group("enemies", "remove_self")	
+	get_tree().call_group("player", "remove_self")	
 	get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
 	get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
 	get_tree().call_group("GameManager", "saveGame")
@@ -150,6 +153,9 @@ func _process(_delta):
 	# Handle win screen controls
 	if is_game_won:
 		if Input.is_action_just_pressed("Interact"):
+			get_tree().call_group("trees", "remove_self")	
+			get_tree().call_group("enemies", "remove_self")	
+			get_tree().call_group("player", "remove_self")	
 			minigameSFXAudioStreamPlayer.stream = exit
 			minigameSFXAudioStreamPlayer.play()
 			await get_tree().create_timer(0.1).timeout
