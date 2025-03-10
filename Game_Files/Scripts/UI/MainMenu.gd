@@ -33,7 +33,6 @@ func newGamePressed():
 	playSound(select)
 	await get_tree().create_timer(0.1).timeout
 	get_tree().call_group("GameManager", "loadSceneByName", "MainMap")
-	get_tree().call_group("GameManager", "newGame")
 	
 func loadGamePressed():
 	#This is a temporary scencehange until we have a proper load sequence

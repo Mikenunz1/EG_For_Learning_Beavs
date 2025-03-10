@@ -92,11 +92,6 @@ func loadSceneByName(sceneName):
 	instance.position = Vector2(0,0)
 	add_child(instance)
 	
-func newGame():
-	branchCount = 0
-	rockCount = 0
-	get_tree().call_group("GameScene", "hideDam")
-	
 #This function is used for loading a scene based off of a save file. 
 func loadSceneByFile():
 	#Error Checking to ensure file exists 
@@ -194,7 +189,3 @@ func setSelected():
 func updateMapUI():
 	get_tree().call_group("Player", "sendToManager")
 	get_tree().call_group("InGameUI", "setPlayerWorldPosition", playerX, playerY)
-	
-func checkInventory():
-	if (branchCount == 4 && rockCount == 4):
-		get_tree().call_group("GameScene", "showDam")
