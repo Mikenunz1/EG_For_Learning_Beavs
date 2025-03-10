@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-#const SPEED = 350.0
-const SPEED = 1800.0
+const SPEED = 1000
 
 #variables for player AudioStreamPlayers
 @onready var playerWalkingAudioStream = get_node_or_null("AudioStreamPlayer2DWalking")

@@ -1,7 +1,6 @@
 extends Control
 
 @onready var resumeButton = $ResumeText/ResumeButton
-@onready var settingsButton = $SettingsText/SettingsButton
 @onready var quitButton = $QuitText/QuitButton
 
 #Variables to hold AudioStreamPlayers
@@ -35,7 +34,6 @@ func openMenu():
 	playSound(blip)
 	show()
 	resumeButton.disabled = false
-	settingsButton.disabled = false
 	quitButton.disabled = false
 	
 func hideMenu():
@@ -43,7 +41,6 @@ func hideMenu():
 	hide()
 	open = false
 	resumeButton.disabled = true
-	settingsButton.disabled = true
 	quitButton.disabled = true
 	
 func quitPressed():

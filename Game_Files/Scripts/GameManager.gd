@@ -10,7 +10,7 @@ extends Node2D
 #    c. Data Updating                                             #
 
 #GM1a : Preloads for specific scenes ---------------------------------------------------------------
-var MainMenu = preload("res:///Game_Files/Scenes/UI/MainMenu.tscn")
+var MainMenu = preload("res://Game_Files/Scenes/UI/MainMenu.tscn")
 var MainMap = preload("res://Game_Files/Scenes/Environmental/main_map.tscn")
 var MinigameSwimming = preload("res://Game_Files/Scenes/Interactive/MinigameSwimming.tscn")
 var MinigameTreeCutting = preload("res://Game_Files/Scenes/Interactive/MinigameTreeCutting.tscn")
