@@ -1,16 +1,16 @@
 # res://tests/test_feedback_ui.gd
-extends "res://addons/gut/test.gd"
+extends GutTest
+
+var ui = null
 
 ###############################################################
 # HELPER FUNCTIONS
-###############################################################
-
-# Instantiate the feedback UI scene.
-func setup_feedback_ui() -> Control:
-	var scene = preload("res://feedback.tscn").instantiate()
+###############################################################	
+	
+func before_each():
+	ui = preload("res://Game_Files/Scenes/UI/FeedBack.tscn").instantiate()
 	# Add to the scene tree so _ready() is invoked.
-	get_tree().root.add_child(scene)
-	return scene
+	get_tree().root.add_child(ui)
 
 # Clean up the test instance.
 func teardown_feedback_ui(ui: Control) -> void:
@@ -22,7 +22,6 @@ func teardown_feedback_ui(ui: Control) -> void:
 
 func test_empty_feedback_unit():
 	# Arrange
-	var ui = setup_feedback_ui()
 	ui.text_input.text = ""
 	# Act
 	ui._on_submit_pressed()
@@ -32,7 +31,6 @@ func test_empty_feedback_unit():
 
 func test_submit_feedback_success_unit():
 	# Arrange
-	var ui = setup_feedback_ui()
 	ui.text_input.text = "Great game!"
 	# Act
 	ui._on_submit_pressed()
@@ -55,7 +53,6 @@ func test_submit_feedback_success_unit():
 
 func test_feedback_validation_empty_and_filled():
 	# Arrange: Instance the UI.
-	var ui = setup_feedback_ui()
 	
 	# Validation: Check that whitespace-only input is treated as empty.
 	ui.text_input.text = "    "  # Only spaces
@@ -77,7 +74,6 @@ func test_feedback_validation_empty_and_filled():
 
 func test_feedback_ui_integration_with_http():
 	# Arrange: Instance the UI.
-	var ui = setup_feedback_ui()
 	ui.text_input.text = "Integration test feedback"
 	ui._on_submit_pressed()
 	
@@ -96,7 +92,6 @@ func test_feedback_ui_integration_with_http():
 
 func test_feedback_system_full() -> void:
 	# Arrange: Instance the UI and provide valid feedback.
-	var ui = setup_feedback_ui()
 	ui.text_input.text = "System test feedback"
 	
 	# Act: Simulate pressing the submit button.
