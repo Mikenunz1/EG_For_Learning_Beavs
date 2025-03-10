@@ -89,7 +89,6 @@ bbcode_enabled = true
 text = "[center]PRESS SPACE TO RESTART[/center]"
 
 [node name="WinScreen" type="ColorRect" parent="GameUI"]
-visible = false
 material = SubResource("ShaderMaterial_2yulk")
 layout_mode = 0
 offset_right = 1920.0
@@ -110,8 +109,10 @@ offset_bottom = 759.0
 theme_override_fonts/normal_font = ExtResource("3_3ygpf")
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[center]YOU WIN
-[font_size={40}]press E to continue[/font_size][/center]"
+text = "[center]YOU WIN!
+[font_size={40}][wave amp=50.0 freq=5.0 connected=1]collect a rock[/wave]
+
+press E to continue[/font_size][/center]"
 
 [node name="TreeCuttingOverlay" type="TextureRect" parent="GameUI"]
 layout_mode = 0

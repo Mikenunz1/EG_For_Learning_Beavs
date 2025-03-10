@@ -27,4 +27,4 @@ func interact_area_exited(area):
 		interactPossible = false
 
 func loadInteraction():
-	get_tree().call_group("Interaction", "startInteraction", NPCDialogue, 2)
+	get_tree().call_group("Interaction", "startInteraction", NPCDialogue, len(NPCDialogue) - 1)
