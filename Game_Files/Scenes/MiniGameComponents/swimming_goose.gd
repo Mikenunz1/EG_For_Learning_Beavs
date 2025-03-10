@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var SPEED = 300
+@export var SPEED = 600
 
 @onready var honkAudioStream = $"AudioStreamPlayer2D-HonkSFX"
 var rng = RandomNumberGenerator.new()

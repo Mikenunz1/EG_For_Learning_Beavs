@@ -25,11 +25,15 @@ var playY = 3200
 @onready var exit = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx.mp3")
 @onready var select = load("res://Game_Files/Assets/Audio/Sounds/UI SFX/menu-sfx3.mp3")
 
+func _ready():
+	restart()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	if (health == 0):
 		timer.paused = true
+		spawnTimer.paused = true
 	
 	if (health == 0 && Input.is_action_just_pressed("Action")):
 		minigameSFXAudioStreamPlayer.stream = exit
@@ -45,6 +49,7 @@ func _process(delta):
 		await get_tree().create_timer(0.1).timeout
 		get_tree().call_group("GameManager", "updatePlayerLocation", playX, playY)
 		get_tree().call_group("GameManager", "setPlayerScene", "MainMap")
+		get_tree().call_group("GameManager", "addRock")
 		get_tree().call_group("GameManager", "saveGame")
 		get_tree().call_group("GameManager", "loadSceneByFile")
 		removeSelf()
@@ -115,6 +120,7 @@ func restart():
 	resetHealth()
 	timer.start()
 	timer.paused = false
+	spawnTimer.paused = false
 	spawnTimer.start()
 	gameOverText.hide()
 	

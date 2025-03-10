@@ -8,7 +8,7 @@ size = Vector2(154, 62)
 
 [node name="SwimmingRock" type="Area2D" groups=["Obstacle"]]
 script = ExtResource("1_r2odx")
-SPEED = 550
+SPEED = 700
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.999992, -0.999998)

@@ -4,6 +4,21 @@ extends Control
 
 @onready var map = $MapUI
 @onready var player = $MapUI/PlayerIcon
+@onready var sticksUI = $InvUI/Sticks
+@onready var rocksUI = $InvUI/Rocks
+
+var sticks1 = load("res://Game_Files/Assets/UI/Sticks_1.png")
+var sticks2 = load("res://Game_Files/Assets/UI/Sticks_2.png")
+var sticks3 = load("res://Game_Files/Assets/UI/Sticks_3.png")
+var sticks4 = load("res://Game_Files/Assets/UI/Sticks_4.png")
+
+var rocks1 = load("res://Game_Files/Assets/UI/Rocks_1.png")
+var rocks2 = load("res://Game_Files/Assets/UI/Rocks_2.png")
+var rocks3 = load("res://Game_Files/Assets/UI/Rocks_3.png")
+var rocks4 = load("res://Game_Files/Assets/UI/Rocks_4.png")
+
+var branches = 0
+var rocks = 0
 
 #THESE ARE TEMP VARIABLES BASED AROUND THE CURRENT MAP UI
 var UIoriginX = 640
@@ -22,7 +37,7 @@ var invOpen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -49,6 +64,7 @@ func _on_inv_button_pressed():
 		menuOpen = false
 			
 	elif (!menuOpen):
+		updateInvUI(branches, rocks)
 		inv.show()
 		invOpen = true
 		menuOpen = true
@@ -60,7 +76,38 @@ func setPlayerWorldPosition(x, y):
 		
 #Function used by UI to determine where to place the player on the map
 func set_player_location():
-	#TODO FIX this function based on map and proper variables
 	
 	player.position.x = UIoriginX + playerWorldX * 0.03449
 	player.position.y = UIoriginY + playerWorldY * 0.03449
+
+func setBranches(val):
+	branches = val
+	
+func setRocks(val):
+	rocks = val
+
+func updateInvUI(stickVal, rockVal):
+	
+	if (stickVal == 1):
+		sticksUI.texture = sticks1
+		
+	elif (stickVal == 2):
+		sticksUI.texture = sticks2
+	
+	elif (stickVal == 3):
+		sticksUI.texture = sticks3
+	
+	elif (stickVal == 4):
+		sticksUI.texture = sticks4
+		
+	if (rockVal == 1):
+		rocksUI.texture = rocks1
+		
+	elif (rockVal == 2):
+		rocksUI.texture = rocks2
+	
+	elif (rockVal == 3):
+		rocksUI.texture = rocks3
+	
+	elif (rockVal == 4):
+		rocksUI.texture = rocks4

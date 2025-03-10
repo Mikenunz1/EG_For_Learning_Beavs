@@ -22,6 +22,11 @@ var playerX = 0
 var playerY = 0
 var playerScene = ""
 
+var branchCount = 0
+var rockCount = 0
+
+var storyBlock = 0
+
 #Settings Variables
 var resolutionSelection = 0
 var textsizeSelection = 0
@@ -103,8 +108,14 @@ func loadSceneByFile():
 	playerX = dict_data["pos_x"]
 	playerY = dict_data["pos_y"]
 	playerScene = dict_data["scene"]	
+	rockCount = dict_data["rocks"]
+	branchCount = dict_data["branches"]
+	
+	print(branchCount)
 	
 	loadSceneByName(playerScene)
+	get_tree().call_group("InGameUI", "setRocks", rockCount)
+	get_tree().call_group("InGameUI", "setBranches", branchCount)
 	get_tree().call_group("Player", "setPosition", playerX, playerY)
 	
 #This function is called whenever a key event happens, a scene change, or on game quit.
@@ -119,7 +130,9 @@ func saveGame():
 	var gameDict = {
 		"pos_x" : playerX,
 		"pos_y" : playerY,
-		"scene" : playerScene
+		"scene" : playerScene,
+		"rocks" : rockCount,
+		"branches" : branchCount
 	}
 
 	#Saving for the game scene elements
@@ -148,6 +161,16 @@ func updatePlayerLocation(x, y):
 	
 func setPlayerScene(newName):
 	playerScene = newName
+	
+func addRock():
+	if (rockCount < 4):
+		rockCount = rockCount + 1
+		get_tree().call_group("InGameUI", "setRocks", rockCount)
+	
+func addBranch():
+	if (branchCount < 4):
+		branchCount = branchCount + 1
+		get_tree().call_group("InGameUI", "setBranches", branchCount)
 
 #This function is used to pass resolution settings to the game manager
 func updateResolution(val):
