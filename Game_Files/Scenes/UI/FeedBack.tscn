@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://drru8di7js7gn"]
+[gd_scene load_steps=4 format=3 uid="uid://drru8di7js7gn"]
 
 [ext_resource type="Script" path="res://Game_Files/Scripts/feedback.gd" id="1_ua6bi"]
+[ext_resource type="FontFile" uid="uid://bipj5pg8ksuco" path="res://Game_Files/Assets/UI/Fonts/beaverblast.ttf" id="2_8ucjh"]
+[ext_resource type="Texture2D" uid="uid://csj67ncrvatpn" path="res://Game_Files/Assets/UI/MenuPanel.png" id="2_17gd7"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(300, 400)
@@ -12,18 +14,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ua6bi")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_17gd7")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(260, 360)
 layout_mode = 0
-offset_left = 3.0
-offset_top = -5.0
-offset_right = 1145.0
-offset_bottom = 639.0
+offset_left = 133.0
+offset_top = 72.0
+offset_right = 658.0
+offset_bottom = 716.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ucjh")
 theme_override_font_sizes/font_size = 16
-text = "We value your feedback! Your message will be sent to our developers to help improve the game."
+text = "we value your feedback! your message will be sent to our developers to help improve the game."
 autowrap_mode = 2
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
@@ -34,6 +44,7 @@ placeholder_text = "Enter your feedback here..."
 [node name="Button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8ucjh")
 text = "Send Feedback"
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
