@@ -26,7 +26,7 @@ func after_each():
 	_sender.clear()
 
 #test player movement to the right
-func test_move_right():
+func test_movement_audio():
 	_sender.action_down("Move_Right").hold_for(1) #hold down the action for 1 sec
 	simulate(p, 1.0, 10) #simulate that action on the player
 	_sender.action_up("Move_Right") #release the action
