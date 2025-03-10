@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dedl72j332l1i" path="res://Game_Files/Assets/Sprites/Sprite_Statics/Bush.png" id="10_eunma"]
 [ext_resource type="PackedScene" uid="uid://d0cavcbf8newo" path="res://Game_Files/Scenes/Environmental/forest_map.tscn" id="11_tbg12"]
 [ext_resource type="PackedScene" uid="uid://du3lvy51hlcbj" path="res://Game_Files/Scenes/Environmental/wetlands_map.tscn" id="12_jyrrp"]
+[ext_resource type="Texture2D" uid="uid://b2prdt7r7dnu6" path="res://Game_Files/Assets/Sprites/Tile_Assets/dam.png" id="18_dlm3a"]
 [ext_resource type="PackedScene" uid="uid://dffetjf24imvp" path="res://Game_Files/Scenes/Functional/miniGameStartNode.tscn" id="18_npxbu"]
 [ext_resource type="AudioStream" uid="uid://cdm1otutediph" path="res://Game_Files/Assets/Audio/Music/Track-3.mp3" id="19_ktrln"]
 [ext_resource type="AudioStream" uid="uid://bnwyta5haw4p0" path="res://Game_Files/Assets/Audio/Sounds/Enviroment Ambience/river-quiet.mp3" id="20_h8rkq"]
@@ -476,6 +477,13 @@ tile_set = SubResource("TileSet_x3v44")
 position = Vector2(79, -25)
 
 [node name="WetlandsMap" parent="Y-sort" instance=ExtResource("12_jyrrp")]
+
+[node name="Dam" type="Area2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="DamTrigger" type="CollisionShape2D" parent="Dam"]
+position = Vector2(1284.65, 731.6)
+shape = SubResource("RectangleShape2D_ex5i0")
 
 [node name="PostDam" type="Node2D" parent="."]
 visible = false
