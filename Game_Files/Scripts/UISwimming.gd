@@ -29,7 +29,7 @@ func changeHealthUI():
 
 #Function used to update the progress tracker UI		
 func updateProgress(val):
-	progress.value = 60 - val
+	progress.value = 30 - val
 	
 func restartProgress():
 	healthAmount = 3

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var SPEED = 300
+@export var SPEED = 600
 
 var pauseSpeed = 1
 # Called when the node enters the scene tree for the first time.
