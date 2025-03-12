@@ -1,4 +1,4 @@
-# Educational Game for Learning Beavers Developer Manual A comprehensive developer guide to working on and contributing to the game
+# Bobo the Beaver Developer Manual A comprehensive developer guide to working on and contributing to the game.
 
 ---
 
@@ -15,7 +15,7 @@ The layout of the directory structure is as follows:
 The root directory contains the .github/workflows, Game Files, Online Multiplayer Demo, Research Material, Sound Feature Demos, and reports directories.  It also contains the living document, the godot project file, and the export presets file. 
 
 The Game\_Files directory contains folders for Assets, Scenes, and Scripts.  
-The Assets folder has subfolders for Sound, Sprites, and UI.  Sound has Music and Sounds. Sounds has Enviroment Ambience, Environment Interaction SFX, environmental interaction SFX, environmental interaction SFX, and UI SFX.  Sprites has sprite sheets and sprite statics.  The Scenes directory has subfolders for Environmental, Functional, NPCs, Player, and UI.  The Scripts folder contains all the GDscript files for the project. 
+The Assets folder has subfolders for Sound, Sprites, and UI.  Sound has Music and Sounds. Sounds has Environment Ambience, Environment Interaction SFX, environmental interaction SFX, environmental interaction SFX, and UI SFX.  Sprites has sprite sheets and sprite statics.  The Scenes directory has subfolders for Environmental, Functional, NPCs, Player, and UI.  The Scripts folder contains all the GDscript files for the project. 
 
 Online multiplayer demo contains 3 scripts which are used to demonstrate the multiplayer aspects of the game.  Research Material contains two files related to educational material for the game.  Sound Feature Demos contains 3 Godot project files containing example sound feature implementations.  Reports contain all the status reports from the initial development of the game.  
 
@@ -52,10 +52,10 @@ For new tests, you create a .gd file in either the res://test/unit folder or res
 
 ## How to build a release of the software. 
 
-The Continuous Integration automatically creates a build of the Godot project in the GitHub Repository.  It will automatically create a release with the defined tag variable in the Github Actions workflow file.  The version tag is defined in the .github/workflows/main.yml folder next to the tag: variable.   
+The Continuous Integration automatically creates a build of the Godot project in the GitHub Repository.  It will automatically create a release by iterating the version tag.  The version tag is defined in the .github/workflows/main.yml folder next to the tag: variable.  It can also be manually changed in this file by reassigning the variable to the desired value.   
 ![][image7]
 
-If the variable remains unchanged between pushes / pull requests, it will update the release with that tag.  Changing the tag allows a new release to be automatically constructed.  If the build and release creation is successful, the GitHub actions tab will show that the latest workflow run was successful.    
+If the build and release creation is successful, the GitHub actions tab will show that the latest workflow run was successful.    
 ![][image8]  
 
 
